@@ -29,12 +29,6 @@
     }
   },
   "rules": {
-    "max-len": [
-      "error",
-      {
-        "code": 80
-      }
-    ],
     "prettier/prettier": [
       "error",
       {
