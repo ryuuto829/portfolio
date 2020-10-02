@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import * as S from './styled';
 
 const NavigationLinks = ({ listItems }) => (
-  <>
-    <ul>
-      {listItems.map(({ name, url }, i) => (
-        <li key={i}>
-          <S.NavLink to={url}>{name}</S.NavLink>
-        </li>
-      ))}
-    </ul>
-  </>
+  <S.NavList>
+    {listItems.map(({ name, url }, i) => (
+      <S.NavItem key={i}>
+        <S.NavLink to={url}>{name}</S.NavLink>
+      </S.NavItem>
+    ))}
+  </S.NavList>
 );
 
 NavigationLinks.propTypes = {
