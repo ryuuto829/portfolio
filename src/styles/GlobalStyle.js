@@ -14,6 +14,13 @@ const GlobalStyle = createGlobalStyle`
 
     --text-small: 1.4rem;
     --text-normal: 1.7rem;
+
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-semibold: 500;
+    --weight-bold: 600;
+
+    --transition: all 0.2s ease-in-out;
   }
 
   html {
@@ -43,6 +50,11 @@ const GlobalStyle = createGlobalStyle`
     @media (max-width: 480px) {
       font-size: var(--fz-lg);
     } */
+  }
+
+  /* Enable smooth scrolling */
+  html {
+    scroll-behavior: smooth;
   }
 `;
 
