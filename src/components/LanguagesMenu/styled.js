@@ -13,4 +13,5 @@ export const MenuItem = styled.li`
 export const LanguageLink = styled(Link)`
   ${({ theme }) => theme.mixins.link};
   font-size: var(--text-small);
+  transition: var(--transition);
 `;
