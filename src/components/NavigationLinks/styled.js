@@ -32,7 +32,7 @@ export const NavItem = styled.li`
   &:after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: ${props => (props.scrolledToTop ? '-5px' : '-13px')};
     width: 0px;
     height: 2px;
     transition: var(--transition);
