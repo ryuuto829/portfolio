@@ -11,8 +11,7 @@ const mixins = {
     cursor: pointer;
 
     &:hover,
-    /* &:active, */
-    /* &:focus  */ {
+    &:active {
       color: var(--light-blue);
       outline: 0;
     }

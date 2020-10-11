@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
     --weight-bold: 600;
 
     --transition: all 0.2s ease-in-out;
+
+    /* --nav-height-scroll: 70px; */
+    --nav-height-scroll: 64px;
+    --nav-height: 100px;
   }
 
   html {

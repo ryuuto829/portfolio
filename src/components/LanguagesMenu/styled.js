@@ -7,7 +7,7 @@ export const MenuList = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-  padding: 0 10px;
+  padding: 10px;
 `;
 
 export const LanguageLink = styled(Link)`
