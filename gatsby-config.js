@@ -5,6 +5,20 @@ module.exports = {
     siteUrl: `https://www.gatsbyjs.org` // Add later
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        // language JSON resource path
+        path: `${__dirname}/src/intl`,
+        // supported language
+        languages: [`en`, `uk`, `ja`],
+        // language file path
+        defaultLanguage: `en`,
+        // option to redirect to `/en` when connecting `/`
+        redirect: false
+      }
+    },
+
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
