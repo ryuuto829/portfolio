@@ -1,0 +1,20 @@
+{
+  "navLinks": [
+    {
+      "name": "Головна",
+      "url": "/#home"
+    },
+    {
+      "name": "Мої роботи",
+      "url": "/#projects"
+    },
+    {
+      "name": "Про мене",
+      "url": "/#about"
+    },
+    {
+      "name": "Контакти",
+      "url": "/#contact"
+    }
+  ]
+}
