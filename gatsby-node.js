@@ -1,10 +1,8 @@
 const path = require('path');
+const locales = require('./config/locales');
 
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+// Add Absolute imports definitions
+// https://www.gatsbyjs.com/docs/add-custom-webpack-config/#absolute-imports
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -17,5 +15,32 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         '@hooks': path.resolve(__dirname, 'src/hooks')
       }
     }
+  });
+};
+
+// Create different page for each locale
+// https://medium.com/significa/i18n-with-gatsby-528607b4da81
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
+
+  return new Promise(resolve => {
+    deletePage(page);
+
+    Object.keys(locales).map(lang => {
+      const localizedPath = locales[lang].default
+        ? page.path
+        : locales[lang].path + page.path;
+
+      return createPage({
+        ...page,
+        path: localizedPath,
+        context: {
+          locale: lang
+        }
+      });
+    });
+
+    resolve();
   });
 };
