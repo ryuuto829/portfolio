@@ -4,12 +4,16 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '@styles/GlobalStyle';
 import theme from '@styles/theme';
 
+import { LocaleProvider } from '@hooks/useLocale';
+
 const Layout = ({ children }) => (
   <>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {children}
-    </ThemeProvider>
+    <LocaleProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        {children}
+      </ThemeProvider>
+    </LocaleProvider>
   </>
 );
 

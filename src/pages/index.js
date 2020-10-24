@@ -19,6 +19,7 @@ const App = () => (
     </Nav>
   </Layout>
 );
+
 const Nav = styled.div`
   & > svg {
     user-select: none;
