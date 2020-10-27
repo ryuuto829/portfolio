@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styled';
 
-import Sun from '../icons/Sun';
+import Sun from '@icons/Sun';
 
 const ButtonTheming = () => (
   <S.Button onClick={() => 'change theme'}>

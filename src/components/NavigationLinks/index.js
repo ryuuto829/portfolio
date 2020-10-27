@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
-import { useActiveLinkObserver } from '@hooks';
+import { useActiveLinkObserver, useLocale } from '@hooks';
 
 const NavigationLinks = ({ listItems, scrolledToTop }) => {
   const activeLink = useActiveLinkObserver();
+  const { locale } = useLocale();
 
   return (
     <S.NavList>
@@ -17,7 +18,9 @@ const NavigationLinks = ({ listItems, scrolledToTop }) => {
             key={i}
             isActive={id === activeLink}
             scrolledToTop={scrolledToTop}>
-            <S.NavLink to={url} data-title={name}>
+            <S.NavLink
+              to={locale === 'en' ? url : `/${locale}${url}`}
+              data-title={name}>
               {name}
             </S.NavLink>
           </S.NavItem>

@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import * as S from './styled';
 import { useScrollDirection, useScrolledToTop, useLocale } from '@hooks';
 
-import Logo from '../icons/Logo';
+import Logo from '@icons/Logo';
 import NavigationLinks from '../NavigationLinks';
 import LanguagesMenu from '../LanguagesMenu';
 import ButtonTheming from '../ButtonTheming';
