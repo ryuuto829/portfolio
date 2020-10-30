@@ -3,7 +3,7 @@ import { navigate } from 'gatsby';
 import * as S from './styled';
 
 import { useLocale } from '@hooks';
-import allLang from '@config/locales';
+import allLang from '@config/i18n/locales';
 import Tooltip from '@components/Tooltip';
 
 const LanguagesMenu = () => {

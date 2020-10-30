@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from '@reach/router';
 
-import allLocales from '@config/locales';
+import allLocales from '@config/i18n/locales';
 
 const LocaleContext = createContext('');
 

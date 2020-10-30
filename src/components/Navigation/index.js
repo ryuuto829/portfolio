@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import * as S from './styled';
-import { useScrollDirection, useScrolledToTop, useLocale } from '@hooks';
+import { useScrollDirection, useScrolledToTop, useTranslation } from '@hooks';
 
 import Logo from '@icons/Logo';
 import NavigationLinks from '../NavigationLinks';
@@ -29,19 +29,10 @@ const query = graphql`
 const Navigation = () => {
   const scrollDirection = useScrollDirection();
   const scrolledToTop = useScrolledToTop();
-  const { locale } = useLocale();
 
   // Query the JSON files in ./config/i18n/navLinks
   const { allFile } = useStaticQuery(query);
-
-  // Extract all lists from GraphQL query response
-  const queryList = allFile.edges.map(item => ({
-    name: item.node.name,
-    navLinks: item.node.childNavLinksJson.navLinks
-  }));
-
-  // Return list of links for the current locale
-  const { navLinks } = queryList.filter(lang => lang.name === locale)[0];
+  const { navLinks } = useTranslation(allFile);
 
   return (
     <S.NavWrapper

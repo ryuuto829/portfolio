@@ -1,5 +1,5 @@
 const path = require('path');
-const locales = require('./config/locales');
+const locales = require('./config/i18n/locales');
 
 // Add Absolute imports definitions
 // https://www.gatsbyjs.com/docs/add-custom-webpack-config/#absolute-imports
