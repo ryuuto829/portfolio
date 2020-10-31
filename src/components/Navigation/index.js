@@ -4,9 +4,10 @@ import * as S from './styled';
 import { useScrollDirection, useScrolledToTop, useTranslation } from '@hooks';
 
 import Logo from '@icons/Logo';
-import NavigationLinks from '../NavigationLinks';
-import LanguagesMenu from '../LanguagesMenu';
-import ButtonTheming from '../ButtonTheming';
+import NavigationLinks from '@components/NavigationLinks';
+import LanguagesMenu from '@components/LanguagesMenu';
+import ButtonTheming from '@components/ButtonTheming';
+import Menu from '@components/Menu';
 
 const query = graphql`
   query useNavLinks {
@@ -46,6 +47,7 @@ const Navigation = () => {
           <NavigationLinks listItems={navLinks} scrolledToTop={scrolledToTop} />
         )}
       </S.NavigationBar>
+      <Menu />
       <S.ControlsMenu>
         <ButtonTheming />
         <LanguagesMenu />
