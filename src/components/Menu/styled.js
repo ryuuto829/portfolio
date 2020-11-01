@@ -1,8 +1,17 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.button`
+  ${({ theme }) => theme.mixins.button};
   width: 40px;
   height: 40px;
+  padding: 5px;
+  box-sizing: content-box;
+  z-index: 20;
+  display: none;
+
+  @media (max-width: 788px) {
+    display: block;
+  }
 `;
 
 export const Hamburger = styled.div`
@@ -25,12 +34,12 @@ export const Hamburger = styled.div`
   &:after {
     position: absolute;
     width: 40px;
-    height: 4px;
+    height: 2px;
     transition-timing-function: ease;
     transition-duration: 0.15s;
     transition-property: transform;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: var(--light-gray);
   }
 
   &:before,
