@@ -50,6 +50,17 @@ const GlobalStyle = createGlobalStyle`
     font-size: var(--text-normal);
     line-height: 1;
 
+    &.blur {
+      overflow: hidden;
+
+      #content > * {
+        filter: blur(5px) brightness(0.7);
+        transition: var(--transition);
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+
   /*
     @media (max-width: 480px) {
       font-size: var(--fz-lg);

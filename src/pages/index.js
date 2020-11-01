@@ -14,12 +14,14 @@ const App = () => (
     <Nav>
       <Navigation />
       <Social />
-      <Hero />
-      {/* <section id="home">Home {DUMMY_CONTENT}</section> */}
-      <section id="projects">Work {DUMMY_CONTENT}</section>
-      <section id="about">About {DUMMY_CONTENT}</section>
-      <section id="contact">Contact {DUMMY_CONTENT}</section>
-      <Footer />
+      <div id="content">
+        <Hero />
+        {/* <section id="home">Home {DUMMY_CONTENT}</section> */}
+        <section id="projects">Work {DUMMY_CONTENT}</section>
+        <section id="about">About {DUMMY_CONTENT}</section>
+        <section id="contact">Contact {DUMMY_CONTENT}</section>
+        <Footer />
+      </div>
     </Nav>
   </Layout>
 );

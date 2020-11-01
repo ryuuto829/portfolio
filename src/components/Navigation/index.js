@@ -47,10 +47,10 @@ const Navigation = () => {
           <NavigationLinks listItems={navLinks} scrolledToTop={scrolledToTop} />
         )}
       </S.NavigationBar>
-      <Menu />
       <S.ControlsMenu>
         <ButtonTheming />
         <LanguagesMenu />
+        <Menu navLinks={navLinks} />
       </S.ControlsMenu>
     </S.NavWrapper>
   );

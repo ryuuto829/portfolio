@@ -11,6 +11,7 @@ export const NavWrapper = styled.header`
   transition: top 0.3s;
   transition: var(--transition);
   background-color: var(--almost-black);
+  z-index: 5;
 
   ${props =>
     props.scrollDirection === 'up' &&
@@ -38,8 +39,13 @@ export const NavWrapper = styled.header`
 export const ControlsMenu = styled.div`
   display: flex;
 
-  & > button {
+  & button {
     margin-right: 40px;
+  }
+
+  & > button:last-child {
+    margin: 0;
+    margin-left: 40px;
   }
 `;
 
@@ -48,5 +54,9 @@ export const NavigationBar = styled.nav`
 
   & > ul {
     margin-left: 40px;
+
+    @media (max-width: 788px) {
+      display: none;
+    }
   }
 `;

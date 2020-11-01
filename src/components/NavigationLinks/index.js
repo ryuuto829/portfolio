@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import * as S from './styled';
 import { useActiveLinkObserver, useLocale } from '@hooks';
 
-const NavigationLinks = ({ listItems, scrolledToTop }) => {
+const NavigationLinks = ({ listItems, scrolledToTop, isAside }) => {
   const activeLink = useActiveLinkObserver();
   const { locale } = useLocale();
 
   return (
-    <S.NavList>
+    <S.NavList isAside={isAside}>
       {listItems.map(({ name, url }, i) => {
         // Extract id of the section from url like '/#work'
         const id = url.split('#')[1];
@@ -37,7 +37,8 @@ NavigationLinks.propTypes = {
       url: PropTypes.string
     })
   ).isRequired,
-  scrolledToTop: PropTypes.bool.isRequired
+  scrolledToTop: PropTypes.bool,
+  isAside: PropTypes.bool
 };
 
 export default NavigationLinks;
