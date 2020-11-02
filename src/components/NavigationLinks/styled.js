@@ -62,6 +62,4 @@ export const NavItem = styled.li`
 export const NavList = styled.ul`
   ${({ theme }) => theme.mixins.list};
   ${({ theme }) => theme.mixins.flexItemsBetween};
-
-  ${props => props.isAside && 'flex-direction: column;'};
 `;

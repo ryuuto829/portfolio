@@ -40,7 +40,7 @@ const mixins = {
     background-color: transparent;
     text-decoration: none;
     border: 0;
-    outline: 0;
+    /* outline: 0; */
     cursor: pointer;
   `
 };

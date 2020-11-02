@@ -39,11 +39,15 @@ export const NavWrapper = styled.header`
 export const ControlsMenu = styled.div`
   display: flex;
 
-  & button {
+  /* & button {
     margin-right: 40px;
+  } */
+
+  & > ul {
+    margin-left: 40px;
   }
 
-  & > button:last-child {
+  & > div:last-child {
     margin: 0;
     margin-left: 40px;
   }
