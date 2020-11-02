@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.button`
@@ -6,8 +7,18 @@ export const Wrapper = styled.button`
   height: 40px;
   padding: 5px;
   box-sizing: content-box;
+  transition: var(--transition);
   z-index: 20;
   display: none;
+  position: relative;
+
+  &:hover {
+    div,
+    div:before,
+    div:after {
+      background-color: var(--light-blue);
+    }
+  }
 
   @media (max-width: 788px) {
     display: block;
@@ -75,4 +86,34 @@ export const Hamburger = styled.div`
         transform: rotate(-90deg);
       }
     `};
+`;
+
+export const NavigationList = styled.ul`
+  ${({ theme }) => theme.mixins.list};
+  ${({ theme }) => theme.mixins.flexItemsBetween};
+
+  flex-direction: column;
+  /* padding: 80px; */
+  color: var(--text-color);
+  font-family: var(--family-secondary);
+  font-size: 3.5rem;
+  white-space: nowrap;
+  margin-left: 0;
+
+  border-bottom: 1px solid #2e333e;
+`;
+
+export const NavItem = styled.li`
+  padding: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: left;
+`;
+
+export const NavLink = styled(Link)`
+  ${({ theme }) => theme.mixins.link};
+`;
+
+export const Navigation = styled.nav`
+  padding: 80px;
 `;
