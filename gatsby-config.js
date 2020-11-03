@@ -13,7 +13,13 @@ module.exports = {
         path: `${__dirname}/config/i18n/`
       }
     },
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/content/`
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -21,6 +27,7 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -33,6 +40,12 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `` // This path is relative to the root of the site.
+      }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: []
       }
     },
     `gatsby-plugin-styled-components`
