@@ -1,32 +1,12 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import * as S from './styled';
 import { useTranslation } from '@hooks';
 
 import { socialLinks } from '@config';
 
-const query = graphql`
-  query useCreditInfo {
-    allFile(filter: { relativeDirectory: { eq: "translations" } }) {
-      edges {
-        node {
-          childTranslationsJson {
-            creditInfo {
-              name
-              rights
-            }
-          }
-          name
-        }
-      }
-    }
-  }
-`;
-
 const Footer = () => {
   // Query the JSON files in ./config/i18n/index
-  const { allFile } = useStaticQuery(query);
-  const { creditInfo } = useTranslation(allFile);
+  const { creditInfo } = useTranslation();
 
   const year = new Date().getFullYear();
 

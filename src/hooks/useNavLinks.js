@@ -2,15 +2,15 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { useLocale } from '@hooks';
 
 const query = graphql`
-  query useTranslations {
-    allFile(filter: { relativeDirectory: { eq: "translations" } }) {
+  query useNavLinks {
+    allFile(filter: { relativeDirectory: { eq: "navLinks" } }) {
       edges {
         node {
           name
-          childTranslationsJson {
-            creditInfo {
+          childNavLinksJson {
+            navLinks {
               name
-              rights
+              url
             }
           }
         }
@@ -25,7 +25,7 @@ const query = graphql`
 // ONLY TWO nodes: name and translations.
 // This hook then returns this fields without original nesting
 // to simplify access to properties in components
-const useTranslation = () => {
+const useNavLinks = () => {
   const { locale } = useLocale();
   const { allFile } = useStaticQuery(query);
 
@@ -49,4 +49,4 @@ const useTranslation = () => {
   return queryList.filter(lang => lang.name === locale)[0];
 };
 
-export default useTranslation;
+export default useNavLinks;
