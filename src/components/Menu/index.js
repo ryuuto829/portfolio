@@ -6,6 +6,7 @@ import { useLocale, useClickOutside } from '@hooks';
 
 import Sidebar from '@components/Sidebar';
 import Switch from '@components/Switch';
+import LanguagesMenu from '@components/LanguagesMenu';
 
 const Menu = ({ navLinks }) => {
   const { locale } = useLocale();
@@ -52,6 +53,7 @@ const Menu = ({ navLinks }) => {
             </S.NavigationList>
           </S.Navigation>
           <Switch />
+          <LanguagesMenu />
         </Sidebar>
       </div>
     </>

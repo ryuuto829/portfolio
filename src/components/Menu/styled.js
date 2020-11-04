@@ -93,13 +93,11 @@ export const NavigationList = styled.ul`
   ${({ theme }) => theme.mixins.flexItemsBetween};
 
   flex-direction: column;
-  /* padding: 80px; */
   color: var(--text-color);
   font-family: var(--family-secondary);
   font-size: 3.5rem;
   white-space: nowrap;
   margin-left: 0;
-
   border-bottom: 1px solid #2e333e;
 `;
 
@@ -115,5 +113,5 @@ export const NavLink = styled(Link)`
 `;
 
 export const Navigation = styled.nav`
-  padding: 80px;
+  width: 100%;
 `;

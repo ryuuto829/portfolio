@@ -3,6 +3,7 @@ import * as S from './styled';
 
 import { useStaticQuery, graphql } from 'gatsby';
 import { useLocale } from '@hooks';
+import Icon from '../../icons/Icon';
 
 export const query = graphql`
   query {
@@ -60,12 +61,18 @@ const Projects = () => {
                 <S.Featured>
                   <S.ProjectImage>
                     <a href="https://placeholder.com/">
-                      <img src="https://via.placeholder.com/1000" alt="..." />
+                      <img
+                        src="https://via.placeholder.com/3200x1999"
+                        alt="..."
+                      />
                     </a>
                   </S.ProjectImage>
                   <S.ProjectContent>
                     <S.Overline>Featured Project</S.Overline>
-                    <S.Title>{title}</S.Title>
+                    <S.CardHeader>
+                      <S.Title>{title}</S.Title>
+                      <Icon name="ArrowForward" />
+                    </S.CardHeader>
                     <S.Description>{about}</S.Description>
                     <S.TechList>
                       {technologies &&
@@ -73,6 +80,16 @@ const Projects = () => {
                           <S.TechItem key={i}>{tech}</S.TechItem>
                         ))}
                     </S.TechList>
+                    <S.ButtonGroup>
+                      <S.Button>
+                        <Icon name="GitHub" />
+                        Github
+                      </S.Button>
+                      <S.Button>
+                        <Icon name="Link" />
+                        Demo
+                      </S.Button>
+                    </S.ButtonGroup>
                   </S.ProjectContent>
                 </S.Featured>
               </S.Card>
