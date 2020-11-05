@@ -60,16 +60,49 @@ const GlobalStyle = createGlobalStyle`
         user-select: none;
       }
     }
+  }
 
-  /*
+  main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 100vh;
+
+    @media (max-width: 1080px) {
+      padding: 0 100px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 50px;
+    }
+
     @media (max-width: 480px) {
-      font-size: var(--fz-lg);
-    } */
+      padding: 0 25px;
+    }
+  }
+
+  section {
+    margin: 0 auto;
+    padding: 100px 0;
+    max-width: 1000px;
+
+    @media (max-width: 768px) {
+      padding: 80px 0;
+    }
+
+    @media (max-width: 480px) {
+      padding: 60px 0;
+    }
   }
 
   /* Enable smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  svg {
+    fill: currentColor;
+    vertical-align: middle;
   }
 `;
 

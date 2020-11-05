@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
-export const Sidebar = styled.div`
+export const SideContainer = styled.div`
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: 20px;
+  right: 40px;
+
+  @media (max-width: 1080px) {
+    right: 20px;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const SocialList = styled.ul`

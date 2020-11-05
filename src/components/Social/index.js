@@ -7,7 +7,7 @@ import Icon from '@icons/Icon';
 import Tooltip from '@components/Tooltip';
 
 const Social = () => (
-  <S.Sidebar>
+  <S.SideContainer>
     <S.SocialList>
       {socialLinks &&
         socialLinks.map(({ url, name }, i) => (
@@ -25,7 +25,7 @@ const Social = () => (
           </Tooltip>
         ))}
     </S.SocialList>
-  </S.Sidebar>
+  </S.SideContainer>
 );
 
 export default Social;
