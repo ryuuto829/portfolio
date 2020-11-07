@@ -1,16 +1,42 @@
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.button`
+export const MenuContainer = styled.div`
+  display: flex;
+`;
+
+export const ControlsMenu = styled.div`
+  display: ${props => (!props.showSidebar ? 'flex' : 'none')};
+
+  & > ul {
+    margin-left: 40px;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    margin-left: 40px;
+  }
+`;
+
+export const Button = styled.button`
   ${({ theme }) => theme.mixins.button};
+
+  display: none;
+  position: relative;
   width: 40px;
   height: 40px;
   padding: 5px;
   box-sizing: content-box;
   transition: var(--transition);
   z-index: 20;
-  display: none;
-  position: relative;
 
   &:hover {
     div,
@@ -20,17 +46,19 @@ export const Wrapper = styled.button`
     }
   }
 
-  @media (max-width: 788px) {
+  @media (max-width: 768px) {
     display: block;
   }
 `;
 
 export const Hamburger = styled.div`
-  top: 50%;
   display: block;
+  /* top: 50%; */
   margin-top: -2px;
   transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transition-duration: 75ms;
+
+  /* transition:  */
 
   ${props =>
     props.showSidebar &&
@@ -114,4 +142,38 @@ export const NavLink = styled(Link)`
 
 export const Navigation = styled.nav`
   width: 100%;
+`;
+
+export const SideMenu = styled.aside`
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  visibility: ${props => (props.showSidebar ? 'visible' : 'hidden')};
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  /* background-color: black; */
+  background-color: transparent;
+  transform: translateX(${props => (props.showSidebar ? '0' : '100vw')});
+  transition: var(--transition);
+  outline: 0;
+  /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); */
+  padding: 80px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 10;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > * {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
 `;

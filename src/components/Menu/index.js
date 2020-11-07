@@ -4,9 +4,9 @@ import * as S from './styled';
 import Helmet from 'react-helmet';
 import { useLocale, useClickOutside } from '@hooks';
 
-import Sidebar from '@components/Sidebar';
 import Switch from '@components/Switch';
 import LanguagesMenu from '@components/LanguagesMenu';
+import ButtonTheming from '@components/ButtonTheming';
 
 const Menu = ({ navLinks }) => {
   const { locale } = useLocale();
@@ -32,30 +32,41 @@ const Menu = ({ navLinks }) => {
           class: showSidebar ? 'blur' : ''
         }}
       />
-      <div ref={sidebarRef}>
-        <S.Wrapper onClick={toggleSidebar}>
-          <S.Hamburger showSidebar={showSidebar} />
-        </S.Wrapper>
-        <Sidebar showSidebar={showSidebar}>
-          <S.Navigation>
-            <S.NavigationList>
-              {navLinks &&
-                navLinks.map(({ name, url }, i) => (
-                  <S.NavItem key={i}>
-                    <S.NavLink
-                      to={locale === 'en' ? url : `/${locale}${url}`}
-                      data-title={name}
-                      onClick={closeSidebar}>
-                      {name}
-                    </S.NavLink>
-                  </S.NavItem>
-                ))}
-            </S.NavigationList>
-          </S.Navigation>
-          <Switch />
+
+      <S.MenuContainer>
+        <S.ControlsMenu showSidebar={showSidebar}>
+          <ButtonTheming />
           <LanguagesMenu />
-        </Sidebar>
-      </div>
+        </S.ControlsMenu>
+
+        <S.Wrapper ref={sidebarRef}>
+          <S.Button onClick={toggleSidebar}>
+            <S.Hamburger showSidebar={showSidebar} />
+          </S.Button>
+          <S.SideMenu
+            showSidebar={showSidebar}
+            aria-hidden={!showSidebar}
+            tabIndex={showSidebar ? 1 : -1}>
+            <S.Navigation>
+              <S.NavigationList>
+                {navLinks &&
+                  navLinks.map(({ name, url }, i) => (
+                    <S.NavItem key={i}>
+                      <S.NavLink
+                        to={locale === 'en' ? url : `/${locale}${url}`}
+                        data-title={name}
+                        onClick={closeSidebar}>
+                        {name}
+                      </S.NavLink>
+                    </S.NavItem>
+                  ))}
+              </S.NavigationList>
+            </S.Navigation>
+            <Switch />
+            <LanguagesMenu />
+          </S.SideMenu>
+        </S.Wrapper>
+      </S.MenuContainer>
     </>
   );
 };

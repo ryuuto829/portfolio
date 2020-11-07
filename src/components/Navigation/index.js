@@ -5,8 +5,6 @@ import { useScrollDirection, useScrolledToTop, useNavLinks } from '@hooks';
 
 import Logo from '@icons/Logo';
 import NavigationLinks from '@components/NavigationLinks';
-import LanguagesMenu from '@components/LanguagesMenu';
-import ButtonTheming from '@components/ButtonTheming';
 import Menu from '@components/Menu';
 
 const Navigation = () => {
@@ -28,11 +26,7 @@ const Navigation = () => {
           <NavigationLinks listItems={navLinks} scrolledToTop={scrolledToTop} />
         )}
       </S.NavigationBar>
-      <S.ControlsMenu>
-        <ButtonTheming />
-        <LanguagesMenu />
-        <Menu navLinks={navLinks} />
-      </S.ControlsMenu>
+      <Menu navLinks={navLinks} />
     </S.NavWrapper>
   );
 };
