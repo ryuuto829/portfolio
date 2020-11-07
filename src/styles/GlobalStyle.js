@@ -20,7 +20,9 @@ const GlobalStyle = createGlobalStyle`
     --weight-semibold: 500;
     --weight-bold: 600;
 
-    --transition: all 0.2s ease-in-out;
+    --space-l: 4rem;
+
+    --transition: all 0.25s ease-in-out;
 
     /* --nav-height-scroll: 70px; */
     --nav-height-scroll: 64px;
@@ -54,10 +56,16 @@ const GlobalStyle = createGlobalStyle`
       overflow: hidden;
 
       #content > * {
-        filter: blur(5px) brightness(0.7);
+        /* filter: blur(5px) brightness(0.7); */
+        filter: blur(5px) brightness(0.2);
         transition: var(--transition);
         pointer-events: none;
         user-select: none;
+      }
+
+      /* Hide shadow when sidebar is open */
+      header {
+        box-shadow: none;
       }
     }
   }
