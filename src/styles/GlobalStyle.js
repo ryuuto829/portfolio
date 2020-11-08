@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
     &.blur {
       overflow: hidden;
 
-      #content > * {
+      #content  {
         /* filter: blur(5px) brightness(0.7); */
         filter: blur(5px) brightness(0.2);
         transition: var(--transition);
@@ -65,6 +65,7 @@ const GlobalStyle = createGlobalStyle`
 
       /* Hide shadow when sidebar is open */
       header {
+        background-color: transparent;
         box-shadow: none;
       }
     }
@@ -75,6 +76,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 1600px;
     min-height: 100vh;
+    background-color: var(--almost-black);
 
     @media (max-width: 1080px) {
       padding: 0 100px;

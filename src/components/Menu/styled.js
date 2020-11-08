@@ -170,10 +170,14 @@ export const SideMenu = styled.aside`
   }
 
   & > * {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     &:last-child {
       margin: 0;
     }
+  }
+
+  nav {
+    margin-bottom: 30px;
   }
 `;

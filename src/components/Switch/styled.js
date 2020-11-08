@@ -6,8 +6,8 @@ export const Label = styled.label`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: 52px;
-  height: 26px;
+  width: 42px;
+  height: 21px;
   background: grey;
   background-color: ${props =>
     props.isChecked ? 'var(--light-blue)' : 'var(--light-gray)'};
@@ -21,8 +21,8 @@ export const ToggleButton = styled.span`
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 21px;
-  height: 21px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   transition: 0.2s;
   background: #fff;
@@ -46,4 +46,5 @@ export const Wrapper = styled.div`
 
 export const Text = styled.span`
   padding-left: 10px;
+  font-size: 14px;
 `;

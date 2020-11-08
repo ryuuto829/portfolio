@@ -143,7 +143,7 @@ export const Button = styled.button`
     content: '';
     z-index: -1;
     border-radius: 2px;
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
       135deg,
       #f68918 0%,
       #f68918 31%,
@@ -153,7 +153,7 @@ export const Button = styled.button`
       #d2645c 49%,
       #8a19e3 49%,
       #8a19e3 100%
-    );
+    ); */
 
     background-image: linear-gradient(
       to right,
@@ -168,12 +168,14 @@ export const CardHeader = styled.div`
   ${({ theme }) => theme.mixins.flexItemsBetween};
   ${({ theme }) => theme.mixins.button};
 
-  h1 {
-    transition: var(--transition);
-  }
-
+  /* transition: var(--transition); */
   fill: var(--light-gray);
   margin-bottom: 40px;
+
+  h1,
+  svg {
+    transition: var(--transition);
+  }
 
   &:hover {
     color: var(--light-blue);
@@ -181,7 +183,7 @@ export const CardHeader = styled.div`
 
     h1 {
       transform: translateX(3px);
-      transition: var(--transition);
+      /* transition: var(--transition); */
     }
   }
 `;

@@ -1,13 +1,23 @@
 import mixins from './mixins';
 
-const theme = {
-  dark: {
-    //
-  },
-  light: {
-    //
-  },
+// const theme = {
+//   darkTheme: {
+//     mixins
+//     //
+//   },
+//   lightTheme: {
+//     mixins
+//     //
+//   },
+//   mixins
+// };
+
+const darkTheme = {
   mixins
 };
 
-export default theme;
+const lightTheme = {
+  mixins
+};
+
+export { darkTheme, lightTheme };
