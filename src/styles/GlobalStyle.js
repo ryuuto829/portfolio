@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
     --light-gray: #dfdfdf;
     --light-blue: #90caf9;
 
+    // for light mode
+    --light-mode-1: #f1f1f1;
+    --light-mode-2: #1d1c21;
+
     --family-primary: 'Roboto', Arial, sans-serif;
     --family-secondary: 'Oswald', Helvetica, Arial, sans-serif;
     --family-monospace: 'Roboto Mono', monospace;
@@ -46,8 +50,10 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
-    background-color: var(--almost-black);
-    color: var(--light-gray);
+    /* background-color: var(--almost-black); */
+    background-color: ${({ theme }) => theme.colorMainBackground};
+    /* color: var(--light-gray); */
+    color: ${({ theme }) => theme.colorMainText};
     font-family: var(--family-primary);
     font-size: var(--text-normal);
     line-height: 1;
@@ -76,7 +82,8 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 1600px;
     min-height: 100vh;
-    background-color: var(--almost-black);
+    /* background-color: var(--almost-black); */
+    background-color: ${({ theme }) => theme.colorMainBackground};
 
     @media (max-width: 1080px) {
       padding: 0 100px;

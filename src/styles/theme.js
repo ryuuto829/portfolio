@@ -1,23 +1,17 @@
 import mixins from './mixins';
 
-// const theme = {
-//   darkTheme: {
-//     mixins
-//     //
-//   },
-//   lightTheme: {
-//     mixins
-//     //
-//   },
-//   mixins
-// };
-
 const darkTheme = {
-  mixins
+  mixins,
+
+  colorMainBackground: 'var(--almost-black)',
+  colorMainText: 'var(--light-gray)'
 };
 
 const lightTheme = {
-  mixins
+  mixins,
+
+  colorMainBackground: 'var(--light-mode-1)',
+  colorMainText: 'var(--light-mode-2)'
 };
 
 export { darkTheme, lightTheme };

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import Helmet from 'react-helmet';
-import { useLocale, useClickOutside } from '@hooks';
+import { useLocale, useClickOutside, useTheme } from '@hooks';
 
 import Switch from '@components/Switch';
 import LanguagesMenu from '@components/LanguagesMenu';
@@ -10,6 +10,9 @@ import ButtonTheming from '@components/ButtonTheming';
 
 const Menu = ({ navLinks }) => {
   const { locale } = useLocale();
+  const { theme, toggleTheme } = useTheme();
+  const isDarkMode = theme === 'dark';
+
   const [showSidebar, setShowSidebar] = useState(false);
 
   const toggleSidebar = () => {
@@ -62,7 +65,7 @@ const Menu = ({ navLinks }) => {
                   ))}
               </S.NavigationList>
             </S.Navigation>
-            <Switch />
+            <Switch isActive={isDarkMode} onChangeHandler={toggleTheme} />
             <LanguagesMenu />
           </S.SideMenu>
         </S.Wrapper>
