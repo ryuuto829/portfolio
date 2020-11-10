@@ -7,6 +7,7 @@ import { default as IconArrowForward } from '@icons/ArrowForward';
 import { default as IconLink } from '@icons/Link';
 import { default as IconLogo } from '@icons/Logo';
 import { default as IconSun } from '@icons/Sun';
+import { default as IconMoon } from '@icons/Moon';
 
 const Icon = ({ name }) => {
   switch (name) {
@@ -24,6 +25,8 @@ const Icon = ({ name }) => {
       return <IconLogo />;
     case 'Sun':
       return <IconSun />;
+    case 'Moon':
+      return <IconMoon />;
     default:
       return null;
   }
