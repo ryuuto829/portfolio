@@ -8,10 +8,11 @@ const query = graphql`
         node {
           name
           childTranslationsJson {
-            creditInfo {
-              name
-              rights
-            }
+            title
+            subTitle
+            rights
+            greeting
+            smallBio
           }
         }
       }
@@ -37,11 +38,9 @@ const useTranslation = () => {
       item => item !== 'name'
     )[0];
 
-    const title = Object.keys(item.node[currentFileTitle])[0];
-
     return {
       name: item.node.name,
-      [title]: item.node[currentFileTitle][title]
+      ...item.node[currentFileTitle]
     };
   });
 

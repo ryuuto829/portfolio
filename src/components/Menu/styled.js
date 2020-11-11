@@ -118,9 +118,8 @@ export const Hamburger = styled.div`
 
 export const NavigationList = styled.ul`
   ${({ theme }) => theme.mixins.list};
-  ${({ theme }) => theme.mixins.flexItemsBetween};
+  ${({ theme }) => theme.mixins.flexColumn};
 
-  flex-direction: column;
   color: var(--text-color);
   font-family: var(--family-secondary);
   font-size: 3.5rem;
@@ -145,9 +144,8 @@ export const Navigation = styled.nav`
 `;
 
 export const SideMenu = styled.aside`
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  ${({ theme }) => theme.mixins.flexColumn};
+
   visibility: ${props => (props.showSidebar ? 'visible' : 'hidden')};
   position: fixed;
   top: 0;

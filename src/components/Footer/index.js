@@ -6,7 +6,7 @@ import { socialLinks } from '@config';
 
 const Footer = () => {
   // Query the JSON files in ./config/i18n/index
-  const { creditInfo } = useTranslation();
+  const { title, rights } = useTranslation();
 
   const year = new Date().getFullYear();
 
@@ -27,9 +27,7 @@ const Footer = () => {
             </S.SocialItem>
           ))}
       </S.SocialMenu>
-      <S.Credit>
-        {`© ${year} ${creditInfo.name}. ${creditInfo.rights}`}
-      </S.Credit>
+      <S.Credit>{`© ${year} ${title}. ${rights}`}</S.Credit>
       <S.Credit>
         Built with{' '}
         <S.GatsbyLink
