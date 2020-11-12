@@ -58,8 +58,6 @@ export const Hamburger = styled.div`
   transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transition-duration: 75ms;
 
-  /* transition:  */
-
   ${props =>
     props.showSidebar &&
     css`
@@ -78,7 +76,7 @@ export const Hamburger = styled.div`
     transition-duration: 0.15s;
     transition-property: transform;
     border-radius: 4px;
-    background-color: var(--light-gray);
+    background-color: ${({ theme }) => theme.colorMainText};
   }
 
   &:before,

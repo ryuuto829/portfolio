@@ -8,10 +8,6 @@ const GlobalStyle = createGlobalStyle`
     --light-gray: #dfdfdf;
     --light-blue: #90caf9;
 
-    // for light mode
-    --light-mode-1: #f1f1f1;
-    --light-mode-2: #1d1c21;
-
     --family-primary: 'Roboto', Arial, sans-serif;
     --family-secondary: 'Oswald', Helvetica, Arial, sans-serif;
     --family-monospace: 'Roboto Mono', monospace;
@@ -50,9 +46,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
-    /* background-color: var(--almost-black); */
     background-color: ${({ theme }) => theme.colorMainBackground};
-    /* color: var(--light-gray); */
     color: ${({ theme }) => theme.colorMainText};
     font-family: var(--family-primary);
     font-size: var(--text-normal);
@@ -82,7 +76,6 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 1600px;
     min-height: 100vh;
-    /* background-color: var(--almost-black); */
     background-color: ${({ theme }) => theme.colorMainBackground};
 
     @media (max-width: 1080px) {
@@ -102,6 +95,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: 100px 0;
     max-width: 1000px;
+    position: relative;
 
     @media (max-width: 768px) {
       padding: 80px 0;
@@ -109,6 +103,18 @@ const GlobalStyle = createGlobalStyle`
 
     @media (max-width: 480px) {
       padding: 60px 0;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      /* width: 50%; */
+      /* transform: translateX(50%); */
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(30deg,#d367c1 10%,#dedf40 25%,#62cb5c 50%,#00bbcb 75%,#ab79d6 90%);
     }
   }
 

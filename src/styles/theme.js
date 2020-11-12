@@ -10,8 +10,8 @@ const darkTheme = {
 const lightTheme = {
   mixins,
 
-  colorMainBackground: 'var(--light-mode-1)',
-  colorMainText: 'var(--light-mode-2)'
+  colorMainBackground: 'var(--white)',
+  colorMainText: 'var(--almost-black)'
 };
 
 export { darkTheme, lightTheme };

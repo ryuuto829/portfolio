@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 export const NavLink = styled(Link)`
   ${({ theme }) => theme.mixins.link};
+
   padding: 10px;
   transition: var(--transition);
   text-align: center;
@@ -10,7 +11,7 @@ export const NavLink = styled(Link)`
   &:before {
     content: attr(data-title);
     display: block;
-    font-weight: 700;
+    font-weight: var(--weight-semibold);
     height: 0;
     overflow: hidden;
     visibility: hidden;
@@ -19,12 +20,13 @@ export const NavLink = styled(Link)`
 
 export const NavItem = styled.li`
   margin: 0 5px;
-  transition: var(--transition);
   position: relative;
+  transition: var(--transition);
+
   ${props =>
     props.isActive &&
     css`
-      font-weight: 700;
+      font-weight: var(--weight-semibold);
     `};
 
   /* Decoration for hover outwards animating */

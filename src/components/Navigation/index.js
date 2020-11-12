@@ -15,19 +15,19 @@ const Navigation = () => {
   const { navLinks } = useNavLinks();
 
   return (
-    <S.NavWrapper
+    <S.NavigationBar
       scrollDirection={scrollDirection}
       scrolledToTop={scrolledToTop}>
-      <S.NavigationBar>
+      <S.MainNavigation>
         <Link to="/" aria-label="home">
           <Logo />
         </Link>
         {navLinks && (
           <NavigationLinks listItems={navLinks} scrolledToTop={scrolledToTop} />
         )}
-      </S.NavigationBar>
+      </S.MainNavigation>
       <Menu navLinks={navLinks} />
-    </S.NavWrapper>
+    </S.NavigationBar>
   );
 };
 

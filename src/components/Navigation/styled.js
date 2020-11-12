@@ -1,16 +1,17 @@
 import styled, { css } from 'styled-components';
 
-export const NavWrapper = styled.header`
+export const NavigationBar = styled.header`
   ${({ theme }) => theme.mixins.flexItemsBetween};
 
   position: fixed;
-  width: 100%;
-  height: var(--nav-height);
   top: 0;
-  font-weight: var(--weight-light);
+  width: 100%;
   padding: 0px 40px;
-  background-color: var(--almost-black);
+  height: var(--nav-height);
+  font-weight: var(--weight-light);
+  background-color: ${({ theme }) => theme.colorMainBackground};
   transition: var(--transition);
+  filter: none;
   z-index: 5;
 
   ${props =>
@@ -18,6 +19,7 @@ export const NavWrapper = styled.header`
     !props.scrolledToTop &&
     css`
       ${({ theme }) => theme.mixins.boxShadow};
+
       height: var(--nav-height-scroll);
       transform: translateY(0px);
     `};
@@ -27,6 +29,7 @@ export const NavWrapper = styled.header`
     !props.scrolledToTop &&
     css`
       ${({ theme }) => theme.mixins.boxShadow};
+
       height: var(--nav-height-scroll);
       transform: translateY(calc(var(--nav-height-scroll) * -1));
     `};
@@ -40,10 +43,10 @@ export const NavWrapper = styled.header`
   }
 `;
 
-export const NavigationBar = styled.nav`
+export const MainNavigation = styled.nav`
   display: flex;
 
-  & > ul {
+  ul {
     margin-left: 40px;
 
     @media (max-width: 768px) {

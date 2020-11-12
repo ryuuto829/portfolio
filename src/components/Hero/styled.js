@@ -11,7 +11,6 @@ export const HeroSection = styled.section`
   h1,
   h2 {
     font-size: clamp(40px, 8vw, 80px);
-    /* font-size: clamp(40px, 8vw, 60px); */
     margin: 0 0 10px 0;
     font-family: var(--family-secondary);
     line-height: 1.2;
@@ -19,6 +18,7 @@ export const HeroSection = styled.section`
   }
 
   & > span {
+    margin-top: 20px;
     margin-bottom: 30px;
     font-size: 25px;
   }
@@ -35,15 +35,17 @@ export const LinksGroup = styled.ul`
   ${({ theme }) => theme.mixins.list};
 
   display: flex;
+  flex-wrap: wrap;
   position: relative;
-
   font-size: 16px;
-  margin-top: 50px;
+  margin-top: 20px;
 
   li {
     ${({ theme }) => theme.mixins.flexItemsCenter};
+
+    margin-top: 30px;
     position: relative;
-    margin-right: 10px;
+    margin-right: 20px;
 
     &:before {
       content: '';
@@ -67,32 +69,41 @@ export const LinksGroup = styled.ul`
         transform: translateX(15px);
       }
     }
+
+    @media (max-width: 480px) {
+      &:before,
+      span {
+        display: none;
+      }
+    }
   }
 
   a {
     ${({ theme }) => theme.mixins.link};
+
     display: block;
-    padding: 10px;
     position: relative;
-    padding-left: 58px;
-    padding-right: 20px;
+    padding: 10px 20px 10px 58px;
     color: ${({ theme }) => theme.colorMainText};
-    z-index: 100;
     line-height: 24px;
+    z-index: 2;
+
+    @media (max-width: 480px) {
+      & {
+        padding: 10px 20px 10px 0px;
+      }
+    }
   }
 
-  .circle {
+  span {
     ${({ theme }) => theme.mixins.flexItemsCenter};
+
     justify-content: flex-start;
     position: absolute;
     top: 0;
     left: 0;
-    width: 48px;
     height: 48px;
-    background-color: #27272c;
-    border-radius: 34px;
-    transition: var(--transition);
-    z-index: 1;
+    width: 48px;
 
     svg {
       transition: var(--transition);
@@ -104,17 +115,18 @@ export const LinksGroup = styled.ul`
   button {
     ${({ theme }) => theme.mixins.button};
 
-    padding: 6px;
-    background-color: #dfdfdf;
-    color: var(--almost-black);
-    border-radius: 4px;
-    z-index: 100;
     position: relative;
+    padding: 6px;
+    background-color: #27272c;
+    color: ${({ theme }) => theme.colorMainText};
+    border-radius: 4px;
     margin-right: 20px;
     transition: var(--transition);
+    z-index: 2;
 
     &:hover {
       background-color: var(--light-blue);
+      color: var(--almost-black);
     }
   }
 `;
