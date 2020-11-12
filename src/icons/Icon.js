@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { default as IconGithub } from '@icons/Github';
 import { default as IconLinkedin } from '@icons/Linkedin';
 import { default as IconCodepen } from '@icons/Codepen';
@@ -8,6 +9,8 @@ import { default as IconLink } from '@icons/Link';
 import { default as IconLogo } from '@icons/Logo';
 import { default as IconSun } from '@icons/Sun';
 import { default as IconMoon } from '@icons/Moon';
+import { default as IconDownload } from '@icons/Download';
+import { default as IconEmail } from '@icons/Email';
 
 const Icon = ({ name }) => {
   switch (name) {
@@ -27,13 +30,17 @@ const Icon = ({ name }) => {
       return <IconSun />;
     case 'Moon':
       return <IconMoon />;
+    case 'Download':
+      return <IconDownload />;
+    case 'Email':
+      return <IconEmail />;
     default:
       return null;
   }
 };
 
-export default Icon;
-
 Icon.propTypes = {
   name: PropTypes.string.isRequired
 };
+
+export default Icon;
