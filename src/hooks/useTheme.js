@@ -21,7 +21,7 @@ const ThemeProvider = ({ children }) => {
     try {
       window.localStorage.setItem('theme', mode);
     } catch (error) {
-      return;
+      // return;
     }
     setTheme(mode);
   };
@@ -30,7 +30,7 @@ const ThemeProvider = ({ children }) => {
     let localTheme;
 
     try {
-      localTheme = window.localStorage.getItem1('theme');
+      localTheme = window.localStorage.getItem('theme');
     } catch (error) {
       localTheme = null;
     }
