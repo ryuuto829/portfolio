@@ -8,6 +8,11 @@ const GlobalStyle = createGlobalStyle`
     --light-gray: #dfdfdf;
     --light-blue: #90caf9;
 
+    --slate: #b5bfd2;
+    --black-transparent: rgba(29, 28, 33, 0.8);
+    --white-transparent: rgba(255, 255, 255, 0.5);
+
+
     --family-primary: 'Roboto', Arial, sans-serif;
     --family-secondary: 'Oswald', Helvetica, Arial, sans-serif;
     --family-monospace: 'Roboto Mono', monospace;
@@ -66,7 +71,8 @@ const GlobalStyle = createGlobalStyle`
       /* Hide shadow when sidebar is open */
       header {
         background-color: transparent;
-        box-shadow: none;
+        /* box-shadow: none; */
+        border-bottom-color: transparent;
       }
     }
   }
@@ -105,17 +111,15 @@ const GlobalStyle = createGlobalStyle`
       padding: 60px 0;
     }
 
-    &:before {
+    /* &:before {
       content: "";
       position: absolute;
-      /* width: 50%; */
-      /* transform: translateX(50%); */
       top: 0;
       right: 0;
       left: 0;
       height: 3px;
       background: linear-gradient(30deg,#d367c1 10%,#dedf40 25%,#62cb5c 50%,#00bbcb 75%,#ab79d6 90%);
-    }
+    } */
   }
 
   /* Enable smooth scrolling */

@@ -6,6 +6,7 @@ import Hero from '@components/Hero';
 import Social from '@components/Social';
 import Footer from '@components/Footer';
 import Projects from '@components/Projects';
+import About from '@components/About';
 
 const DUMMY_CONTENT = [...Array(40)].map((el, i) => <br key={i} />);
 
@@ -17,9 +18,10 @@ const App = () => (
       <main>
         <Hero />
         <Projects />
+        <About />
         {/* <section id="home">Home {DUMMY_CONTENT}</section> */}
         {/* <section id="projects">Work {DUMMY_CONTENT}</section> */}
-        <section id="about">About {DUMMY_CONTENT}</section>
+        {/* <section id="about">About {DUMMY_CONTENT}</section> */}
         <section id="contact">Contact {DUMMY_CONTENT}</section>
       </main>
       <Footer />

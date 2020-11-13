@@ -47,11 +47,13 @@ module.exports = {
         fonts: [
           {
             family: `Roboto`,
-            variants: [`300`, `400`, `500`]
+            variants: [`300`, `400`, `500`],
+            subsets: ['cyrillic-ext', 'latin-ext']
           },
           {
             family: `Oswald`,
-            variants: [`300`, `400`, `600`]
+            variants: [`300`, `400`, `600`],
+            subsets: ['cyrillic-ext', 'latin-ext']
           }
         ]
       }
