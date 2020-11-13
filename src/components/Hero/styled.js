@@ -15,6 +15,18 @@ export const HeroSection = styled.section`
     font-family: var(--family-secondary);
     line-height: 1.2;
     font-weight: var(--weight-bold);
+
+    background: linear-gradient(
+      270.97deg,
+      #ffe580 -21.36%,
+      #ff7571 -2.45%,
+      #ea5dad 26.84%,
+      #c2a0fd 64.15%,
+      #3bf0e4 108.29%,
+      #b2f4b6 159.03%
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
   }
 
   & > span {
@@ -27,7 +39,8 @@ export const HeroSection = styled.section`
     margin: 30px 0 0 0;
     max-width: 500px;
     font-size: 20px;
-    color: #8a919e;
+    /* color: #8a919e; */
+    color: var(--slate);
   }
 `;
 

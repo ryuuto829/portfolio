@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  max-width: 1000px;
-  margin: 0px auto;
+  /* max-width: 1000px;
+  margin: 0px auto; */
 `;
 
 export const Card = styled.div`
@@ -143,24 +143,29 @@ export const Button = styled.button`
     content: '';
     z-index: -1;
     border-radius: 2px;
-    /* background-image: linear-gradient(
-      135deg,
-      #f68918 0%,
-      #f68918 31%,
-      #ae3e9f 31%,
-      #ae3e9f 42%,
-      #d2645c 42%,
-      #d2645c 49%,
-      #8a19e3 49%,
-      #8a19e3 100%
-    ); */
 
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
       to right,
       #7b4397 0%,
       #dc2430 51%,
       #7b4397 100%
+    ); */
+
+    background: linear-gradient(
+      269.16deg,
+      #ffe580 -15.83%,
+      #ff7571 -4.97%,
+      #ff7270 15.69%,
+      #ea5dad 32.43%,
+      #c2a0fd 50.09%,
+      #9867f0 67.47%,
+      #3bf0e4 84.13%,
+      #33ce43 105.13%,
+      #b2f4b6 123.24%
     );
+    background-position: 58% 50%;
+    background-size: 500%;
+    animation: gradient-shift 30s ease infinite;
   }
 `;
 

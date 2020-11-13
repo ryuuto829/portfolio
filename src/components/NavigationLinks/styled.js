@@ -3,19 +3,11 @@ import { Link } from 'gatsby';
 
 export const NavLink = styled(Link)`
   ${({ theme }) => theme.mixins.link};
+  ${({ theme }) => theme.mixins.flexItemsCenter};
 
+  height: 64px;
   padding: 10px;
   transition: var(--transition);
-  text-align: center;
-
-  &:before {
-    content: attr(data-title);
-    display: block;
-    font-weight: var(--weight-semibold);
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-  }
 `;
 
 export const NavItem = styled.li`
@@ -30,38 +22,28 @@ export const NavItem = styled.li`
     `};
 
   /* Decoration for hover outwards animating */
-  &:before,
   &:after {
     content: '';
+    display: block;
     position: absolute;
-    bottom: ${props => (props.scrolledToTop ? '-5px' : '-13px')};
-    width: 0px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     height: 2px;
-    transition: var(--transition);
-    transition-duration: 0.4s;
-    opacity: 0;
-    background-color: var(--light-blue);
-  }
-
-  &:before {
-    left: 50%;
-  }
-
-  &:after {
-    right: 50%;
+    background: linear-gradient(87.54deg, #5a32a3 -6.8%, #d73a49 124.14%);
+    transform: ${props => (props.isActive ? 'scaleX(1)' : 'scaleX(0)')};
+    transition: transform 0.3s ease-in-out;
   }
 
   &:hover {
-    &:before,
     &:after {
-      width: 100%;
-      opacity: 1;
-      width: 50%;
+      transform: scaleX(0.4);
     }
   }
 `;
 
 export const NavList = styled.ul`
   ${({ theme }) => theme.mixins.list};
-  ${({ theme }) => theme.mixins.flexItemsBetween};
+
+  display: flex;
 `;

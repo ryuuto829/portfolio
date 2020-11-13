@@ -9,7 +9,8 @@ export const NavigationBar = styled.header`
   padding: 0px 40px;
   height: var(--nav-height);
   font-weight: var(--weight-light);
-  background-color: ${({ theme }) => theme.colorMainBackground};
+  background-color: ${({ theme }) => theme.colorBackgroundDimmed};
+  backdrop-filter: blur(10px);
   transition: var(--transition);
   filter: none;
   z-index: 5;
@@ -44,7 +45,7 @@ export const NavigationBar = styled.header`
 `;
 
 export const MainNavigation = styled.nav`
-  display: flex;
+  ${({ theme }) => theme.mixins.flexItemsCenter};
 
   ul {
     margin-left: 40px;

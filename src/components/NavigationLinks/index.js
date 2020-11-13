@@ -21,7 +21,7 @@ const NavigationLinks = ({ listItems, scrolledToTop }) => {
             <S.NavLink
               to={locale === 'en' ? url : `/${locale}${url}`}
               data-title={name}>
-              {name}
+              <span>{name}</span>
             </S.NavLink>
           </S.NavItem>
         );
