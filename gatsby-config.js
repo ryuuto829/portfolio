@@ -38,7 +38,8 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`
+        display: `minimal-ui`,
+        icon: `src/images/logo.png`
       }
     },
     {
@@ -65,8 +66,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-styled-components`
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
+    // `gatsby-plugin-offline`
   ]
 };
