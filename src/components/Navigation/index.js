@@ -14,12 +14,16 @@ const Navigation = () => {
   // Query the JSON files in ./config/i18n/navLinks
   const { navLinks } = useNavLinks();
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <S.NavigationBar
       scrollDirection={scrollDirection}
       scrolledToTop={scrolledToTop}>
       <S.MainNavigation>
-        <Link to="/" aria-label="home">
+        <Link to="/" aria-label="home" onClick={scrollToTop}>
           <Logo />
         </Link>
         {navLinks && (

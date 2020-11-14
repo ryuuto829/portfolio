@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import Helmet from 'react-helmet';
@@ -26,6 +26,27 @@ const Menu = ({ navLinks }) => {
   // Close sidebar on clicking outside the menu wrapper
   const sidebarRef = useRef();
   useClickOutside(sidebarRef, () => setShowSidebar(false));
+
+  const onKeyDown = e => {
+    // Close sidebar on pressing 'ESC'
+    if (e.key === 'Escape') setShowSidebar(false);
+  };
+
+  const onScreenResize = e => {
+    // We've defined css rules to hide sidebar on wider screens and we
+    // make sure that state is updated
+    if (e.currentTarget.innerWidth > 768) setShowSidebar(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', onKeyDown);
+    window.addEventListener('resize', onScreenResize);
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('resize', onScreenResize);
+    };
+  }, []);
 
   return (
     <>
