@@ -12,32 +12,34 @@ const Footer = () => {
 
   return (
     <>
-      <S.SocialMenu>
-        {socialLinks &&
-          socialLinks.map(({ url, name }, i) => (
-            <S.SocialItem key={i}>
-              <S.SocialLink
-                href={url}
-                aria-label={name}
-                target="_blank"
-                title={name}
-                rel="noopener noreferrer">
-                {name}
-              </S.SocialLink>
-            </S.SocialItem>
-          ))}
-      </S.SocialMenu>
-      <S.Credit>{`© ${year} ${title}. ${rights}`}</S.Credit>
-      <S.Credit>
-        Built with{' '}
-        <S.GatsbyLink
-          href="https://www.gatsbyjs.org/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Gatsby
-        </S.GatsbyLink>{' '}
-        | Hosted on ...
-      </S.Credit>
+      <footer>
+        <S.SocialMenu>
+          {socialLinks &&
+            socialLinks.map(({ url, name }, i) => (
+              <S.SocialItem key={i}>
+                <S.SocialLink
+                  href={url}
+                  aria-label={name}
+                  target="_blank"
+                  title={name}
+                  rel="noopener noreferrer">
+                  {name}
+                </S.SocialLink>
+              </S.SocialItem>
+            ))}
+        </S.SocialMenu>
+        <S.Credit>{`© ${year} ${title}. ${rights}`}</S.Credit>
+        <S.Credit>
+          Built with{' '}
+          <S.GatsbyLink
+            href="https://www.gatsbyjs.org/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Gatsby
+          </S.GatsbyLink>{' '}
+          | Hosted on ...
+        </S.Credit>
+      </footer>
     </>
   );
 };

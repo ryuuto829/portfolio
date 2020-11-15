@@ -1,10 +1,13 @@
 import React from 'react';
 import * as S from './styled';
+import { useTranslation } from '@hooks';
 
 import { IconEmail, IconDownload } from '@icons';
 import Tooltip from '@components/Tooltip';
 
 const Contact = () => {
+  const { sectionsHeaders } = useTranslation();
+
   // Copy text to the clipboard on button click
   const copyEmailToClipboard = () => {
     navigator.clipboard.writeText('rykhlyk.info@gmail.com');
@@ -12,7 +15,7 @@ const Contact = () => {
 
   return (
     <S.foo id="contact">
-      <h2>Get In Touch</h2>
+      <h2 className="section-header">{sectionsHeaders.contact}</h2>
       <p>
         Although I'm not currently looking for any new opportunities, my inbox
         is always open. Whether you have a question or just want to say hi, I'll

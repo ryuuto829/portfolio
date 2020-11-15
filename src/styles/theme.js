@@ -5,7 +5,8 @@ const darkTheme = {
 
   colorMainBackground: 'var(--almost-black)',
   colorMainText: 'var(--light-gray)',
-  colorBackgroundDimmed: 'var(--black-transparent)'
+  colorBackgroundDimmed: 'var(--black-transparent)',
+  colorActive: 'var(--white)'
 };
 
 const lightTheme = {
@@ -13,7 +14,8 @@ const lightTheme = {
 
   colorMainBackground: 'var(--white)',
   colorMainText: 'var(--almost-black)',
-  colorBackgroundDimmed: 'var(--white-transparent)'
+  colorBackgroundDimmed: 'var(--white-transparent)',
+  colorActive: 'var(--almost-black)'
 };
 
 export { darkTheme, lightTheme };

@@ -13,6 +13,16 @@ const query = graphql`
             rights
             greeting
             smallBio
+            sectionsHeaders {
+              projects
+              blog
+              about
+              contact
+            }
+            page404 {
+              pageNotFound
+              goHome
+            }
           }
         }
       }

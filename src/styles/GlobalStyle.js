@@ -29,7 +29,6 @@ const GlobalStyle = createGlobalStyle`
 
     --transition: all 0.25s ease-in-out;
 
-    /* --nav-height-scroll: 70px; */
     --nav-height-scroll: 64px;
     --nav-height: 100px;
   }
@@ -66,6 +65,8 @@ const GlobalStyle = createGlobalStyle`
         transition: var(--transition);
         pointer-events: none;
         user-select: none;
+        backdrop-filter: blur(5px);
+        pointer-events: none;
       }
 
       /* Hide shadow when sidebar is open */
@@ -111,6 +112,10 @@ const GlobalStyle = createGlobalStyle`
       padding: 60px 0;
     }
 
+    &:last-child {
+      ${({ theme }) => theme.mixins.boxShadow};
+    }
+
     /* &:before {
       content: "";
       position: absolute;
@@ -122,14 +127,27 @@ const GlobalStyle = createGlobalStyle`
     } */
   }
 
+  .section-header {
+    font-size: clamp(26px, 5vw, 32px);
+    white-space: nowrap;
+    margin: 10px 0 40px;
+
+    font-weight: var(--weight-semibold);
+    font-family: var(--family-secondary);
+  }
+
   /* Enable smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
 
   svg {
-    fill: currentColor;
+    /* fill: currentColor; */
     vertical-align: middle;
+  }
+
+  ::selection{
+    background: rgba(111,66,193,0.8);
   }
 `;
 

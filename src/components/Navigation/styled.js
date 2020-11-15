@@ -54,4 +54,8 @@ export const MainNavigation = styled.nav`
       display: none;
     }
   }
+
+  a svg {
+    color: ${({ theme }) => theme.colorActive};
+  }
 `;

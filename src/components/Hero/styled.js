@@ -11,9 +11,9 @@ export const HeroSection = styled.section`
   h1,
   h2 {
     font-size: clamp(40px, 8vw, 80px);
-    margin: 0 0 10px 0;
+    margin: 0;
     font-family: var(--family-secondary);
-    line-height: 1.2;
+    line-height: 1.3;
     font-weight: var(--weight-bold);
 
     background: linear-gradient(
@@ -38,9 +38,9 @@ export const HeroSection = styled.section`
   p {
     margin: 30px 0 0 0;
     max-width: 500px;
-    font-size: 20px;
-    /* color: #8a919e; */
+    font-size: 17px;
     color: var(--slate);
+    line-height: 160%;
   }
 `;
 
