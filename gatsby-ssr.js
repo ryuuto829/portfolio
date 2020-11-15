@@ -1,7 +1,6 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+// We're setting wrapper component around pages that won’t get unmounted on page changes.
+// See: https://www.gatsbyjs.org/docs/ssr-apis/
 
-// You can delete this file if you're not using it
+import Layout from './wrapPageElement';
+
+export const wrapPageElement = Layout;
