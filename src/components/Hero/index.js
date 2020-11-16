@@ -22,6 +22,29 @@ const Hero = () => {
 
       <S.LinksGroup>
         <li>
+          <S.foo href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <IconDownload />
+            <span> Resume (235Kb, PDF)</span>
+          </S.foo>
+        </li>
+        <li>
+          <S.foo href="mailto:rykhlyk.info@gmail.com">
+            <IconEmail />
+            <span>rykhlyk.info@gmail.com</span>
+          </S.foo>
+          <Tooltip
+            content="Copied!"
+            trigger="click"
+            onShow={instance => {
+              setTimeout(() => {
+                instance.hide();
+              }, 2000);
+            }}>
+            <button onClick={copyEmailToClipboard}>Copy</button>
+          </Tooltip>
+        </li>
+
+        {/* <li>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             Resume (235Kb, PDF)
             <span aria-hidden="true">
@@ -47,7 +70,7 @@ const Hero = () => {
             }}>
             <button onClick={copyEmailToClipboard}>Copy</button>
           </Tooltip>
-        </li>
+        </li> */}
       </S.LinksGroup>
     </S.HeroSection>
   );

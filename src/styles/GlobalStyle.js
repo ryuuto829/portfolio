@@ -115,16 +115,6 @@ const GlobalStyle = createGlobalStyle`
     &:last-child {
       ${({ theme }) => theme.mixins.boxShadow};
     }
-
-    /* &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(30deg,#d367c1 10%,#dedf40 25%,#62cb5c 50%,#00bbcb 75%,#ab79d6 90%);
-    } */
   }
 
   .section-header {
@@ -142,12 +132,40 @@ const GlobalStyle = createGlobalStyle`
   }
 
   svg {
-    /* fill: currentColor; */
+    fill: currentColor;
     vertical-align: middle;
   }
 
   ::selection{
     background: rgba(111,66,193,0.8);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: inherit;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      color: var(--white);
+      outline: 0;
+    }
+  }
+
+  button {
+    font-family: inherit;
+    background-color: transparent;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
   }
 `;
 

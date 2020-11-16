@@ -7,7 +7,6 @@ import Footer from '@components/Footer';
 import Projects from '@components/Projects';
 import About from '@components/About';
 import Contact from '@components/Contact';
-import Blog from '@components/Blog';
 
 const App = () => (
   <>
@@ -17,7 +16,6 @@ const App = () => (
       <main>
         <Hero />
         <Projects />
-        <Blog />
         <About />
         <Contact />
       </main>

@@ -1,26 +1,55 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-// import * as S from './styled';
+import * as S from './styled';
 import { useLocale, useTranslation } from '@hooks';
 
+import { filteredList } from '@utils';
+
 import FeaturedProjects from '@components/FeaturedProjects';
+import OtherProjects from '@components/OtherProjects';
+import Blog from '@components/Blog';
 
 export const query = graphql`
   query {
     featured: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/featured/" } }
+      filter: { fileAbsolutePath: { regex: "/content/featured/" } }
       sort: { fields: [frontmatter___date], order: ASC }
     ) {
       edges {
         node {
           frontmatter {
             title
-            about
+            technologies
+            showInProjects
             github
             external
-            showInProjects
-            technologies
             date
+            about
+          }
+          html
+          parent {
+            ... on File {
+              name
+            }
+          }
+        }
+      }
+    }
+
+    projects: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
+      sort: { fields: [frontmatter___date], order: ASC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            technologies
+            showInProjects
+            github
+            external
+            date
+            about
           }
           html
           parent {
@@ -38,24 +67,27 @@ const Projects = () => {
   const { locale } = useLocale();
   const { sectionsHeaders } = useTranslation();
 
-  // Query all featured projects in ./content/featured
-  const { featured } = useStaticQuery(query);
-
-  // Filter md files extension by current language, return list of projects
-  const projectsList = featured.edges.reduce((filteredList, item) => {
-    const fileLang = item.node.parent.name.split('.')[1];
-    if (fileLang === locale) filteredList.push(item.node.frontmatter);
-    return filteredList;
-  }, []);
+  // Query all markdown files for featured and other projects
+  // in './content/featured' folder for all available languages
+  const { featured, projects } = useStaticQuery(query);
 
   return (
     <section id="projects">
-      <h2 className="section-header">{sectionsHeaders.projects}</h2>
-
-      <FeaturedProjects projectsList={projectsList} />
-
-      <button>Show all projects</button>
-      <h2>Other Noteworthy Projects</h2>
+      <div>
+        <h2 className="section-header">{sectionsHeaders.projects}</h2>
+        <FeaturedProjects projectsList={filteredList(featured, locale)} />
+      </div>
+      <div>
+        <S.Title>Other Noteworthy Projects</S.Title>
+        <OtherProjects projectsList={filteredList(projects, locale)} />
+        <S.Button>
+          <span>Show more</span>
+        </S.Button>
+      </div>
+      <div>
+        <S.Title>Some highlights from my blog</S.Title>
+        <Blog />
+      </div>
     </section>
   );
 };

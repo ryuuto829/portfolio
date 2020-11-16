@@ -38,12 +38,15 @@ export const AboutInner = styled.div`
     margin-bottom: 10px;
   }
 
+  #foo {
+    justify-self: center;
+  }
+
   @media (max-width: 768px) {
     grid-template-columns: unset;
 
     #foo {
       order: -1;
-      justify-self: center;
     }
   }
 `;

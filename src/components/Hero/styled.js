@@ -60,7 +60,7 @@ export const LinksGroup = styled.ul`
     position: relative;
     margin-right: 20px;
 
-    &:before {
+    /* &:before {
       content: '';
       position: absolute;
       top: 0;
@@ -81,7 +81,7 @@ export const LinksGroup = styled.ul`
       svg {
         transform: translateX(15px);
       }
-    }
+    } */
 
     @media (max-width: 480px) {
       &:before,
@@ -91,13 +91,18 @@ export const LinksGroup = styled.ul`
     }
   }
 
-  a {
-    ${({ theme }) => theme.mixins.link};
+  /* a {
+    ${({ theme }) =>
+    theme.mixins
+      .link};
 
     display: block;
     position: relative;
     padding: 10px 20px 10px 58px;
-    color: ${({ theme }) => theme.colorMainText};
+    color: ${({
+    theme
+  }) =>
+    theme.colorMainText};
     line-height: 24px;
     z-index: 2;
 
@@ -106,7 +111,7 @@ export const LinksGroup = styled.ul`
         padding: 10px 20px 10px 0px;
       }
     }
-  }
+  } */
 
   span {
     ${({ theme }) => theme.mixins.flexItemsCenter};
@@ -126,8 +131,6 @@ export const LinksGroup = styled.ul`
   }
 
   button {
-    ${({ theme }) => theme.mixins.button};
-
     position: relative;
     padding: 6px;
     background-color: #27272c;
@@ -142,4 +145,8 @@ export const LinksGroup = styled.ul`
       color: var(--almost-black);
     }
   }
+`;
+
+export const foo = styled.a`
+  ${({ theme }) => theme.mixins.bigButton};
 `;

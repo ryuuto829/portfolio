@@ -5,28 +5,27 @@ export const Featured = styled.div`
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   grid-gap: 2rem;
+  border-radius: 15px;
 
   position: relative;
-  /* padding: 5vh 0 5vh; */
-  /* padding: 4rem 2.5rem 2rem; */
-  padding: 8vh 0.5rem 5vh;
+  /* padding: 8vh 0.5rem 5vh; */
+  padding: 8vh 0 4vh;
   transform: skewY(10deg);
   text-align: left;
 
-  @media (max-width: 768px) {
+  @media (max-width: 925px) {
     grid-template-columns: initial;
     grid-gap: 3rem;
   }
-
-  /* @media (max-width: 480px) {
-    padding: 4vh 0 4vh;
-  } */
 `;
 
 export const Showcase = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 2rem;
+  grid-gap: 10rem;
+  padding: 8vh 0 16vh;
+
+  justify-items: end;
 
   & > div {
     padding: 25px;
@@ -36,6 +35,12 @@ export const Showcase = styled.div`
     width: 100%;
     display: flex;
     position: relative;
+
+    max-width: 900px;
+
+    &:nth-child(2n) {
+      justify-self: start;
+    }
 
     &:after {
       position: absolute;
@@ -94,14 +99,17 @@ export const ProjectImage = styled.div`
   grid-column: 1 / 8;
   align-self: start;
 
+  transform: translateY(23px);
+
   & img {
     max-width: 100%;
     object-fit: cover;
     width: 100%;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 925px) {
     grid-column: unset;
+    transform: none;
   }
 `;
 
@@ -109,6 +117,8 @@ export const ProjectContent = styled.div`
   grid-column: 8 / 13;
   align-self: start;
   position: relative;
+
+  transform: translateY(-46px);
 
   .project-overline {
     font-size: 14px;
@@ -123,14 +133,14 @@ export const ProjectContent = styled.div`
     font-size: 17px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 925px) {
     grid-column: unset;
+    transform: none;
   }
 `;
 
 export const CardHeader = styled.div`
   ${({ theme }) => theme.mixins.flexItemsBetween};
-  ${({ theme }) => theme.mixins.button};
 
   fill: var(--light-gray);
   margin-bottom: 40px;
@@ -139,6 +149,7 @@ export const CardHeader = styled.div`
     font-size: 30px;
     font-family: var(--family-secondary);
     margin: 0;
+    font-size: clamp(26px, 5vw, 30px);
   }
 
   h3,
@@ -187,81 +198,15 @@ export const ButtonGroup = styled.div`
 `;
 
 export const Button = styled.button`
-  ${({ theme }) => theme.mixins.button};
-  ${({ theme }) => theme.mixins.flexItemsCenter};
-  transition: var(--transition);
-  border-radius: 2px;
-  font-size: 17px;
+  ${({ theme }) => theme.mixins.smallButton};
 
-  padding: 6px 20px;
-  position: relative;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  background-color: #27272c;
-  color: var(--light-gray);
-  fill: var(--light-gray);
-
-  /* z-index: 1; */
-
-  span {
-    display: block;
-    margin-left: 10px;
-    /* text-transform: uppercase; //delete */
-  }
-
-  &:hover {
-    background-color: transparent;
-    color: white;
-    fill: white;
-
-    &:after {
-      background-position: 100% 0;
-    }
-  }
-
-  &:after {
-    /* width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0; */
-
-    /* background-position: 0% 0%; */
-    /* background-size: 200% 100%; */
-    transition: 0.7s all;
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    content: '';
-    z-index: -1;
-    border-radius: 2px;
-
-    background: linear-gradient(
-      269.16deg,
-      #ffe580 -15.83%,
-      #ff7571 -4.97%,
-      #ff7270 15.69%,
-      #ea5dad 32.43%,
-      #c2a0fd 50.09%,
-      #9867f0 67.47%,
-      #3bf0e4 84.13%,
-      #33ce43 105.13%,
-      #b2f4b6 123.24%
-    );
-    background-position: 58% 50%;
-    background-size: 500%;
-    animation: gradient-shift 30s ease infinite;
+  &:before {
+    background-color: #27272c;
   }
 
   @media (max-width: 480px) {
     svg {
       display: none;
-    }
-    span {
-      margin-left: 0;
     }
   }
 `;

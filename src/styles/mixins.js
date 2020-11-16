@@ -1,29 +1,101 @@
 import { css } from 'styled-components';
 
-const mixins = {
-  // Mixin for styling <a /> link
-  link: css`
-    display: inline-block;
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-    color: inherit;
-    /* transition: var(--transition); */
-    cursor: pointer;
+const button = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 2px solid transparent;
+  color: var(--light-gray);
+  border-radius: 4px;
+  font-size: 17px;
+  overflow: hidden;
+  transition: var(--transition);
+  z-index: 1;
 
-    &:hover,
-    &:active {
-      /* color: var(--light-blue); */
-      /* color: var(--slate); */
-      color: var(--white);
-      outline: 0;
+  svg {
+    margin-right: 10px;
+  }
+
+  // Gradient layer
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    top: 2px;
+    left: 2px;
+    border-radius: 4px;
+    background: var(--almost-black);
+    transform: translate3d(0, 0, 0);
+    transition: var(--transition);
+    z-index: -1;
+  }
+
+  // Default background layer
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    background: linear-gradient(
+      269.16deg,
+      #ffe580 -15.83%,
+      #ff7571 -4.97%,
+      #ff7270 15.69%,
+      #ea5dad 32.43%,
+      #c2a0fd 50.09%,
+      #9867f0 67.47%,
+      #3bf0e4 84.13%,
+      #33ce43 105.13%,
+      #b2f4b6 123.24%
+    );
+    background-position: 58% 50%;
+    background-size: 500%;
+    animation: gradient-shift 30s ease infinite;
+    z-index: -3;
+  }
+
+  &:hover {
+    background-color: transparent;
+    color: var(--almost-black);
+
+    &:before {
+      background: transparent;
     }
+  }
+`;
+
+const mixins = {
+  button,
+
+  bigButton: css`
+    ${({ theme }) => theme.mixins.button};
+
+    display: inline-flex;
+    height: 56px;
+    min-width: 200px;
+    padding: 4px 28px;
+    font-weight: var(--weight-semibold);
+    font-size: 17px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
   `,
 
-  // Mixin for styling <ul /> list
-  list: css`
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  smallButton: css`
+    ${({ theme }) => theme.mixins.button};
+
+    height: 48px;
+    min-width: 100px;
+    padding: 6px 20px;
+    font-weight: var(--weight-normal);
   `,
 
   flexItemsCenter: css`
@@ -44,19 +116,6 @@ const mixins = {
     align-items: flex-start;
     flex-direction: column;
   `,
-
-  button: css`
-    background-color: transparent;
-    text-decoration: none;
-    border: 0;
-    /* outline: 0; */
-    cursor: pointer;
-  `,
-
-  // boxShadow: css`
-  //   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-  //     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  // `
 
   boxShadow: css`
     border-bottom: 1px solid rgba(66, 82, 109, 0.5);

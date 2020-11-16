@@ -5,6 +5,15 @@ import { useTranslation } from '@hooks';
 const About = () => {
   const { sectionsHeaders } = useTranslation();
 
+  const SKILLS = [
+    'JavaScript (ES6+)',
+    'React',
+    'HTML, (S)CSS',
+    'Node.js',
+    'Gatsby',
+    'Typescript'
+  ];
+
   return (
     <section id="about">
       <h2 className="section-header">{sectionsHeaders.about}</h2>
@@ -23,12 +32,9 @@ const About = () => {
           </p>
           <p>Here are a few technologies I've been working with recently:</p>
           <ul>
-            <li>JavaScript (ES6+)</li>
-            <li>React</li>
-            <li>HTML, (S)CSS</li>
-            <li>Node.js</li>
-            <li>Gatsby</li>
-            <li>Typescript</li>
+            {SKILLS.map((name, i) => (
+              <li key={i}>{name}</li>
+            ))}
           </ul>
         </div>
         <div id="foo">
