@@ -1,0 +1,1 @@
+export { filteredList } from './filteredList';
