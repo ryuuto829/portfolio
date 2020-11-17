@@ -119,6 +119,36 @@ const mixins = {
 
   boxShadow: css`
     border-bottom: 1px solid rgba(66, 82, 109, 0.5);
+  `,
+
+  gridBackground: css`
+    background-color: transparent;
+    background-image: linear-gradient(
+        0deg,
+        transparent 24%,
+        rgba(255, 255, 255, 0.12) 25%,
+        rgba(255, 255, 255, 0.12) 26%,
+        transparent 27%,
+        transparent 74%,
+        rgba(255, 255, 255, 0.12) 75%,
+        rgba(255, 255, 255, 0.12) 76%,
+        transparent 77%,
+        transparent
+      ),
+      linear-gradient(
+        90deg,
+        transparent 24%,
+        rgba(255, 255, 255, 0.12) 25%,
+        rgba(255, 255, 255, 0.12) 26%,
+        transparent 27%,
+        transparent 74%,
+        rgba(255, 255, 255, 0.12) 75%,
+        rgba(255, 255, 255, 0.12) 76%,
+        transparent 77%,
+        transparent
+      );
+    background-size: 60px 60px;
+    opacity: 0.35;
   `
 };
 

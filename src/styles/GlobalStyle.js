@@ -72,8 +72,8 @@ const GlobalStyle = createGlobalStyle`
       /* Hide shadow when sidebar is open */
       header {
         background-color: transparent;
-        /* box-shadow: none; */
         border-bottom-color: transparent;
+        transform: translateY(0);
       }
     }
   }
@@ -124,6 +124,21 @@ const GlobalStyle = createGlobalStyle`
 
     font-weight: var(--weight-semibold);
     font-family: var(--family-secondary);
+    position: relative;
+    z-index: 5;
+
+    &:before {
+      ${({ theme }) => theme.mixins.gridBackground};
+
+      display: block;
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 0px;
+      width: 100%;
+      height: 72px;
+      z-index: -1;
+    }
   }
 
   /* Enable smooth scrolling */
