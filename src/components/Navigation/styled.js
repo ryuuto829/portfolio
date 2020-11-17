@@ -13,7 +13,7 @@ export const NavigationBar = styled.header`
   backdrop-filter: blur(10px);
   transition: var(--transition);
   filter: none;
-  z-index: 5;
+  z-index: 15;
 
   ${props =>
     props.scrollDirection === 'up' &&

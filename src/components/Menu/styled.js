@@ -27,8 +27,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  ${({ theme }) => theme.mixins.button};
-
   display: none;
   position: relative;
   width: 40px;
@@ -175,5 +173,14 @@ export const SideMenu = styled.aside`
 
   nav {
     margin-bottom: 30px;
+  }
+
+  & > div {
+    min-height: 0;
+    height: 100%;
+  }
+
+  div > :last-child {
+    margin-bottom: 3em;
   }
 `;

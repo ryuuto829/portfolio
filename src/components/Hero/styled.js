@@ -15,7 +15,29 @@ export const HeroSection = styled.section`
     font-family: var(--family-secondary);
     line-height: 1.3;
     font-weight: var(--weight-bold);
+  }
 
+  h2 {
+    background: linear-gradient(
+      269.16deg,
+      #ffe580 -15.83%,
+      #ff7571 -4.97%,
+      #ff7270 15.69%,
+      #ea5dad 32.43%,
+      #c2a0fd 50.09%,
+      #9867f0 67.47%,
+      #3bf0e4 84.13%,
+      #33ce43 105.13%,
+      #b2f4b6 123.24%
+    );
+    background-position: 58% 50%;
+    background-size: 500%;
+    animation: gradient-shift 30s ease infinite;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  h1 {
     background: linear-gradient(
       270.97deg,
       #ffe580 -21.36%,
@@ -42,111 +64,4 @@ export const HeroSection = styled.section`
     color: var(--slate);
     line-height: 160%;
   }
-`;
-
-export const LinksGroup = styled.ul`
-  ${({ theme }) => theme.mixins.list};
-
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  font-size: 16px;
-  margin-top: 20px;
-
-  li {
-    ${({ theme }) => theme.mixins.flexItemsCenter};
-
-    margin-top: 30px;
-    position: relative;
-    margin-right: 20px;
-
-    /* &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 48px;
-      height: 48px;
-      background-color: #27272c;
-      border-radius: 34px;
-      transition: var(--transition);
-      z-index: 1;
-    }
-
-    &:hover {
-      &:before {
-        width: 100%;
-      }
-
-      svg {
-        transform: translateX(15px);
-      }
-    } */
-
-    @media (max-width: 480px) {
-      &:before,
-      span {
-        display: none;
-      }
-    }
-  }
-
-  /* a {
-    ${({ theme }) =>
-    theme.mixins
-      .link};
-
-    display: block;
-    position: relative;
-    padding: 10px 20px 10px 58px;
-    color: ${({
-    theme
-  }) =>
-    theme.colorMainText};
-    line-height: 24px;
-    z-index: 2;
-
-    @media (max-width: 480px) {
-      & {
-        padding: 10px 20px 10px 0px;
-      }
-    }
-  } */
-
-  span {
-    ${({ theme }) => theme.mixins.flexItemsCenter};
-
-    justify-content: flex-start;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 48px;
-    width: 48px;
-
-    svg {
-      transition: var(--transition);
-      transform: translateX(12px);
-      fill: ${({ theme }) => theme.colorMainText};
-    }
-  }
-
-  button {
-    position: relative;
-    padding: 6px;
-    background-color: #27272c;
-    color: ${({ theme }) => theme.colorMainText};
-    border-radius: 4px;
-    margin-right: 20px;
-    transition: var(--transition);
-    z-index: 2;
-
-    &:hover {
-      background-color: var(--light-blue);
-      color: var(--almost-black);
-    }
-  }
-`;
-
-export const foo = styled.a`
-  ${({ theme }) => theme.mixins.bigButton};
 `;

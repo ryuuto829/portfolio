@@ -71,23 +71,25 @@ const Menu = ({ navLinks }) => {
             showSidebar={showSidebar}
             aria-hidden={!showSidebar}
             tabIndex={showSidebar ? 1 : -1}>
-            <S.Navigation>
-              <S.NavigationList>
-                {navLinks &&
-                  navLinks.map(({ name, url }, i) => (
-                    <S.NavItem key={i}>
-                      <S.NavLink
-                        to={locale === 'en' ? url : `/${locale}${url}`}
-                        data-title={name}
-                        onClick={closeSidebar}>
-                        {name}
-                      </S.NavLink>
-                    </S.NavItem>
-                  ))}
-              </S.NavigationList>
-            </S.Navigation>
-            <Switch isActive={isDarkMode} onChangeHandler={toggleTheme} />
-            <LanguagesMenu />
+            <div>
+              <S.Navigation>
+                <S.NavigationList>
+                  {navLinks &&
+                    navLinks.map(({ name, url }, i) => (
+                      <S.NavItem key={i}>
+                        <S.NavLink
+                          to={locale === 'en' ? url : `/${locale}${url}`}
+                          data-title={name}
+                          onClick={closeSidebar}>
+                          {name}
+                        </S.NavLink>
+                      </S.NavItem>
+                    ))}
+                </S.NavigationList>
+              </S.Navigation>
+              <Switch isActive={isDarkMode} onChangeHandler={toggleTheme} />
+              <LanguagesMenu />
+            </div>
           </S.SideMenu>
         </S.Wrapper>
       </S.MenuContainer>
