@@ -118,7 +118,7 @@ const mixins = {
   `,
 
   boxShadow: css`
-    border-bottom: 1px solid rgba(66, 82, 109, 0.5);
+    border-bottom: 1px solid #2e333e;
   `,
 
   gridBackground: css`
@@ -149,6 +149,24 @@ const mixins = {
       );
     background-size: 60px 60px;
     opacity: 0.35;
+  `,
+
+  gradient: css`
+    background: linear-gradient(
+      269.16deg,
+      #ffe580 -15.83%,
+      #ff7571 -4.97%,
+      #ff7270 15.69%,
+      #ea5dad 32.43%,
+      #c2a0fd 50.09%,
+      #9867f0 67.47%,
+      #3bf0e4 84.13%,
+      #33ce43 105.13%,
+      #b2f4b6 123.24%
+    );
+    background-position: 58% 50%;
+    background-size: 500%;
+    animation: gradient-shift 30s ease infinite;
   `
 };
 

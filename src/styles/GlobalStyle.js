@@ -19,6 +19,13 @@ const GlobalStyle = createGlobalStyle`
 
     --text-small: 1.4rem;
     --text-normal: 1.7rem;
+    --text-large: 2.5rem;
+
+    --space-small: 1rem;
+    --space: 2rem;
+    --space-large: 3rem;
+    --space-extra: 4rem;
+    --space-huge: 5rem;
 
     --weight-light: 300;
     --weight-normal: 400;
@@ -46,6 +53,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 100%;
     margin: 0;
     width: 100%;
     min-height: 100%;
@@ -54,19 +64,22 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colorMainText};
     font-family: var(--family-primary);
     font-size: var(--text-normal);
-    line-height: 1;
+    font-weight: var(--weight-light);
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     &.blur {
       overflow: hidden;
 
       #content  {
-        /* filter: blur(5px) brightness(0.7); */
         filter: blur(5px) brightness(0.2);
-        transition: var(--transition);
-        pointer-events: none;
-        user-select: none;
         backdrop-filter: blur(5px);
         pointer-events: none;
+        user-select: none;
+        pointer-events: none;
+        transition: var(--transition);
       }
 
       /* Hide shadow when sidebar is open */
@@ -99,10 +112,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   section {
+    position: relative;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 100px 0;
-    max-width: 1000px;
-    position: relative;
 
     @media (max-width: 768px) {
       padding: 80px 0;
@@ -110,10 +123,6 @@ const GlobalStyle = createGlobalStyle`
 
     @media (max-width: 480px) {
       padding: 60px 0;
-    }
-
-    &:last-child {
-      ${({ theme }) => theme.mixins.boxShadow};
     }
   }
 
@@ -151,10 +160,6 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: middle;
   }
 
-  ::selection{
-    background: rgba(111,66,193,0.8);
-  }
-
   ul {
     list-style: none;
     margin: 0;
@@ -181,6 +186,19 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     border: 0;
     cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  ::selection {
+    background: rgba(111,66,193,0.8);
   }
 `;
 
