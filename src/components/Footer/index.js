@@ -2,7 +2,9 @@ import React from 'react';
 import * as S from './styled';
 import { useTranslation } from '@hooks';
 
+import Rocket from '@icons/Rocket';
 import { socialLinks } from '@config';
+import Tooltip from '@components/Tooltip';
 
 const Footer = () => {
   // Query the JSON files in ./config/i18n/index
@@ -10,9 +12,18 @@ const Footer = () => {
 
   const year = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
-      <footer>
+      <S.Footer>
+        <Tooltip content="Scroll to Top" placement="right">
+          <S.ToTop onClick={scrollToTop}>
+            <Rocket />
+          </S.ToTop>
+        </Tooltip>
         <S.SocialMenu>
           {socialLinks &&
             socialLinks.map(({ url, name }, i) => (
@@ -39,7 +50,7 @@ const Footer = () => {
           </S.GatsbyLink>{' '}
           | Hosted on ...
         </S.Credit>
-      </footer>
+      </S.Footer>
     </>
   );
 };

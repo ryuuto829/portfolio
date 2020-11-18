@@ -23,7 +23,8 @@ export const Showcase = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 10rem;
-  padding: 8vh 0 16vh;
+  /* padding: 8vh 0 16vh; */
+  padding: 8vh 0 12vh;
 
   justify-items: end;
 

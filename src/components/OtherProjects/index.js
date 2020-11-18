@@ -2,19 +2,40 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 
+import { CardHeader } from '@components/FeaturedProjects/styled';
+
+import { IconArrowForward, IconGithub, IconLink } from '@icons';
+
 const OtherProjects = ({ projectsList }) => (
   <S.ProjectsList>
     {projectsList &&
       projectsList.map((project, i) => {
-        const { title, about } = project;
+        const { title, about, technologies } = project;
         // add later external and github to const
 
         return (
-          <div className="project-card" key={i}>
+          <div className="project-content" key={i}>
             <header>
-              <h3>{title}</h3>
-              <p>{about}</p>
+              <CardHeader>
+                <h3 className="project-title">{title}</h3>
+                <IconArrowForward />
+              </CardHeader>
+              <p className="project-description">{about}</p>
             </header>
+            <footer>
+              <ul className="project-techList">
+                {technologies &&
+                  technologies.map((tech, i) => <li key={i}>{tech}</li>)}
+              </ul>
+              <div className="project-links">
+                <a href="/">
+                  <IconGithub />
+                </a>
+                <a href="/">
+                  <IconLink />
+                </a>
+              </div>
+            </footer>
           </div>
         );
       })}

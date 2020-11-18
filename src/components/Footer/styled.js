@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
+export const Footer = styled.footer`
+  text-align: center;
+  position: relative;
+`;
+
 export const SocialMenu = styled.ul`
   ${({ theme }) => theme.mixins.list};
   ${({ theme }) => theme.mixins.flexItemsCenter};
-  padding: 20px 0;
+  /* padding: 20px 0; */
+  margin: 50px 0 20px 0;
 
   & li:first-child {
     margin-left: 0;
@@ -61,4 +67,16 @@ export const Credit = styled.p`
 
 export const GatsbyLink = styled.a`
   ${({ theme }) => theme.mixins.link};
+`;
+
+export const ToTop = styled.div`
+  position: absolute;
+  top: -76px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* display: inline-block; */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: var(--almost-black);
+  border-radius: 6px;
 `;

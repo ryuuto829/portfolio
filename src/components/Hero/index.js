@@ -2,18 +2,18 @@ import React from 'react';
 import * as S from './styled';
 import { useTranslation } from '@hooks';
 
-import ContactButton from '@components/ContactButton';
+import EmailLink from '@components/EmailLink';
 
 const Hero = () => {
   const { title, subTitle, greeting, smallBio } = useTranslation();
 
   return (
     <S.HeroSection id="home">
-      <span>{greeting}</span>
+      <p className="greeting">{greeting}</p>
       <h1>{title}</h1>
       <h2>{subTitle}</h2>
-      <p>{smallBio}</p>
-      <ContactButton />
+      <p className="bio">{smallBio}</p>
+      <EmailLink />
     </S.HeroSection>
   );
 };

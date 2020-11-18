@@ -1,16 +1,35 @@
 import styled from 'styled-components';
 
-export const Title = styled.h3`
-  font-size: var(--text-normal);
-  font-weight: var(--weight-light);
+export const OtherProject = styled.section`
+  padding-top: 0;
   text-align: center;
-  margin: 20px 0;
+
+  div {
+    text-align: left;
+  }
+
+  .section-overline {
+    font-size: var(--text-normal);
+    font-weight: var(--weight-light);
+    text-align: center;
+    margin: 0 0 20px 0;
+  }
+
+  button {
+    ${({ theme }) => theme.mixins.bigButton};
+
+    margin: 80px auto 0px;
+  }
 `;
 
-export const Button = styled.button`
-  ${({ theme }) => theme.mixins.bigButton};
-`;
+export const Blog = styled.section`
+  padding-top: 0;
+  text-align: center;
 
-export const Button1 = styled.button`
-  ${({ theme }) => theme.mixins.smallButton};
+  .section-overline {
+    font-size: var(--text-normal);
+    font-weight: var(--weight-light);
+    text-align: center;
+    margin: 0 0 20px 0;
+  }
 `;

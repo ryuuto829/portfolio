@@ -6,7 +6,11 @@ export const filteredList = (projectList, locale = 'en') => {
     const fileLang = item.node.parent.name.split('.')[1];
 
     // Filter files that matches given languages
-    if (fileLang === locale) filteredList.push(item.node.frontmatter);
+
+    if (fileLang === locale)
+      // We create a special node called "html" that will contain
+      // plain html string from markdown file
+      filteredList.push({ ...item.node.frontmatter, html: item.node.html });
 
     return filteredList;
   }, []);

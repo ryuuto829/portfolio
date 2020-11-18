@@ -2,9 +2,14 @@ import styled from 'styled-components';
 
 export const Menu = styled.ul`
   margin-top: 50px;
+  font-family: var(--family-secondary);
+  font-size: 20px;
+  font-weight: 300;
+  text-align: left;
 
   li {
-    border-bottom: 1px solid #2e333e;
+    ${({ theme }) => theme.mixins.boxShadow};
+
     padding: 20px;
   }
 `;

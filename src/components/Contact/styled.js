@@ -1,40 +1,45 @@
 import styled from 'styled-components';
 
-export const foo = styled.section`
-  /*  */
+export const ContactSection = styled.section`
   position: relative;
-  &:before {
+  margin-bottom: 100px;
+  text-align: center;
+
+  &:after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: -50px;
     right: 0;
     left: 0;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(
-      30deg,
-      #d367c1 10%,
-      #dedf40 25%,
-      #62cb5c 50%,
-      #00bbcb 75%,
-      #ab79d6 90%
+      269.16deg,
+      #ffe580 -15.83%,
+      #ff7571 -4.97%,
+      #ff7270 15.69%,
+      #ea5dad 32.43%,
+      #c2a0fd 50.09%,
+      #9867f0 67.47%,
+      #3bf0e4 84.13%,
+      #33ce43 105.13%,
+      #b2f4b6 123.24%
     );
   }
-  /*  */
 
   h2 {
-    margin-bottom: 50px;
-    text-align: center;
+    margin-bottom: var(--space-huge);
   }
 
   p {
     margin: 0 auto;
     font-weight: var(--weight-light);
-    line-height: 160%;
+    /* line-height: 160%; */
     text-align: center;
     max-width: 600px;
   }
 
-  ul {
-    margin-top: 50px;
+  ul,
+  a {
+    margin-top: var(--space-huge);
   }
 `;

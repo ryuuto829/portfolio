@@ -72,23 +72,27 @@ const Projects = () => {
   const { featured, projects } = useStaticQuery(query);
 
   return (
-    <section id="projects">
-      <div>
-        <h2 className="section-header">{sectionsHeaders.projects}</h2>
-        <FeaturedProjects projectsList={filteredList(featured, locale)} />
-      </div>
-      <div>
-        <S.Title>Other Noteworthy Projects</S.Title>
+    <>
+      <section id="projects">
+        <div>
+          <h2 className="section-header">{sectionsHeaders.projects}</h2>
+          <FeaturedProjects projectsList={filteredList(featured, locale)} />
+        </div>
+      </section>
+
+      <S.OtherProject>
+        <h3 className="section-overline">Other Noteworthy Projects</h3>
         <OtherProjects projectsList={filteredList(projects, locale)} />
-        <S.Button>
+        <button>
           <span>Show more</span>
-        </S.Button>
-      </div>
-      <div>
-        <S.Title>Some highlights from my blog</S.Title>
+        </button>
+      </S.OtherProject>
+
+      <S.Blog>
+        <h3 className="section-overline">Some highlights from my blog</h3>
         <Blog />
-      </div>
-    </section>
+      </S.Blog>
+    </>
   );
 };
 
