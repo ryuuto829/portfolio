@@ -6,15 +6,15 @@ import { LocaleProvider, ThemeProvider } from '@hooks';
 import SEO from '@components/SEO';
 
 const Layout = ({ children }) => (
-  <>
-    <SEO title="Dmytro Rykhlyk" />
-    <LocaleProvider>
-      <ThemeProvider>
-        <GlobalStyle />
-        {children}
-      </ThemeProvider>
-    </LocaleProvider>
-  </>
+  <LocaleProvider>
+    <ThemeProvider>
+      <GlobalStyle />
+
+      <SEO />
+
+      {children}
+    </ThemeProvider>
+  </LocaleProvider>
 );
 
 Layout.propTypes = {

@@ -1,18 +1,75 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { useLocation } from '@reach/router';
+import { useStaticQuery, graphql } from 'gatsby';
+import { useLocale } from '@hooks';
 
-const SEO = ({ title }) => (
-  <Helmet title={title}>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-  </Helmet>
-);
+const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        defaultTitle: title
+        titleTemplate
+        defaultDescription: description
+        siteUrl
+        defaultImage: image
+      }
+    }
+  }
+`;
 
-export default SEO;
+// Read more https://www.gatsbyjs.com/docs/add-seo-component/
+
+const SEO = ({ title, description, image }) => {
+  const { pathname } = useLocation();
+  const { locale } = useLocale();
+  const { site } = useStaticQuery(query);
+
+  const {
+    defaultTitle,
+    titleTemplate,
+    defaultDescription,
+    siteUrl,
+    defaultImage
+  } = site.siteMetadata;
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    image: `${siteUrl}${image || defaultImage}`,
+    url: `${siteUrl}${pathname}`
+  };
+
+  return (
+    <Helmet
+      title={title}
+      defaultTitle={seo.title}
+      titleTemplate={titleTemplate}>
+      <html lang={locale} />
+
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={seo.image} />
+
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:type" content="website" />
+    </Helmet>
+  );
+};
+
+SEO.defaultProps = {
+  title: null,
+  description: null,
+  image: null
+};
 
 SEO.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string
 };
+
+export default SEO;
