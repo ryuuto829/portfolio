@@ -1,10 +1,16 @@
 module.exports = {
   siteMetadata: {
     title: `Dmytro Rykhlyk`,
-    description: ``, // Add later
-    siteUrl: `https://www.gatsbyjs.org` // Add later
+    titleTemplate: '%s | Dmytro Rykhlyk',
+    description: `Dmytro Rykhlyk is a software engineer specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.`,
+    siteUrl: `http://localhost:8000`, // Add later
+    image: '/og.png'
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     'gatsby-transformer-json',
     {
       resolve: `gatsby-source-filesystem`,
@@ -27,35 +33,13 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/logo.png`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Roboto`,
-            variants: [`300`, `400`, `500`],
-            subsets: ['cyrillic-ext', 'latin-ext']
-          },
-          {
-            family: `Oswald`,
-            variants: [`300`, `400`, `600`],
-            subsets: ['cyrillic-ext', 'latin-ext']
-          }
+          `roboto:300,400,500`,
+          `roboto mono:300,400,500`,
+          `oswald:300,400,600`
         ]
       }
     },
@@ -65,8 +49,19 @@ module.exports = {
         plugins: []
       }
     },
-    `gatsby-plugin-styled-components`
-    // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
-    // `gatsby-plugin-offline`
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Dmytro Rykhlyk`,
+        short_name: `Dmytro Rykhlyk`,
+        start_url: `/`,
+        background_color: `#1e1e1e`,
+        theme_color: `#1e1e1e`,
+        display: `minimal-ui`,
+        icon: `src/images/logo.png`
+      }
+    },
+    // To learn more, visit: https://gatsby.dev/offline
+    `gatsby-plugin-offline`
   ]
 };
