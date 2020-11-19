@@ -12,5 +12,7 @@ module.exports = {
       name: 'Codepen',
       url: '/'
     }
-  ]
+  ],
+
+  email: 'rykhlyk.info@gmail.com'
 };

@@ -1,19 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { useTranslation } from '@hooks';
-
-import SEO from '@components/SEO';
-import Social from '@components/Social';
-import Navigation from '@components/Navigation';
-import Footer from '@components/Footer';
+import { Social, Navigation, Footer } from '@components';
 
 const NotFound = () => {
   const { page404 } = useTranslation();
 
   return (
     <>
-      <SEO title={page404.pageNotFound} />
+      <Helmet title="Page Not Found" />
 
       <Navigation />
       <Social />
@@ -21,7 +18,7 @@ const NotFound = () => {
         <Container>
           <h1>404</h1>
           <h2>{page404.pageNotFound}</h2>
-          <Button to="/">{page404.goHome}</Button>
+          <HomeLink to="/">{page404.goHome}</HomeLink>
         </Container>
         <Footer />
       </div>
@@ -31,25 +28,26 @@ const NotFound = () => {
 
 const Container = styled.main`
   ${({ theme }) => theme.mixins.flexItemsCenter};
+
   flex-direction: column;
+  text-align: center;
 
   h1 {
-    margin: 0;
     margin-bottom: 20px;
     font-family: var(--family-secondary);
     font-size: clamp(100px, 25vw, 200px);
     line-height: 1;
     font-weight: var(--weight-normal);
+    padding-right: 10px;
   }
 
   h2 {
-    margin: 0;
     font-size: clamp(30px, 5vw, 50px);
     font-weight: var(--weight-light);
   }
 `;
 
-const Button = styled(Link)`
+const HomeLink = styled(Link)`
   ${({ theme }) => theme.mixins.link};
 
   margin-top: 50px;

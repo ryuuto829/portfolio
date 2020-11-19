@@ -1,14 +1,15 @@
 import React from 'react';
+import {
+  Navigation,
+  Social,
+  Hero,
+  Projects,
+  About,
+  Contact,
+  Footer
+} from '@components';
 
-import Navigation from '@components/Navigation';
-import Hero from '@components/Hero';
-import Social from '@components/Social';
-import Footer from '@components/Footer';
-import Projects from '@components/Projects';
-import About from '@components/About';
-import Contact from '@components/Contact';
-
-const App = () => (
+const MainPage = () => (
   <>
     <Navigation />
     <Social />
@@ -24,4 +25,4 @@ const App = () => (
   </>
 );
 
-export default App;
+export default MainPage;
