@@ -10,14 +10,25 @@ const query = graphql`
           childTranslationsJson {
             title
             subTitle
-            rights
             greeting
             smallBio
+            contactMessage
             sectionsHeaders {
               projects
               blog
               about
               contact
+            }
+            footerContent {
+              rights
+              built
+              host
+            }
+            tooltipContent {
+              lightMode
+              darkMode
+              copied
+              goToTop
             }
             page404 {
               pageNotFound

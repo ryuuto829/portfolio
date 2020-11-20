@@ -1,3 +1,4 @@
+export { default as Icon } from './Icon';
 export { default as IconGithub } from './Github';
 export { default as IconLinkedin } from './Linkedin';
 export { default as IconCodepen } from './Codepen';
@@ -9,3 +10,4 @@ export { default as IconMoon } from './Moon';
 export { default as IconDownload } from './Download';
 export { default as IconEmail } from './Email';
 export { default as IconCopy } from './Copy';
+export { default as IconRocket } from './Rocket';

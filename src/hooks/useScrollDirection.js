@@ -24,6 +24,7 @@ const useScrollDirection = () => {
 
     return () => {
       window.removeEventListener('scroll', onScrollHandler);
+      window.cancelAnimationFrame(updateScrollDirection); // ??
     };
   }, []);
 
