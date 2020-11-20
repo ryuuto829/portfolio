@@ -17,8 +17,10 @@ const OtherProjects = ({ projectsList }) => (
           <div className="project-content" key={i}>
             <header>
               <CardHeader>
-                <h3 className="project-title">{title}</h3>
-                <IconArrowForward />
+                <a href="/">
+                  <h3 className="project-title">{title}</h3>
+                  <IconArrowForward />
+                </a>
               </CardHeader>
               <p className="project-description">{about}</p>
             </header>

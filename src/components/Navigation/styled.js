@@ -11,7 +11,7 @@ export const NavigationBar = styled.header`
   font-weight: var(--weight-light);
   background-color: ${({ theme }) => theme.colorBackgroundDimmed};
   backdrop-filter: blur(10px);
-  transition: var(--transition);
+  transition: background-color 0.25s ease-in-out, height 0.25s ease-in-out;
   filter: none;
   z-index: 15;
 
@@ -23,6 +23,7 @@ export const NavigationBar = styled.header`
 
       height: var(--nav-height-scroll);
       transform: translateY(0px);
+      transition: var(--transition);
     `};
 
   ${props =>
@@ -33,6 +34,7 @@ export const NavigationBar = styled.header`
 
       height: var(--nav-height-scroll);
       transform: translateY(calc(var(--nav-height-scroll) * -1));
+      transition: var(--transition);
     `};
 
   @media (max-width: 1080px) {

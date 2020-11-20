@@ -30,7 +30,7 @@ export const Showcase = styled.div`
 
   & > div {
     padding: 25px;
-    background-color: #27272c;
+    background-color: ${({ theme }) => theme.colorBlock};
     transform: skewY(-10deg);
     border-radius: 4px;
     width: 100%;
@@ -56,36 +56,7 @@ export const Showcase = styled.div`
 
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
-      background: linear-gradient(
-        269.16deg,
-        #ffe580 -15.83%,
-        #ff7571 -4.97%,
-        #ff7270 15.69%,
-        #ea5dad 32.43%,
-        #c2a0fd 50.09%,
-        #9867f0 67.47%,
-        #3bf0e4 84.13%,
-        #33ce43 105.13%,
-        #b2f4b6 123.24%
-      );
-      background-position: 58% 50%;
-      background-size: 500%;
-      animation: gradient-shift 30s ease infinite;
-
-      @keyframes gradient-shift {
-        0% {
-          background-position: 58% 50%;
-        }
-        25% {
-          background-position: 100% 0%;
-        }
-        75% {
-          background-position: 10% 50%;
-        }
-        to {
-          background-position: 58% 50%;
-        }
-      }
+      ${({ theme }) => theme.mixins.gradient};
     }
   }
 
@@ -141,16 +112,32 @@ export const ProjectContent = styled.div`
 `;
 
 export const CardHeader = styled.div`
-  ${({ theme }) => theme.mixins.flexItemsBetween};
+  /* ${({ theme }) => theme.mixins.flexItemsBetween}; */
 
-  fill: var(--light-gray);
-  margin-bottom: 40px;
+  /* fill: var(--light-gray); */
+  /* margin-bottom: 40px; */
+  margin-bottom: 15px;
+  /* cursor: pointer; */
+  position: relative;
+
+  a {
+    display: block;
+    width: 100%;
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
 
   h3 {
     font-size: 30px;
     font-family: var(--family-secondary);
     margin: 0;
     font-size: clamp(26px, 5vw, 30px);
+    padding-right: 30px;
   }
 
   h3,
@@ -202,7 +189,7 @@ export const Button = styled.button`
   ${({ theme }) => theme.mixins.smallButton};
 
   &:before {
-    background-color: #27272c;
+    background-color: ${({ theme }) => theme.colorBlock};
   }
 
   @media (max-width: 480px) {

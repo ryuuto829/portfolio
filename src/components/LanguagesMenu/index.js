@@ -26,14 +26,14 @@ const LanguagesMenu = () => {
 
           return (
             <Tooltip key={i} content={name} placement="bottom">
-              <S.MenuItem>
+              <li>
                 <S.LanguageLink
                   to="/"
                   onClick={e => changeLangHandler(e, path)}
                   $currentLang={locale === path}>
                   {path}
                 </S.LanguageLink>
-              </S.MenuItem>
+              </li>
             </Tooltip>
           );
         })}

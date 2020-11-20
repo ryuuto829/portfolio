@@ -1,17 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-
   :root {
     --white: #fff;
+    --black: #000;
     --almost-black: #1d1c21;
+    --dark-gray: #27272c;
     --light-gray: #dfdfdf;
+    --extra-light-gray: #f2f3f5;
     --light-blue: #90caf9;
-
     --slate: #b5bfd2;
+    --dark-slate: #6d7583;
+
     --black-transparent: rgba(29, 28, 33, 0.8);
     --white-transparent: rgba(255, 255, 255, 0.5);
-
+    --white-rgb: 255, 255, 255;
+    --black-rgb: 0, 0, 0;
 
     --family-primary: 'Roboto', Arial, sans-serif;
     --family-secondary: 'Oswald', Helvetica, Arial, sans-serif;
@@ -32,10 +36,11 @@ const GlobalStyle = createGlobalStyle`
     --weight-semibold: 500;
     --weight-bold: 600;
 
-    --space-l: 4rem;
+    --border-radius: 6px;
 
     --transition: all 0.25s ease-in-out;
 
+    --nav-button-height: 32px;
     --nav-height-scroll: 64px;
     --nav-height: 100px;
   }
@@ -97,6 +102,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1600px;
     min-height: 100vh;
     background-color: ${({ theme }) => theme.colorMainBackground};
+    transition: background-color 0.25s ease-in-out;
 
     @media (max-width: 1080px) {
       padding: 0 100px;
@@ -145,7 +151,7 @@ const GlobalStyle = createGlobalStyle`
       top: -20px;
       left: 0px;
       width: 100%;
-      height: 72px;
+      height: 90px;
       z-index: -1;
     }
   }
@@ -175,7 +181,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:active {
-      color: var(--white);
+      color: ${({ theme }) => theme.colorActive};
       outline: 0;
     }
   }
@@ -198,7 +204,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background: rgba(111,66,193,0.8);
+    background: ${({ theme }) => theme.colorSelection};
   }
 `;
 

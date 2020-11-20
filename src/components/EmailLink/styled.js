@@ -3,29 +3,43 @@ import styled from 'styled-components';
 export const EmailLink = styled.a`
   ${({ theme }) => theme.mixins.bigButton};
 
-  /*  */
   text-transform: none;
   letter-spacing: 0;
   font-weight: var(--weight-normal);
-  /*  */
 
-  &:hover .detail {
-    color: inherit;
+  .email-link {
+    padding-right: var(--space-small);
+    border-right: 1px solid;
   }
 
-  button {
-    position: relative;
-    margin-left: 10px;
-    padding: 6px;
-    background-color: #27272c;
-    color: ${({ theme }) => theme.colorMainText};
-    border-radius: 4px;
-    transition: var(--transition);
-    z-index: 2;
+  .copy-button {
+    ${({ theme }) => theme.mixins.flexItemsCenter};
 
-    &:hover {
-      background-color: var(--light-blue);
-      color: var(--almost-black);
+    position: relative;
+    margin-left: var(--space-small);
+    padding: 6px;
+    color: ${({ theme }) => theme.colorMainText};
+    border-radius: var(--border-radius);
+    color: inherit;
+    outline: 0;
+    z-index: 20;
+
+    svg {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    ${({ theme }) => theme.mixins.smallButton};
+
+    .email-link {
+      border-right: 0;
+      padding-right: 0;
+    }
+
+    svg,
+    .copy-button {
+      display: none;
     }
   }
 `;

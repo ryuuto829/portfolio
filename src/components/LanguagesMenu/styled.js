@@ -4,14 +4,17 @@ import { Link } from 'gatsby';
 export const MenuList = styled.ul`
   ${({ theme }) => theme.mixins.list};
   ${({ theme }) => theme.mixins.flexItemsBetween};
-`;
 
-export const MenuItem = styled.li`
-  padding: 10px;
+  height: var(--nav-button-height);
+
+  li {
+    padding: var(--space-small);
+  }
 `;
 
 export const LanguageLink = styled(Link)`
   ${({ theme }) => theme.mixins.link};
+
   font-size: var(--text-small);
   transition: var(--transition);
   text-transform: uppercase;
@@ -19,6 +22,6 @@ export const LanguageLink = styled(Link)`
   ${props =>
     props.$currentLang &&
     css`
-      font-weight: 700;
+      font-weight: var(--weight-bold);
     `};
 `;

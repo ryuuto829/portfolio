@@ -12,6 +12,7 @@ const button = css`
   overflow: hidden;
   transition: var(--transition);
   z-index: 1;
+  color: ${({ theme }) => theme.colorMainText};
 
   svg {
     margin-right: 10px;
@@ -27,7 +28,7 @@ const button = css`
     top: 2px;
     left: 2px;
     border-radius: 4px;
-    background: var(--almost-black);
+    background: ${({ theme }) => theme.colorMainBackground};
     transform: translate3d(0, 0, 0);
     transition: var(--transition);
     z-index: -1;
@@ -45,21 +46,7 @@ const button = css`
     border-radius: 4px;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    background: linear-gradient(
-      269.16deg,
-      #ffe580 -15.83%,
-      #ff7571 -4.97%,
-      #ff7270 15.69%,
-      #ea5dad 32.43%,
-      #c2a0fd 50.09%,
-      #9867f0 67.47%,
-      #3bf0e4 84.13%,
-      #33ce43 105.13%,
-      #b2f4b6 123.24%
-    );
-    background-position: 58% 50%;
-    background-size: 500%;
-    animation: gradient-shift 30s ease infinite;
+    ${({ theme }) => theme.mixins.gradient};
     z-index: -3;
   }
 
@@ -126,24 +113,24 @@ const mixins = {
     background-image: linear-gradient(
         0deg,
         transparent 24%,
-        rgba(255, 255, 255, 0.12) 25%,
-        rgba(255, 255, 255, 0.12) 26%,
+        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 25%,
+        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 26%,
         transparent 27%,
         transparent 74%,
-        rgba(255, 255, 255, 0.12) 75%,
-        rgba(255, 255, 255, 0.12) 76%,
+        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 75%,
+        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 76%,
         transparent 77%,
         transparent
       ),
       linear-gradient(
         90deg,
         transparent 24%,
-        rgba(255, 255, 255, 0.12) 25%,
-        rgba(255, 255, 255, 0.12) 26%,
+        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 25%,
+        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 26%,
         transparent 27%,
         transparent 74%,
-        rgba(255, 255, 255, 0.12) 75%,
-        rgba(255, 255, 255, 0.12) 76%,
+        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 75%,
+        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 76%,
         transparent 77%,
         transparent
       );
@@ -167,6 +154,21 @@ const mixins = {
     background-position: 58% 50%;
     background-size: 500%;
     animation: gradient-shift 30s ease infinite;
+
+    @keyframes gradient-shift {
+      0% {
+        background-position: 58% 50%;
+      }
+      25% {
+        background-position: 100% 0%;
+      }
+      75% {
+        background-position: 10% 50%;
+      }
+      to {
+        background-position: 58% 50%;
+      }
+    }
   `
 };
 

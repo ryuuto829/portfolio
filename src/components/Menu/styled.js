@@ -2,14 +2,14 @@ import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
 export const MenuContainer = styled.div`
-  display: flex;
+  ${({ theme }) => theme.mixins.flexItemsCenter};
 `;
 
 export const ControlsMenu = styled.div`
   display: ${props => (!props.showSidebar ? 'flex' : 'none')};
 
-  & > ul {
-    margin-left: 40px;
+  & ul {
+    margin-left: var(--space-extra);
   }
 
   @media (max-width: 480px) {
@@ -17,16 +17,16 @@ export const ControlsMenu = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const DrawerWrapper = styled.div`
   display: none;
 
   @media (max-width: 768px) {
     display: block;
-    margin-left: 40px;
+    margin-left: var(--space-extra);
   }
 `;
 
-export const Button = styled.button`
+export const HamburgerButton = styled.button`
   display: none;
   position: relative;
   width: 40px;
@@ -51,7 +51,6 @@ export const Button = styled.button`
 
 export const Hamburger = styled.div`
   display: block;
-  /* top: 50%; */
   margin-top: -2px;
   transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transition-duration: 75ms;
@@ -73,7 +72,7 @@ export const Hamburger = styled.div`
     transition-timing-function: ease;
     transition-duration: 0.15s;
     transition-property: transform;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     background-color: ${({ theme }) => theme.colorMainText};
   }
 
@@ -112,33 +111,6 @@ export const Hamburger = styled.div`
     `};
 `;
 
-export const NavigationList = styled.ul`
-  ${({ theme }) => theme.mixins.list};
-  ${({ theme }) => theme.mixins.flexColumn};
-
-  color: var(--text-color);
-  font-family: var(--family-secondary);
-  font-size: 3.5rem;
-  white-space: nowrap;
-  margin-left: 0;
-  border-bottom: 1px solid #2e333e;
-`;
-
-export const NavItem = styled.li`
-  padding: 10px;
-  margin-bottom: 30px;
-  width: 100%;
-  text-align: left;
-`;
-
-export const NavLink = styled(Link)`
-  ${({ theme }) => theme.mixins.link};
-`;
-
-export const Navigation = styled.nav`
-  width: 100%;
-`;
-
 export const SideMenu = styled.aside`
   ${({ theme }) => theme.mixins.flexColumn};
 
@@ -148,12 +120,10 @@ export const SideMenu = styled.aside`
   bottom: 0;
   right: 0;
   height: 100vh;
-  /* background-color: black; */
   background-color: transparent;
   transform: translateX(${props => (props.showSidebar ? '0' : '100vw')});
   transition: var(--transition);
   outline: 0;
-  /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); */
   padding: 80px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -163,24 +133,43 @@ export const SideMenu = styled.aside`
     display: none;
   }
 
-  & > * {
-    margin-bottom: 20px;
-
-    &:last-child {
-      margin: 0;
-    }
-  }
-
-  nav {
-    margin-bottom: 30px;
-  }
-
   & > div {
     min-height: 0;
     height: 100%;
   }
 
-  div > :last-child {
-    margin-bottom: 3em;
+  /* Languages menu */
+  div > ul:last-child {
+    justify-content: flex-start;
+    margin-top: var(--space);
+    margin-bottom: var(--space-large);
   }
+`;
+
+export const Navigation = styled.nav`
+  width: 100%;
+  margin-bottom: var(--space-large);
+
+  ul {
+    ${({ theme }) => theme.mixins.list};
+    ${({ theme }) => theme.mixins.flexColumn};
+
+    color: var(--text-color);
+    font-family: var(--family-secondary);
+    font-size: 3.5rem;
+    white-space: nowrap;
+    margin-left: 0;
+    border-bottom: 1px solid #2e333e;
+  }
+
+  li {
+    padding: 10px;
+    margin-bottom: var(--space-large);
+    width: 100%;
+    text-align: left;
+  }
+`;
+
+export const NavLink = styled(Link)`
+  ${({ theme }) => theme.mixins.link};
 `;

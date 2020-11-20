@@ -21,8 +21,10 @@ const FeaturedProjects = ({ projectsList }) => (
               <S.ProjectContent>
                 <p className="project-overline">Featured Project</p>
                 <S.CardHeader>
-                  <h3>{title}</h3>
-                  <IconArrowForward />
+                  <a href="/">
+                    <h3>{title}</h3>
+                    <IconArrowForward />
+                  </a>
                 </S.CardHeader>
                 <p className="project-description">{about}</p>
                 <S.TechList>

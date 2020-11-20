@@ -1,17 +1,18 @@
 import React from 'react';
 import * as S from './styled';
-import { useTheme } from '@hooks';
-
-import Icon from '@icons/Icon';
-import Tooltip from '@components/Tooltip';
+import { useTheme, useTranslation } from '@hooks';
+import { Icon } from '@icons';
+import { Tooltip } from '@components';
 
 const ButtonTheming = () => {
+  const { tooltipContent } = useTranslation();
   const { theme, toggleTheme } = useTheme();
 
   const isDarkMode = theme === 'dark';
 
   return (
-    <Tooltip content={isDarkMode ? 'Light Mode' : 'Dark Mode'}>
+    <Tooltip
+      content={isDarkMode ? tooltipContent.lightMode : tooltipContent.darkMode}>
       <S.Button onClick={toggleTheme}>
         <Icon name={isDarkMode ? 'Sun' : 'Moon'} />
       </S.Button>

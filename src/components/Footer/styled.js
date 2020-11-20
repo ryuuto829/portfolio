@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 
 export const Footer = styled.footer`
+  ${({ theme }) => theme.mixins.flexItemsCenter};
+
+  flex-direction: column;
   text-align: center;
   position: relative;
+  height: auto;
+  min-height: 200px;
+  padding: 15px;
 `;
 
 export const SocialMenu = styled.ul`
   ${({ theme }) => theme.mixins.list};
   ${({ theme }) => theme.mixins.flexItemsCenter};
-  /* padding: 20px 0; */
-  margin: 50px 0 20px 0;
+  margin: 0 0 20px 0;
 
   & li:first-child {
     margin-left: 0;
@@ -59,10 +64,18 @@ export const SocialLink = styled.a`
   }
 `;
 
-export const Credit = styled.p`
+export const Credit = styled.div`
   font-size: var(--text-small);
-  color: #707886; // Move to global style
-  text-align: center;
+  color: ${({ theme }) => theme.colorSecondaryText};
+  padding: var(--space-small);
+
+  p {
+    margin: 0 0 var(--space-small);
+  }
+
+  p:last-of-type {
+    margin: 0;
+  }
 `;
 
 export const GatsbyLink = styled.a`
@@ -74,9 +87,9 @@ export const ToTop = styled.div`
   top: -76px;
   left: 50%;
   transform: translateX(-50%);
-  /* display: inline-block; */
   margin: 0 auto;
   padding: 10px;
-  background-color: var(--almost-black);
-  border-radius: 6px;
+  background-color: ${({ theme }) => theme.colorMainBackground};
+  border-radius: var(--border-radius);
+  cursor: pointer;
 `;

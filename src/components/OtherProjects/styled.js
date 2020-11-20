@@ -8,7 +8,7 @@ export const ProjectsList = styled.div`
   margin-top: 50px;
 
   .project-content {
-    background-color: #27272c;
+    background-color: ${({ theme }) => theme.colorBlock};
     padding: 2rem 1.75rem;
     border-radius: 4px;
     transition: var(--transition);
@@ -34,21 +34,7 @@ export const ProjectsList = styled.div`
       z-index: -1;
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
-      background: linear-gradient(
-        269.16deg,
-        #ffe580 -15.83%,
-        #ff7571 -4.97%,
-        #ff7270 15.69%,
-        #ea5dad 32.43%,
-        #c2a0fd 50.09%,
-        #9867f0 67.47%,
-        #3bf0e4 84.13%,
-        #33ce43 105.13%,
-        #b2f4b6 123.24%
-      );
-      background-position: 58% 50%;
-      background-size: 500%;
-      animation: gradient-shift 30s ease infinite;
+      ${({ theme }) => theme.mixins.gradient};
       transition: var(--transition);
       opacity: 0;
     }

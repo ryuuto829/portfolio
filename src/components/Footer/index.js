@@ -1,14 +1,13 @@
 import React from 'react';
 import * as S from './styled';
 import { useTranslation } from '@hooks';
-
-import Rocket from '@icons/Rocket';
 import { socialLinks } from '@config';
-import Tooltip from '@components/Tooltip';
+import { IconRocket } from '@icons';
+import { Tooltip } from '@components';
 
 const Footer = () => {
   // Query the JSON files in ./config/i18n/index
-  const { title, rights } = useTranslation();
+  const { title, footerContent, tooltipContent } = useTranslation();
 
   const year = new Date().getFullYear();
 
@@ -19,9 +18,9 @@ const Footer = () => {
   return (
     <>
       <S.Footer>
-        <Tooltip content="Scroll to Top" placement="right">
+        <Tooltip content={tooltipContent.goToTop} placement="right">
           <S.ToTop onClick={scrollToTop}>
-            <Rocket />
+            <IconRocket />
           </S.ToTop>
         </Tooltip>
         <S.SocialMenu>
@@ -39,16 +38,20 @@ const Footer = () => {
               </S.SocialItem>
             ))}
         </S.SocialMenu>
-        <S.Credit>{`© ${year} ${title}. ${rights}`}</S.Credit>
         <S.Credit>
-          Built with{' '}
-          <S.GatsbyLink
-            href="https://www.gatsbyjs.org/"
-            target="_blank"
-            rel="noopener noreferrer">
-            Gatsby
-          </S.GatsbyLink>{' '}
-          | Hosted on ...
+          <p>{`© ${year} ${title}. ${footerContent.rights}`}</p>
+
+          <p>
+            {footerContent.built}
+            {''}
+            <S.GatsbyLink
+              href="https://www.gatsbyjs.org/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Gatsby
+            </S.GatsbyLink>{' '}
+            | {footerContent.host} ...
+          </p>
         </S.Credit>
       </S.Footer>
     </>

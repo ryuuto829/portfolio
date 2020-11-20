@@ -1,29 +1,36 @@
 import React from 'react';
 import * as S from './styled';
-// import { useTranslation } from '@hooks';
-
-import { IconEmail } from '@icons';
+import { useTranslation } from '@hooks';
+import { email } from '@config';
+import { IconEmail, IconCopy } from '@icons';
 import Tooltip from '@components/Tooltip';
 
 const EmailLink = () => {
+  const { tooltipContent } = useTranslation();
+
   // Copy text to the clipboard on button click
-  const copyEmailToClipboard = () => {
-    navigator.clipboard.writeText('rykhlyk.info@gmail.com');
+  const copyEmailToClipboard = e => {
+    // Prevent Event bubbling, to not click on link
+    e.preventDefault();
+
+    navigator.clipboard.writeText(email);
   };
 
   return (
-    <S.EmailLink href="mailto:rykhlyk.info@gmail.com">
+    <S.EmailLink href={`mailto:${email}`}>
       <IconEmail />
-      <span>rykhlyk.info@gmail.com</span>
+      <span className="email-link">{email}</span>
       <Tooltip
-        content="Copied!"
+        content={tooltipContent.copied}
         trigger="click"
         onShow={instance => {
           setTimeout(() => {
             instance.hide();
           }, 2000);
         }}>
-        <button onClick={copyEmailToClipboard}>Copy</button>
+        <button onClick={e => copyEmailToClipboard(e)} className="copy-button">
+          <IconCopy />
+        </button>
       </Tooltip>
     </S.EmailLink>
   );

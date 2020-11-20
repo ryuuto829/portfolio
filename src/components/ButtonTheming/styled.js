@@ -5,13 +5,14 @@ export const Button = styled.button`
 
   padding: 5px;
   user-select: none;
+  height: var(--nav-button-height);
 
   & svg {
     fill: ${({ theme }) => theme.colorMainText};
     transition: var(--transition);
 
     &:hover {
-      fill: var(--light-blue);
+      fill: ${({ theme }) => theme.colorActive};
     }
   }
 `;

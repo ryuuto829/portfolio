@@ -11,7 +11,7 @@ export const HeroSection = styled.section`
   .greeting {
     margin: 0 0 var(--space-extra) 0;
     font-size: var(--text-large);
-    color: var(--slate);
+    color: ${({ theme }) => theme.colorSecondaryText};
   }
 
   h1 {
@@ -35,7 +35,7 @@ export const HeroSection = styled.section`
   .bio {
     max-width: 500px;
     margin: var(--space-extra) 0 0 0;
-    color: var(--slate);
+    color: ${({ theme }) => theme.colorSecondaryText};
   }
 
   a {
