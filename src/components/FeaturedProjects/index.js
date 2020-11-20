@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 import * as S from './styled';
 import { IconArrowForward, IconGithub, IconLink } from '@icons';
 
@@ -7,16 +8,16 @@ const FeaturedProjects = ({ projectsList }) => (
   <S.Showcase>
     {projectsList &&
       projectsList.map((project, i) => {
-        const { title, about, technologies } = project;
+        const { title, about, technologies, featuredImage } = project;
         // add later external and github to const
 
         return (
           <div key={i}>
             <S.Featured>
               <S.ProjectImage>
-                <a href="https://placeholder.com/">
-                  <img src="https://via.placeholder.com/3200x1999" alt="..." />
-                </a>
+                {featuredImage && (
+                  <Img fluid={featuredImage.childImageSharp.fluid} />
+                )}
               </S.ProjectImage>
               <S.ProjectContent>
                 <p className="project-overline">Featured Project</p>
