@@ -15,7 +15,7 @@ export const OtherProject = styled.section`
     margin: 0 0 20px 0;
   }
 
-  button {
+  .show-more {
     ${({ theme }) => theme.mixins.bigButton};
 
     margin: 80px auto 0px;

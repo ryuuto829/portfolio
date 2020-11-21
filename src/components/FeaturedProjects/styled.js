@@ -74,9 +74,11 @@ export const ProjectImage = styled.div`
   transform: translateY(23px);
 
   & img {
+    filter: grayscale(50%);
     max-width: 100%;
     object-fit: cover;
     width: 100%;
+    border-radius: var(--border-radius);
   }
 
   @media (max-width: 925px) {
@@ -178,14 +180,14 @@ export const ButtonGroup = styled.div`
   margin-top: 40px;
   /* flex-wrap: wrap; */
 
-  & > button {
+  & > a {
     &:first-child {
       margin-right: 15px;
     }
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled.a`
   ${({ theme }) => theme.mixins.smallButton};
 
   &:before {

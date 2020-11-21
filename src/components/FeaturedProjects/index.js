@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import * as S from './styled';
 import { IconArrowForward, IconGithub, IconLink } from '@icons';
@@ -8,8 +9,15 @@ const FeaturedProjects = ({ projectsList }) => (
   <S.Showcase>
     {projectsList &&
       projectsList.map((project, i) => {
-        const { title, about, technologies, featuredImage } = project;
-        // add later external and github to const
+        const {
+          title,
+          about,
+          technologies,
+          featuredImage,
+          github,
+          external,
+          slug
+        } = project;
 
         return (
           <div key={i}>
@@ -22,10 +30,10 @@ const FeaturedProjects = ({ projectsList }) => (
               <S.ProjectContent>
                 <p className="project-overline">Featured Project</p>
                 <S.CardHeader>
-                  <a href="/">
+                  <Link to={slug}>
                     <h3>{title}</h3>
                     <IconArrowForward />
-                  </a>
+                  </Link>
                 </S.CardHeader>
                 <p className="project-description">{about}</p>
                 <S.TechList>
@@ -35,11 +43,17 @@ const FeaturedProjects = ({ projectsList }) => (
                     ))}
                 </S.TechList>
                 <S.ButtonGroup>
-                  <S.Button>
+                  <S.Button
+                    href={github}
+                    target="_blank"
+                    rel="noopener noreferrer">
                     <IconGithub />
                     <span>Github</span>
                   </S.Button>
-                  <S.Button>
+                  <S.Button
+                    href={external}
+                    target="_blank"
+                    rel="noopener noreferrer">
                     <IconLink />
                     <span>Demo</span>
                   </S.Button>

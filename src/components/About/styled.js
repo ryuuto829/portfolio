@@ -5,9 +5,11 @@ export const AboutInner = styled.div`
   grid-template-columns: 3fr 2fr;
   gap: 50px;
 
-  img {
+  .img {
+    display: block;
     width: 100%;
     max-width: 274px;
+    max-width: 100%;
     filter: grayscale(100%);
     object-fit: cover;
     opacity: 0.8;
@@ -39,7 +41,7 @@ export const AboutInner = styled.div`
   }
 
   #foo {
-    justify-self: center;
+    /* justify-self: center; */
   }
 
   @media (max-width: 768px) {

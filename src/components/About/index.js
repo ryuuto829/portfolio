@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './styled';
+import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation, useLocale } from '@hooks';
 import { filteredList } from '@utils';
@@ -20,6 +21,17 @@ const query = graphql`
         }
       }
     }
+
+    avatar: file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "me.png" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 500, traceSVG: { color: "#64ffda" }) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
   }
 `;
 
@@ -27,7 +39,7 @@ const About = () => {
   const { locale } = useLocale();
   const { sectionsHeaders } = useTranslation();
 
-  const { about } = useStaticQuery(query);
+  const { about, avatar } = useStaticQuery(query);
 
   const aboutContent = filteredList(about, locale)[0].html;
 
@@ -38,7 +50,7 @@ const About = () => {
         {/* gatsby-transformer-remark returns markdown content as html string */}
         <div dangerouslySetInnerHTML={{ __html: aboutContent }} />
         <div id="foo">
-          <img src="https://via.placeholder.com/274x274" alt="..." />
+          <Img fluid={avatar.childImageSharp.fluid} alt="..." className="img" />
         </div>
       </S.AboutInner>
     </section>

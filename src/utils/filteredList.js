@@ -10,7 +10,11 @@ export const filteredList = (projectList, locale = 'en') => {
     if (fileLang === locale)
       // We create a special node called "html" that will contain
       // plain html string from markdown file
-      filteredList.push({ ...item.node.frontmatter, html: item.node.html });
+      filteredList.push({
+        ...item.node.frontmatter,
+        ...item.node.fields,
+        html: item.node.html
+      });
 
     return filteredList;
   }, []);

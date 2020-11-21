@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import * as S from './styled';
 
 import { CardHeader } from '@components/FeaturedProjects/styled';
@@ -10,17 +11,17 @@ const OtherProjects = ({ projectsList }) => (
   <S.ProjectsList>
     {projectsList &&
       projectsList.map((project, i) => {
-        const { title, about, technologies } = project;
+        const { title, about, technologies, slug, github, external } = project;
         // add later external and github to const
 
         return (
           <div className="project-content" key={i}>
             <header>
               <CardHeader>
-                <a href="/">
+                <Link to={slug}>
                   <h3 className="project-title">{title}</h3>
                   <IconArrowForward />
-                </a>
+                </Link>
               </CardHeader>
               <p className="project-description">{about}</p>
             </header>
@@ -30,10 +31,10 @@ const OtherProjects = ({ projectsList }) => (
                   technologies.map((tech, i) => <li key={i}>{tech}</li>)}
               </ul>
               <div className="project-links">
-                <a href="/">
+                <a href={github}>
                   <IconGithub />
                 </a>
-                <a href="/">
+                <a href={external}>
                   <IconLink />
                 </a>
               </div>

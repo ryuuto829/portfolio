@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import * as S from './styled';
 import { useLocale, useTranslation } from '@hooks';
 import { filteredList } from '@utils';
@@ -13,6 +13,9 @@ export const query = graphql`
     ) {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             isFeatured
             showInProjects
@@ -59,20 +62,26 @@ const Projects = () => {
 
   return (
     <>
-      <section id="projects">
-        <div>
-          <h2 className="section-header">{sectionsHeaders.projects}</h2>
-          <FeaturedProjects projectsList={featuredList} />
-        </div>
-      </section>
+      {featuredList && featuredList.length > 0 && (
+        <section id="projects">
+          <div>
+            <h2 className="section-header">{sectionsHeaders.projects}</h2>
+            <FeaturedProjects projectsList={featuredList} />
+          </div>
+        </section>
+      )}
 
-      <S.OtherProject>
-        <h3 className="section-overline">Other Noteworthy Projects</h3>
-        <OtherProjects projectsList={projectsList} />
-        <button>
-          <span>Show more</span>
-        </button>
-      </S.OtherProject>
+      {projectsList && projectsList.length > 0 && (
+        <S.OtherProject>
+          <h3 className="section-overline">Other Noteworthy Projects</h3>
+          <OtherProjects projectsList={projectsList} />
+          <Link
+            to={locale === 'en' ? '/projects' : `/${locale}/projects`}
+            className="show-more">
+            <span>Show more</span>
+          </Link>
+        </S.OtherProject>
+      )}
 
       <S.Blog>
         <h3 className="section-overline">Some highlights from my blog</h3>
