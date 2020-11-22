@@ -10,7 +10,8 @@ export const Featured = styled.div`
   position: relative;
   /* padding: 8vh 0.5rem 5vh; */
   padding: 8vh 0 4vh;
-  transform: skewY(10deg);
+  /* transform: skewY(10deg); */
+  transform: skewY(4deg);
   text-align: left;
 
   @media (max-width: 925px) {
@@ -25,13 +26,13 @@ export const Showcase = styled.div`
   grid-gap: 10rem;
   /* padding: 8vh 0 16vh; */
   padding: 8vh 0 12vh;
-
   justify-items: end;
 
   & > div {
     padding: 25px;
     background-color: ${({ theme }) => theme.colorBlock};
-    transform: skewY(-10deg);
+    /* transform: skewY(-10deg); */
+    transform: skewY(-4deg);
     border-radius: 4px;
     width: 100%;
     display: flex;

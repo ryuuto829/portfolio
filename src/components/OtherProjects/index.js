@@ -31,10 +31,10 @@ const OtherProjects = ({ projectsList }) => (
                   technologies.map((tech, i) => <li key={i}>{tech}</li>)}
               </ul>
               <div className="project-links">
-                <a href={github}>
+                <a href={github} target="_blank" rel="noopener noreferrer">
                   <IconGithub />
                 </a>
-                <a href={external}>
+                <a href={external} target="_blank" rel="noopener noreferrer">
                   <IconLink />
                 </a>
               </div>

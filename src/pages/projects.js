@@ -19,7 +19,7 @@ const Projects = ({ data }) => {
       <Social />
       <div id="content">
         <main>
-          <section>
+          <StyledSection>
             <h1 className="section-header">
               A big list of things I’ve worked on
             </h1>
@@ -27,18 +27,38 @@ const Projects = ({ data }) => {
               {projectList &&
                 projectList.length > 0 &&
                 projectList.map((item, i) => {
-                  const { date, title } = item;
+                  const {
+                    date,
+                    title,
+                    slug,
+                    github,
+                    external,
+                    technologies
+                  } = item;
 
                   return (
                     <li key={i}>
                       <span className="project-year">{date}</span>
-                      <span className="project-title">{title}</span>
-                      <span className="project-tech">React Firebase Redux</span>
+                      <Link to={slug} className="project-title">
+                        {title}
+                      </Link>
+                      <div className="project-tech">
+                        {technologies &&
+                          technologies.map((item, i) => (
+                            <span key={i}>{item}</span>
+                          ))}
+                      </div>
                       <div className="project-links">
-                        <a href="/">
+                        <a
+                          href={github}
+                          target="_blank"
+                          rel="noopener noreferrer">
                           <IconGithub />
                         </a>
-                        <a href="/">
+                        <a
+                          href={external}
+                          target="_blank"
+                          rel="noopener noreferrer">
                           <IconLink />
                         </a>
                       </div>
@@ -46,8 +66,10 @@ const Projects = ({ data }) => {
                   );
                 })}
             </StyledList>
-            <StyledButton to="/">Go Back to Main Page</StyledButton>
-          </section>
+            <StyledButton to="/" className="home-button">
+              Go to Main Page
+            </StyledButton>
+          </StyledSection>
         </main>
         <Footer />
       </div>
@@ -88,18 +110,30 @@ export const query = graphql`
   }
 `;
 
+const StyledSection = styled.section`
+  margin-bottom: 100px;
+  text-align: center;
+
+  .home-button {
+    text-align: center;
+    margin-top: 80px;
+  }
+`;
+
 const StyledList = styled.ul`
+  text-align: start;
+
   li {
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr 1fr;
+    grid-template-columns: 60px 4fr 3fr 80px;
     gap: 20px;
     align-items: center;
     padding: 20px;
-
     ${({ theme }) => theme.mixins.boxShadow};
+    transition: var(--transition);
 
     &:hover {
-      background-color: #333;
+      background-color: ${({ theme }) => theme.colorBlock};
     }
   }
 
@@ -109,11 +143,24 @@ const StyledList = styled.ul`
 
   .project-title {
     font-family: var(--family-secondary);
-    font-size: 20px;
+    font-size: 25px;
+    transition: var(--transition);
+
+    &:hover {
+      transform: translateX(5px);
+    }
   }
 
   .project-tech {
     color: ${({ theme }) => theme.colorSecondaryText};
+
+    span:not(:last-child) {
+      &:after {
+        content: '·';
+        display: inline-block;
+        margin: 0 5px;
+      }
+    }
   }
 
   .project-links {
@@ -124,7 +171,7 @@ const StyledList = styled.ul`
 
   @media (max-width: 768px) {
     li {
-      grid-template-columns: 1fr 3fr 1fr;
+      grid-template-columns: 60px 1fr 80px;
     }
 
     .project-tech {
@@ -134,7 +181,7 @@ const StyledList = styled.ul`
 
   @media (max-width: 480px) {
     li {
-      grid-template-columns: 3fr 1fr;
+      grid-template-columns: 2fr minmax(40px, 1fr);
     }
 
     .project-year {
