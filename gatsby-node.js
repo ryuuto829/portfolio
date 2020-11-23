@@ -94,10 +94,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const projectTemplate = require.resolve(`./src/templates/project.js`);
 
+  // GatsbyImageSharpFluid fragment is not working in the gatsby-node.js
+  // so we manually add all fields to the query from
+  // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+
+  // Issue: https://github.com/birkir/gatsby-source-prismic-graphql/issues/98#issuecomment-553906330
   const projectList = await graphql(`
-    query {
+    {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/projects/" } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
       ) {
         edges {
           node {
@@ -108,13 +115,23 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               external
               github
               technologies
+              featuredImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000) {
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    sizes
+                  }
+                }
+              }
             }
             fields {
               isDefault
               locale
               slug
             }
-            html
           }
         }
       }
@@ -132,7 +149,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Creating project page for each markdown file
   projectContent.forEach(({ node }) => {
     const { slug, locale, isDefault } = node.fields;
-    const { title, date, external, github, technologies } = node.frontmatter;
+    const {
+      title,
+      date,
+      external,
+      github,
+      technologies,
+      about,
+      featuredImage
+    } = node.frontmatter;
 
     createPage({
       path: slug,
@@ -147,7 +172,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         external,
         github,
         technologies,
-        html: node.html
+        about,
+        html: node.html,
+        featuredImage
       }
     });
   });
