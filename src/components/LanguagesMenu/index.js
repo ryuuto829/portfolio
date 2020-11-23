@@ -1,44 +1,47 @@
 import React from 'react';
 import { navigate } from 'gatsby';
+import { useLocation } from '@reach/router';
 import * as S from './styled';
 
 import { useLocale } from '@hooks';
 import allLang from '@config/i18n/locales';
-import Tooltip from '@components/Tooltip';
+import { Tooltip } from '@components';
 
 const LanguagesMenu = () => {
-  const { locale, changeLocale } = useLocale();
+  const { locale } = useLocale();
+  const { pathname } = useLocation();
 
   const changeLangHandler = (e, lang) => {
     e.preventDefault();
+
     if (locale === lang) return;
 
-    changeLocale(lang);
-
-    lang === 'en' ? navigate('/') : navigate(`/${lang}`);
+    // Pathname is a string like in ex.: "/uk/" or "/uk/projects".
+    // In case we want to switch to default language, then we'll omit first three
+    // characters from the url ("/uk"), if not - add language to the path
+    lang === 'en'
+      ? navigate(pathname.slice(3))
+      : navigate(`/${lang}${pathname}`);
   };
 
   return (
-    <>
-      <S.MenuList>
-        {Object.keys(allLang).map((lang, i) => {
-          const { name, path } = allLang[lang];
+    <S.MenuList>
+      {Object.keys(allLang).map((lang, i) => {
+        const { name, path } = allLang[lang];
 
-          return (
-            <Tooltip key={i} content={name} placement="bottom">
-              <li>
-                <S.LanguageLink
-                  to="/"
-                  onClick={e => changeLangHandler(e, path)}
-                  $currentLang={locale === path}>
-                  {path}
-                </S.LanguageLink>
-              </li>
-            </Tooltip>
-          );
-        })}
-      </S.MenuList>
-    </>
+        return (
+          <Tooltip key={i} content={name} placement="bottom">
+            <li>
+              <S.LanguageLink
+                onClick={e => changeLangHandler(e, path)}
+                $currentLang={locale === path}>
+                {path}
+              </S.LanguageLink>
+            </li>
+          </Tooltip>
+        );
+      })}
+    </S.MenuList>
   );
 };
 export default LanguagesMenu;

@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { GlobalStyle } from '@styles';
-import { LocaleProvider, ThemeProvider } from '@hooks';
+import { useLocale } from '@hooks';
+import { Navigation, Social, SEO, Footer } from '@components';
 
-import SEO from '@components/SEO';
+const Layout = ({ children, locale }) => {
+  const { changeLocale } = useLocale();
 
-const Layout = ({ children }) => (
-  <LocaleProvider>
-    <ThemeProvider>
-      <GlobalStyle />
+  useEffect(() => {
+    // Update current locale in useLocale
+    changeLocale(locale);
+  }, [locale]);
 
+  return (
+    <>
       <SEO />
+      <Navigation />
+      <Social />
 
-      {children}
-    </ThemeProvider>
-  </LocaleProvider>
-);
+      <div id="content">
+        {children}
+        <Footer />
+      </div>
+    </>
+  );
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  locale: PropTypes.string.isRequired
 };
 
 export default Layout;

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
-import { Navigation, Social, Footer } from '@components';
 import { IconGithub, IconLink } from '@icons';
 import { filteredList } from '@utils';
 import { useLocale } from '@hooks';
@@ -15,64 +14,59 @@ const Projects = ({ data }) => {
 
   return (
     <>
-      <Navigation />
-      <Social />
-      <div id="content">
-        <main>
-          <StyledSection>
-            <h1 className="section-header">
-              A big list of things I’ve worked on
-            </h1>
-            <StyledList>
-              {projectList &&
-                projectList.length > 0 &&
-                projectList.map((item, i) => {
-                  const {
-                    date,
-                    title,
-                    slug,
-                    github,
-                    external,
-                    technologies
-                  } = item;
+      <main>
+        <StyledSection>
+          <h1 className="section-header">
+            A big list of things I’ve worked on
+          </h1>
+          <StyledList>
+            {projectList &&
+              projectList.length > 0 &&
+              projectList.map((item, i) => {
+                const {
+                  date,
+                  title,
+                  slug,
+                  github,
+                  external,
+                  technologies
+                } = item;
 
-                  return (
-                    <li key={i}>
-                      <span className="project-year">{date}</span>
-                      <Link to={slug} className="project-title">
-                        {title}
-                      </Link>
-                      <div className="project-tech">
-                        {technologies &&
-                          technologies.map((item, i) => (
-                            <span key={i}>{item}</span>
-                          ))}
-                      </div>
-                      <div className="project-links">
-                        <a
-                          href={github}
-                          target="_blank"
-                          rel="noopener noreferrer">
-                          <IconGithub />
-                        </a>
-                        <a
-                          href={external}
-                          target="_blank"
-                          rel="noopener noreferrer">
-                          <IconLink />
-                        </a>
-                      </div>
-                    </li>
-                  );
-                })}
-            </StyledList>
-            <StyledButton to="/" className="home-button">
-              Go to Main Page
-            </StyledButton>
-          </StyledSection>
-        </main>
-        <Footer />
-      </div>
+                return (
+                  <li key={i}>
+                    <span className="project-year">{date}</span>
+                    <Link to={slug} className="project-title">
+                      {title}
+                    </Link>
+                    <div className="project-tech">
+                      {technologies &&
+                        technologies.map((item, i) => (
+                          <span key={i}>{item}</span>
+                        ))}
+                    </div>
+                    <div className="project-links">
+                      <a
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <IconGithub />
+                      </a>
+                      <a
+                        href={external}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <IconLink />
+                      </a>
+                    </div>
+                  </li>
+                );
+              })}
+          </StyledList>
+          <StyledButton to="/" className="home-button">
+            Go to Main Page
+          </StyledButton>
+        </StyledSection>
+      </main>
     </>
   );
 };

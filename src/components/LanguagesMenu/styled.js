@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
 
 export const MenuList = styled.ul`
   ${({ theme }) => theme.mixins.list};
@@ -12,12 +11,11 @@ export const MenuList = styled.ul`
   }
 `;
 
-export const LanguageLink = styled(Link)`
-  ${({ theme }) => theme.mixins.link};
-
+export const LanguageLink = styled.button`
   font-size: var(--text-small);
   transition: var(--transition);
   text-transform: uppercase;
+  color: inherit;
 
   ${props =>
     props.$currentLang &&

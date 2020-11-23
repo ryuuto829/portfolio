@@ -27,8 +27,8 @@ export const query = graphql`
             external
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 700, traceSVG: { color: "#1e1e1e" }) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                fluid(maxWidth: 700) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

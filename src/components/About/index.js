@@ -27,8 +27,8 @@ const query = graphql`
       relativePath: { eq: "me.png" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 500, traceSVG: { color: "#64ffda" }) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

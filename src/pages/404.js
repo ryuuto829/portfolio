@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { useTranslation } from '@hooks';
-import { Social, Navigation, Footer } from '@components';
 
 const NotFound = () => {
   const { page404 } = useTranslation();
@@ -12,16 +11,11 @@ const NotFound = () => {
     <>
       <Helmet title="Page Not Found" />
 
-      <Navigation />
-      <Social />
-      <div id="content">
-        <Container>
-          <h1>404</h1>
-          <h2>{page404.pageNotFound}</h2>
-          <HomeLink to="/">{page404.goHome}</HomeLink>
-        </Container>
-        <Footer />
-      </div>
+      <Container>
+        <h1>404</h1>
+        <h2>{page404.pageNotFound}</h2>
+        <HomeLink to="/">{page404.goHome}</HomeLink>
+      </Container>
     </>
   );
 };
