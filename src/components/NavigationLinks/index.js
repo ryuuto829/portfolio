@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import { useActiveLinkObserver, useLocale } from '@hooks';
+import { Transition } from '@components';
 
 const NavigationLinks = ({ listItems, scrolledToTop }) => {
   const activeLink = useActiveLinkObserver();
@@ -18,11 +19,13 @@ const NavigationLinks = ({ listItems, scrolledToTop }) => {
             key={i}
             isActive={id === activeLink}
             scrolledToTop={scrolledToTop}>
-            <S.NavLink
-              to={locale === 'en' ? url : `/${locale}${url}`}
-              data-title={name}>
-              <span>{name}</span>
-            </S.NavLink>
+            <Transition delay={`${i * 100}ms`} animation="fadeInLeft">
+              <S.NavLink
+                to={locale === 'en' ? url : `/${locale}${url}`}
+                data-title={name}>
+                <span>{name}</span>
+              </S.NavLink>
+            </Transition>
           </S.NavItem>
         );
       })}

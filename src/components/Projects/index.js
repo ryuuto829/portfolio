@@ -1,9 +1,19 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import {
+  useStaticQuery,
+  graphql
+  //  Link
+} from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import * as S from './styled';
-import { useLocale, useTranslation } from '@hooks';
+import { useLocale, useTranslation, useTheme } from '@hooks';
 import { filteredList } from '@utils';
-import { FeaturedProjects, OtherProjects, Blog } from '@components';
+import {
+  FeaturedProjects,
+  OtherProjects,
+  Transition
+  // , Blog
+} from '@components';
 
 export const query = graphql`
   query {
@@ -48,6 +58,7 @@ export const query = graphql`
 const Projects = () => {
   const { locale } = useLocale();
   const { sectionsHeaders } = useTranslation();
+  const { theme } = useTheme();
 
   // Query all markdown files for featured and other projects
   // in './content/featured' folder for all available languages
@@ -65,7 +76,9 @@ const Projects = () => {
       {featuredList && featuredList.length > 0 && (
         <section id="projects">
           <div>
-            <h2 className="section-header">{sectionsHeaders.projects}</h2>
+            <Transition>
+              <h2 className="section-header">{sectionsHeaders.projects}</h2>
+            </Transition>
             <FeaturedProjects projectsList={featuredList} />
           </div>
         </section>
@@ -73,20 +86,26 @@ const Projects = () => {
 
       {projectsList && projectsList.length > 0 && (
         <S.OtherProject>
-          <h3 className="section-overline">Other Noteworthy Projects</h3>
+          <Transition>
+            <h3 className="section-overline">Other Noteworthy Projects</h3>
+          </Transition>
           <OtherProjects projectsList={projectsList} />
-          <Link
-            to={locale === 'en' ? '/projects' : `/${locale}/projects`}
-            className="show-more">
-            <span>Show more</span>
-          </Link>
+          <Transition>
+            <AniLink
+              paintDrip
+              hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}
+              to={locale === 'en' ? '/projects' : `/${locale}/projects`}
+              className="show-more">
+              <span>Show more</span>
+            </AniLink>
+          </Transition>
         </S.OtherProject>
       )}
 
-      <S.Blog>
+      {/* <S.Blog>
         <h3 className="section-overline">Some highlights from my blog</h3>
         <Blog />
-      </S.Blog>
+      </S.Blog> */}
     </>
   );
 };

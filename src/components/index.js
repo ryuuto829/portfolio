@@ -18,3 +18,4 @@ export { default as SEO } from './SEO';
 export { default as Social } from './Social';
 export { default as Switch } from './Switch';
 export { default as Tooltip } from './Tooltip';
+export { default as Transition } from './Transition';

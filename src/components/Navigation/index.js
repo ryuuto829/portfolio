@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import * as S from './styled';
-import { useScrollDirection, useScrolledToTop, useNavLinks } from '@hooks';
-
-import Logo from '@icons/Logo';
-import NavigationLinks from '@components/NavigationLinks';
-import Menu from '@components/Menu';
+import {
+  useScrollDirection,
+  useScrolledToTop,
+  useNavLinks,
+  useLocale
+} from '@hooks';
+import { IconLogo } from '@icons';
+import { NavigationLinks, Menu, Transition } from '@components';
 
 const Navigation = () => {
   const scrollDirection = useScrollDirection();
   const scrolledToTop = useScrolledToTop();
+  const { locale } = useLocale();
 
   // Query the JSON files in ./config/i18n/navLinks
   const { navLinks } = useNavLinks();
@@ -23,9 +27,14 @@ const Navigation = () => {
       scrollDirection={scrollDirection}
       scrolledToTop={scrolledToTop}>
       <S.MainNavigation>
-        <Link to="/" aria-label="home" onClick={scrollToTop}>
-          <Logo />
-        </Link>
+        <Transition animation="fadeInDown">
+          <Link
+            to={locale === 'en' ? '/' : `/${locale}/`}
+            aria-label="home"
+            onClick={scrollToTop}>
+            <IconLogo />
+          </Link>
+        </Transition>
         {navLinks && (
           <NavigationLinks listItems={navLinks} scrolledToTop={scrolledToTop} />
         )}

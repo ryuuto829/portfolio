@@ -16,13 +16,13 @@ const darkTheme = {
 const lightTheme = {
   mixins,
 
-  colorMainBackground: 'var(--white)',
+  colorMainBackground: 'var(--extra-light-gray)',
   colorMainText: 'var(--almost-black)',
   colorBackgroundDimmed: 'var(--white-transparent)',
   colorActive: 'var(--dark-slate)',
   colorSecondaryText: 'var(--dark-slate)',
   colorBackgroundContrast: 'var(--black-rgb)',
-  colorBlock: 'var(--extra-light-gray)',
+  colorBlock: 'var(--white)',
   colorSelection: 'rgb(159, 107, 255, 0.55)'
 };
 

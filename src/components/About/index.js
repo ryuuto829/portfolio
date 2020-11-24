@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation, useLocale } from '@hooks';
 import { filteredList } from '@utils';
+import { Transition } from '@components';
 
 const query = graphql`
   query {
@@ -45,13 +46,23 @@ const About = () => {
 
   return (
     <section id="about">
-      <h2 className="section-header">{sectionsHeaders.about}</h2>
+      <Transition>
+        <h2 className="section-header">{sectionsHeaders.about}</h2>
+      </Transition>
       <S.AboutInner>
-        {/* gatsby-transformer-remark returns markdown content as html string */}
-        <div dangerouslySetInnerHTML={{ __html: aboutContent }} />
-        <div id="foo">
-          <Img fluid={avatar.childImageSharp.fluid} alt="..." className="img" />
-        </div>
+        <Transition animation="fadeInLeft">
+          {/* gatsby-transformer-remark returns markdown content as html string */}
+          <div dangerouslySetInnerHTML={{ __html: aboutContent }} />
+        </Transition>
+        <Transition animation="fadeInRight">
+          <div id="foo">
+            <Img
+              fluid={avatar.childImageSharp.fluid}
+              alt="..."
+              className="img"
+            />
+          </div>
+        </Transition>
       </S.AboutInner>
     </section>
   );

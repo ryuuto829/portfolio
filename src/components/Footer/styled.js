@@ -9,6 +9,7 @@ export const Footer = styled.footer`
   height: auto;
   min-height: 200px;
   padding: 15px;
+  z-index: 100;
 `;
 
 export const SocialMenu = styled.ul`

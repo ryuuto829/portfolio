@@ -34,7 +34,9 @@ const Projects = ({ data }) => {
 
                 return (
                   <li key={i}>
-                    <span className="project-year">{date}</span>
+                    <span className="project-year">{`${new Date(
+                      date
+                    ).getFullYear()}`}</span>
                     <Link to={slug} className="project-title">
                       {title}
                     </Link>

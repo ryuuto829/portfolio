@@ -1,70 +1,87 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Img from 'gatsby-image';
 import * as S from './styled';
+import { useTheme } from '@hooks';
 import { IconArrowForward, IconGithub, IconLink } from '@icons';
+import { Transition } from '@components';
 
-const FeaturedProjects = ({ projectsList }) => (
-  <S.Showcase>
-    {projectsList &&
-      projectsList.map((project, i) => {
-        const {
-          title,
-          about,
-          technologies,
-          featuredImage,
-          github,
-          external,
-          slug
-        } = project;
+const FeaturedProjects = ({ projectsList }) => {
+  const { theme } = useTheme();
 
-        return (
-          <div key={i}>
-            <S.Featured>
-              <S.ProjectImage>
-                {featuredImage && (
-                  <Img fluid={featuredImage.childImageSharp.fluid} />
-                )}
-              </S.ProjectImage>
-              <S.ProjectContent>
-                <p className="project-overline">Featured Project</p>
-                <S.CardHeader>
-                  <Link to={slug}>
-                    <h3>{title}</h3>
-                    <IconArrowForward />
-                  </Link>
-                </S.CardHeader>
-                <p className="project-description">{about}</p>
-                <S.TechList>
-                  {technologies &&
-                    technologies.map((tech, i) => (
-                      <S.TechItem key={i}>{tech}</S.TechItem>
-                    ))}
-                </S.TechList>
-                <S.ButtonGroup>
-                  <S.Button
-                    href={github}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <IconGithub />
-                    <span>Github</span>
-                  </S.Button>
-                  <S.Button
-                    href={external}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <IconLink />
-                    <span>Demo</span>
-                  </S.Button>
-                </S.ButtonGroup>
-              </S.ProjectContent>
-            </S.Featured>
-          </div>
-        );
-      })}
-  </S.Showcase>
-);
+  return (
+    <S.Showcase>
+      {projectsList &&
+        projectsList.map((project, i) => {
+          const {
+            title,
+            about,
+            technologies,
+            featuredImage,
+            github,
+            external,
+            slug
+          } = project;
+
+          return (
+            <div key={i}>
+              <Transition>
+                <S.Featured>
+                  <S.ProjectImage>
+                    {featuredImage && (
+                      <AniLink
+                        paintDrip
+                        to={slug}
+                        hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}>
+                        <Img fluid={featuredImage.childImageSharp.fluid} />
+                      </AniLink>
+                    )}
+                  </S.ProjectImage>
+                  <S.ProjectContent>
+                    <p className="project-overline">Featured Project</p>
+                    <S.CardHeader>
+                      <AniLink
+                        paintDrip
+                        to={slug}
+                        hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}>
+                        <h3>{title}</h3>
+                        <IconArrowForward />
+                      </AniLink>
+                    </S.CardHeader>
+                    <p className="project-description">{about}</p>
+                    <S.TechList>
+                      {technologies &&
+                        technologies.map((tech, i) => (
+                          <S.TechItem key={i}>{tech}</S.TechItem>
+                        ))}
+                    </S.TechList>
+                    <S.ButtonGroup>
+                      <S.Button
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <IconGithub />
+                        <span>Github</span>
+                      </S.Button>
+                      <S.Button
+                        href={external}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <IconLink />
+                        <span>Demo</span>
+                      </S.Button>
+                    </S.ButtonGroup>
+                  </S.ProjectContent>
+                </S.Featured>
+              </Transition>
+            </div>
+          );
+        })}
+    </S.Showcase>
+  );
+};
 
 FeaturedProjects.propTypes = {
   projectsList: PropTypes.arrayOf(

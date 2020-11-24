@@ -74,6 +74,11 @@ export const ProjectImage = styled.div`
 
   transform: translateY(23px);
 
+  a {
+    display: block;
+    width: 100%;
+  }
+
   & img {
     filter: grayscale(50%);
     max-width: 100%;

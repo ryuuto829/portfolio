@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './styled';
 import { useTheme, useTranslation } from '@hooks';
 import { Icon } from '@icons';
-import { Tooltip } from '@components';
+import { Tooltip, Transition } from '@components';
 
 const ButtonTheming = () => {
   const { tooltipContent } = useTranslation();
@@ -11,12 +11,16 @@ const ButtonTheming = () => {
   const isDarkMode = theme === 'dark';
 
   return (
-    <Tooltip
-      content={isDarkMode ? tooltipContent.lightMode : tooltipContent.darkMode}>
-      <S.Button onClick={toggleTheme}>
-        <Icon name={isDarkMode ? 'Sun' : 'Moon'} />
-      </S.Button>
-    </Tooltip>
+    <Transition delay="500ms" animation="fadeInLeft">
+      <Tooltip
+        content={
+          isDarkMode ? tooltipContent.lightMode : tooltipContent.darkMode
+        }>
+        <S.Button onClick={toggleTheme}>
+          <Icon name={isDarkMode ? 'Sun' : 'Moon'} />
+        </S.Button>
+      </Tooltip>
+    </Transition>
   );
 };
 

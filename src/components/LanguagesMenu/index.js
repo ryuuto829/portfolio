@@ -5,7 +5,7 @@ import * as S from './styled';
 
 import { useLocale } from '@hooks';
 import allLang from '@config/i18n/locales';
-import { Tooltip } from '@components';
+import { Tooltip, Transition } from '@components';
 
 const LanguagesMenu = () => {
   const { locale } = useLocale();
@@ -32,11 +32,13 @@ const LanguagesMenu = () => {
         return (
           <Tooltip key={i} content={name} placement="bottom">
             <li>
-              <S.LanguageLink
-                onClick={e => changeLangHandler(e, path)}
-                $currentLang={locale === path}>
-                {path}
-              </S.LanguageLink>
+              <Transition delay={`${i * 100 + 500}ms`} animation="fadeInLeft">
+                <S.LanguageLink
+                  onClick={e => changeLangHandler(e, path)}
+                  $currentLang={locale === path}>
+                  {path}
+                </S.LanguageLink>
+              </Transition>
             </li>
           </Tooltip>
         );

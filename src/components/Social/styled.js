@@ -5,6 +5,7 @@ export const SideContainer = styled.div`
   top: 50%;
   transform: translateY(-50%);
   right: 40px;
+  z-index: 100;
 
   @media (max-width: 1080px) {
     right: 20px;
