@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const NavigationBar = styled.header`
+export const Header = styled.header`
   ${({ theme }) => theme.mixins.flexItemsBetween};
 
   position: fixed;
@@ -37,27 +37,15 @@ export const NavigationBar = styled.header`
       transition: var(--transition);
     `};
 
+  nav {
+    ${({ theme }) => theme.mixins.flexItemsCenter};
+  }
+
   @media (max-width: 1080px) {
     padding: 0 40px;
   }
 
   @media (max-width: 768px) {
     padding: 0 25px;
-  }
-`;
-
-export const MainNavigation = styled.nav`
-  ${({ theme }) => theme.mixins.flexItemsCenter};
-
-  ul {
-    margin-left: 40px;
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-
-  a svg {
-    color: ${({ theme }) => theme.colorActive};
   }
 `;

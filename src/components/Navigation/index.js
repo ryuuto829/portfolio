@@ -1,18 +1,21 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import * as S from './styled';
+import { Link } from 'gatsby';
 import {
   useScrollDirection,
   useScrolledToTop,
   useNavLinks,
-  useLocale
+  useLocale,
+  useActiveLinkObserver
 } from '@hooks';
 import { IconLogo } from '@icons';
 import { NavigationLinks, Menu, Transition } from '@components';
 
-const Navigation = () => {
+const Navigation = ({ isHome }) => {
   const scrollDirection = useScrollDirection();
   const scrolledToTop = useScrolledToTop();
+  const activeLink = useActiveLinkObserver();
   const { locale } = useLocale();
 
   // Query the JSON files in ./config/i18n/navLinks
@@ -23,25 +26,41 @@ const Navigation = () => {
   };
 
   return (
-    <S.NavigationBar
-      scrollDirection={scrollDirection}
-      scrolledToTop={scrolledToTop}>
-      <S.MainNavigation>
+    <S.Header scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+      <nav>
         <Transition animation="fadeInDown">
-          <Link
-            to={locale === 'en' ? '/' : `/${locale}/`}
-            aria-label="home"
-            onClick={scrollToTop}>
-            <IconLogo />
-          </Link>
+          {isHome ? (
+            <a
+              href={locale === 'en' ? '/' : `/${locale}/`}
+              aria-label="home"
+              onClick={scrollToTop}>
+              <IconLogo />
+            </a>
+          ) : (
+            <Link
+              to={locale === 'en' ? '/' : `/${locale}/`}
+              aria-label="home"
+              onClick={scrollToTop}>
+              <IconLogo />
+            </Link>
+          )}
         </Transition>
         {navLinks && (
-          <NavigationLinks listItems={navLinks} scrolledToTop={scrolledToTop} />
+          <NavigationLinks
+            listItems={navLinks}
+            scrolledToTop={scrolledToTop}
+            isHome={isHome}
+            activeLink={activeLink}
+          />
         )}
-      </S.MainNavigation>
+      </nav>
       <Menu navLinks={navLinks} />
-    </S.NavigationBar>
+    </S.Header>
   );
+};
+
+Navigation.propTypes = {
+  isHome: PropTypes.bool.isRequired
 };
 
 export default Navigation;

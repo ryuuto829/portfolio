@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 import { useLocation } from '@reach/router';
 import * as S from './styled';
-
-import { useLocale } from '@hooks';
+import { useLocale, useIsMounted } from '@hooks';
 import allLang from '@config/i18n/locales';
 import { Tooltip, Transition } from '@components';
 
-const LanguagesMenu = () => {
+const LanguagesMenu = ({ showSidebar }) => {
   const { locale } = useLocale();
   const { pathname } = useLocation();
+  const isMounted = useIsMounted();
 
   const changeLangHandler = (e, lang) => {
     e.preventDefault();
@@ -32,7 +33,10 @@ const LanguagesMenu = () => {
         return (
           <Tooltip key={i} content={name} placement="bottom">
             <li>
-              <Transition delay={`${i * 100 + 500}ms`} animation="fadeInLeft">
+              <Transition
+                delay={`${i * 100 + 500}ms`}
+                animation="fadeInLeft"
+                skip={isMounted || showSidebar}>
                 <S.LanguageLink
                   onClick={e => changeLangHandler(e, path)}
                   $currentLang={locale === path}>
@@ -46,4 +50,9 @@ const LanguagesMenu = () => {
     </S.MenuList>
   );
 };
+
+LanguagesMenu.propTypes = {
+  showSidebar: PropTypes.bool
+};
+
 export default LanguagesMenu;

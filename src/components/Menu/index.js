@@ -2,13 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import Helmet from 'react-helmet';
-import { useLocale, useClickOutside, useTheme } from '@hooks';
-import { Switch, LanguagesMenu, ButtonTheming } from '@components';
+import { useLocale, useClickOutside, useTheme, useIsMounted } from '@hooks';
+import { Switch, LanguagesMenu, ButtonTheming, Transition } from '@components';
 
 const Menu = ({ navLinks }) => {
   const { locale } = useLocale();
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === 'dark';
+  const isMounted = useIsMounted();
 
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -61,9 +62,15 @@ const Menu = ({ navLinks }) => {
         </S.ControlsMenu>
 
         <S.DrawerWrapper ref={sidebarRef}>
-          <S.HamburgerButton onClick={toggleSidebar}>
-            <S.Hamburger showSidebar={showSidebar} />
-          </S.HamburgerButton>
+          <Transition
+            skip={isMounted}
+            delay="800ms"
+            animation="fadeInLeft"
+            style={{ position: 'relative', zIndex: '30' }}>
+            <S.HamburgerButton onClick={toggleSidebar}>
+              <S.Hamburger showSidebar={showSidebar} />
+            </S.HamburgerButton>
+          </Transition>
 
           <S.SideMenu
             showSidebar={showSidebar}
@@ -86,7 +93,7 @@ const Menu = ({ navLinks }) => {
                 </ul>
               </S.Navigation>
               <Switch isActive={isDarkMode} onChangeHandler={toggleTheme} />
-              <LanguagesMenu />
+              <LanguagesMenu showSidebar={showSidebar} />
             </div>
           </S.SideMenu>
         </S.DrawerWrapper>

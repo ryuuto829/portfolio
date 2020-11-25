@@ -1,13 +1,15 @@
 import { useEffect, useState, useRef } from 'react';
 
-// https://medium.com/the-non-traditional-developer/how-to-use-an-intersectionobserver-in-a-react-hook-9fb061ac6cb5
-// https://css-tricks.com/sticky-table-of-contents-with-scrolling-active-states/
-
+// Use this hook to know the id of current visible section
+// to add active CSS class to navigation links
+// Read more: https://medium.com/the-non-traditional-developer/how-to-use-an-intersectionobserver-in-a-react-hook-9fb061ac6cb5
+// Read more: https://css-tricks.com/sticky-table-of-contents-with-scrolling-active-states/
 const useActiveLinkObserver = () => {
   const [currentActiveLink, setCurrentActiveLink] = useState('home');
 
   const config = {
-    rootMargin: '-50px 0px -55%'
+    root: document,
+    rootMargin: '-45% 0px -55%'
   };
 
   const observer = useRef(

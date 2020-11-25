@@ -8,7 +8,9 @@ const Transition = ({
   children,
   delay,
   duration = '500ms',
-  animation = 'fadeInUp'
+  animation = 'fadeInUp',
+  skip,
+  ...rest
 }) => {
   // Intersection observer config: ref: func(node), inView: bool
   // https://github.com/thebuilder/react-intersection-observer#readme
@@ -18,8 +20,11 @@ const Transition = ({
     triggerOnce: true
   });
 
+  if (skip) return children;
+
   return (
     <S.StyledTransition
+      {...rest}
       ref={ref}
       inView={inView}
       animation={AnimationList[animation]}
@@ -34,7 +39,9 @@ Transition.propTypes = {
   children: PropTypes.node.isRequired,
   delay: PropTypes.string,
   duration: PropTypes.string,
-  animation: PropTypes.string
+  animation: PropTypes.string,
+  // Use 'skip' to ignore Transition
+  skip: PropTypes.bool
 };
 
 export default Transition;

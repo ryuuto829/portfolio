@@ -8,7 +8,7 @@ export const MenuContainer = styled.div`
 export const ControlsMenu = styled.div`
   display: ${props => (!props.showSidebar ? 'flex' : 'none')};
 
-  & ul {
+  ul {
     margin-left: var(--space-extra);
   }
 
@@ -40,7 +40,7 @@ export const HamburgerButton = styled.button`
     div,
     div:before,
     div:after {
-      background-color: var(--light-blue);
+      background-color: ${({ theme }) => theme.colorActive};
     }
   }
 

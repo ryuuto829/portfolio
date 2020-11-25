@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
-import { useActiveLinkObserver, useLocale } from '@hooks';
+import { Link } from 'gatsby';
+import { useLocale, useIsMounted } from '@hooks';
 import { Transition } from '@components';
 
-const NavigationLinks = ({ listItems, scrolledToTop }) => {
-  const activeLink = useActiveLinkObserver();
+const NavigationLinks = ({ listItems, isHome, activeLink }) => {
   const { locale } = useLocale();
+  const isMounted = useIsMounted();
 
   return (
     <S.NavList>
@@ -15,16 +16,20 @@ const NavigationLinks = ({ listItems, scrolledToTop }) => {
         const id = url.split('#')[1];
 
         return (
-          <S.NavItem
-            key={i}
-            isActive={id === activeLink}
-            scrolledToTop={scrolledToTop}>
-            <Transition delay={`${i * 100}ms`} animation="fadeInLeft">
-              <S.NavLink
-                to={locale === 'en' ? url : `/${locale}${url}`}
-                data-title={name}>
-                <span>{name}</span>
-              </S.NavLink>
+          <S.NavItem key={i} isActive={isHome && id === activeLink}>
+            <Transition
+              delay={`${i * 100}ms`}
+              animation="fadeInLeft"
+              skip={isMounted}>
+              {isHome ? (
+                <a href={locale === 'en' ? url : `/${locale}${url}`}>
+                  <span>{name}</span>
+                </a>
+              ) : (
+                <Link to={locale === 'en' ? url : `/${locale}${url}`}>
+                  <span>{name}</span>
+                </Link>
+              )}
             </Transition>
           </S.NavItem>
         );
@@ -40,7 +45,8 @@ NavigationLinks.propTypes = {
       url: PropTypes.string
     })
   ).isRequired,
-  scrolledToTop: PropTypes.bool
+  isHome: PropTypes.bool.isRequired,
+  activeLink: PropTypes.string
 };
 
 export default NavigationLinks;
