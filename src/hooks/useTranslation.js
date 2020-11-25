@@ -8,6 +8,7 @@ const query = graphql`
         node {
           name
           childTranslationsJson {
+            skip
             title
             subTitle
             greeting

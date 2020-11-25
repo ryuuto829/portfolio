@@ -1,14 +1,26 @@
 {
+  "skip": "Skip to Content",
   "title": "Dmytro Rykhlyk",
   "subTitle": "I create things for the web.",
-  "rights": "All Rights Reserved.",
   "greeting": "👋 Hi, my name is",
   "smallBio": "I'm a software engineer from Ukraine specializing in building (and occasionally designing) websites, applications, and everything in between.",
+  "contactMessage": "Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
   "sectionsHeaders": {
     "projects": "Some projects that I've built",
     "blog": "My Personal Blog",
     "about": "About Me",
     "contact": "Get In Touch"
+  },
+  "footerContent": {
+    "rights": "All Rights Reserved.",
+    "built": "Built with ❤️",
+    "host": "Hosted on"
+  },
+  "tooltipContent": {
+    "lightMode": "Light Theme",
+    "darkMode": "Dark Theme",
+    "copied": "Copied!",
+    "goToTop": "Scroll to Top"
   },
   "page404": {
     "pageNotFound": "Page Not Found.",
