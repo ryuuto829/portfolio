@@ -9,6 +9,7 @@ const query = graphql`
           name
           childTranslationsJson {
             skip
+            home
             title
             subTitle
             greeting

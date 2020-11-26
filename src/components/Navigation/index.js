@@ -7,20 +7,24 @@ import {
   useScrolledToTop,
   useNavLinks,
   useLocale,
-  useActiveLinkObserver
+  useActiveLinkObserver,
+  useTranslation
 } from '@hooks';
 import { IconLogo } from '@icons';
 import { NavigationLinks, Menu, Transition } from '@components';
 
-const Navigation = ({ isHome }) => {
+const Navigation = ({ isHome, isDefault }) => {
   const scrollDirection = useScrollDirection();
   const scrolledToTop = useScrolledToTop();
   const activeLink = useActiveLinkObserver();
+  const { home } = useTranslation();
   const { locale } = useLocale();
 
-  // Query the JSON files in ./config/i18n/navLinks
+  // Query the JSON file in ./config/i18n/navLinks to get all links routes
   const { navLinks } = useNavLinks();
 
+  // Gatsby persists scroll position, but we want to go to the start of the page
+  // when cliking on the branding logo
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -29,21 +33,12 @@ const Navigation = ({ isHome }) => {
     <S.Header scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <nav>
         <Transition animation="fadeInDown">
-          {isHome ? (
-            <a
-              href={locale === 'en' ? '/' : `/${locale}/`}
-              aria-label="home"
-              onClick={scrollToTop}>
-              <IconLogo />
-            </a>
-          ) : (
-            <Link
-              to={locale === 'en' ? '/' : `/${locale}/`}
-              aria-label="home"
-              onClick={scrollToTop}>
-              <IconLogo />
-            </Link>
-          )}
+          <Link
+            to={isDefault ? '/' : `/${locale}/`}
+            aria-label={home}
+            onClick={scrollToTop}>
+            <IconLogo />
+          </Link>
         </Transition>
         {navLinks && (
           <NavigationLinks
@@ -51,6 +46,7 @@ const Navigation = ({ isHome }) => {
             scrolledToTop={scrolledToTop}
             isHome={isHome}
             activeLink={activeLink}
+            isDefault={isDefault}
           />
         )}
       </nav>
@@ -60,7 +56,8 @@ const Navigation = ({ isHome }) => {
 };
 
 Navigation.propTypes = {
-  isHome: PropTypes.bool.isRequired
+  isHome: PropTypes.bool.isRequired,
+  isDefault: PropTypes.bool.isRequired
 };
 
 export default Navigation;

@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
 export const MenuContainer = styled.div`
@@ -6,7 +5,7 @@ export const MenuContainer = styled.div`
 `;
 
 export const ControlsMenu = styled.div`
-  display: ${props => (!props.showSidebar ? 'flex' : 'none')};
+  display: ${({ showSidebar }) => (!showSidebar ? 'flex' : 'none')};
 
   ul {
     margin-left: var(--space-extra);
@@ -23,6 +22,46 @@ export const DrawerWrapper = styled.div`
   @media (max-width: 768px) {
     display: block;
     margin-left: var(--space-extra);
+  }
+`;
+
+export const SideMenu = styled.aside`
+  ${({ theme }) => theme.mixins.flexColumn};
+
+  visibility: ${({ showSidebar }) => (showSidebar ? 'visible' : 'hidden')};
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  background-color: transparent;
+  transform: translateX(${({ showSidebar }) => (showSidebar ? '0' : '100vw')});
+  transition: transform var(--easing);
+  padding: 80px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  outline: 0;
+  z-index: 10;
+  color: var(--light-gray);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .inner-content {
+    min-height: 0;
+    height: 100%;
+  }
+
+  /* Languages menu */
+  div > ul:last-child {
+    justify-content: flex-end;
+    margin-top: var(--space);
+    margin-bottom: var(--space-large);
+  }
+
+  @media (max-width: 480px) {
+    padding-right: 25px;
   }
 `;
 
@@ -55,13 +94,22 @@ export const Hamburger = styled.div`
   transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transition-duration: 75ms;
 
-  ${props =>
-    props.showSidebar &&
+  ${({ showSidebar }) =>
+    showSidebar &&
     css`
       transition-delay: 0.12s;
       transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
       transform: rotate(45deg);
     `};
+
+  ${({ showSidebar }) =>
+    showSidebar
+      ? css`
+          background-color: var(--light-gray);
+        `
+      : css`
+          background-color: ${({ theme }) => theme.colorMainText};
+        `};
 
   &,
   &:before,
@@ -73,13 +121,13 @@ export const Hamburger = styled.div`
     transition-duration: 0.15s;
     transition-property: transform;
     border-radius: var(--border-radius);
-    background-color: ${({ theme }) => theme.colorMainText};
   }
 
   &:before,
   &:after {
     display: block;
     content: '';
+    background-color: inherit;
   }
 
   &:before {
@@ -101,7 +149,6 @@ export const Hamburger = styled.div`
         transition: top 75ms ease, opacity 75ms ease 0.12s;
         opacity: 0;
       }
-
       &:after {
         bottom: 0;
         transition: bottom 75ms ease,
@@ -111,65 +158,23 @@ export const Hamburger = styled.div`
     `};
 `;
 
-export const SideMenu = styled.aside`
-  ${({ theme }) => theme.mixins.flexColumn};
-
-  visibility: ${props => (props.showSidebar ? 'visible' : 'hidden')};
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  height: 100vh;
-  background-color: transparent;
-  transform: translateX(${props => (props.showSidebar ? '0' : '100vw')});
-  transition: var(--transition);
-  outline: 0;
-  padding: 80px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 10;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  & > div {
-    min-height: 0;
-    height: 100%;
-  }
-
-  /* Languages menu */
-  div > ul:last-child {
-    justify-content: flex-start;
-    margin-top: var(--space);
-    margin-bottom: var(--space-large);
-  }
-`;
-
 export const Navigation = styled.nav`
   width: 100%;
   margin-bottom: var(--space-large);
 
   ul {
-    ${({ theme }) => theme.mixins.list};
     ${({ theme }) => theme.mixins.flexColumn};
+    ${({ theme }) => theme.mixins.boxShadow};
 
-    color: var(--text-color);
+    width: 100%;
     font-family: var(--family-secondary);
-    font-size: 3.5rem;
     white-space: nowrap;
-    margin-left: 0;
-    border-bottom: 1px solid #2e333e;
+    font-size: clamp(25px, 6vw, 35px);
   }
 
   li {
-    padding: 10px;
+    text-align: right;
     margin-bottom: var(--space-large);
     width: 100%;
-    text-align: left;
   }
-`;
-
-export const NavLink = styled(Link)`
-  ${({ theme }) => theme.mixins.link};
 `;

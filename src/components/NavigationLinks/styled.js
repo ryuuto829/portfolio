@@ -13,6 +13,7 @@ export const NavItem = styled.li`
   position: relative;
   margin: 0 5px;
 
+  /* Make active link text bold */
   ${({ isActive }) =>
     isActive &&
     css`
@@ -24,31 +25,33 @@ export const NavItem = styled.li`
   a {
     ${({ theme }) => theme.mixins.flexItemsCenter};
 
+    padding: var(--space-small);
     height: var(--nav-button-height);
-    padding: 10px;
     transition: var(--transition);
 
-    /* Decoration for hover outwards animating */
+    /* Decoration for navigation links */
     &:after {
       content: '';
       display: block;
       position: absolute;
       bottom: -16px;
-      border-radius: var(--border-radius);
       left: 0;
       width: 100%;
       height: 2px;
+      border-radius: var(--border-radius);
+      /*  */
       background: linear-gradient(
-        270.97deg,
-        #ffe580 -21.36%,
-        #ff7571 -2.45%,
-        #ea5dad 26.84%,
-        #c2a0fd 64.15%,
-        #3bf0e4 108.29%,
-        #b2f4b6 159.03%
+        54deg,
+        rgba(255, 114, 112, 1) 0%,
+        rgba(152, 103, 240, 1) 100%
       );
-      transform: ${props => (props.isActive ? 'scaleX(1)' : 'scaleX(0)')};
-      transition: transform 0.3s ease-in-out;
+      background-position: 58% 50%;
+      background-size: 150%;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      /*  */
+      transform: ${({ isActive }) => (isActive ? 'scaleX(1)' : 'scaleX(0)')};
+      transition: var(--transition);
     }
 
     &:hover {

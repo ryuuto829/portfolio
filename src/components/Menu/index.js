@@ -2,14 +2,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import Helmet from 'react-helmet';
+import { Link } from 'gatsby';
 import { useLocale, useClickOutside, useTheme, useIsMounted } from '@hooks';
 import { Switch, LanguagesMenu, ButtonTheming, Transition } from '@components';
 
 const Menu = ({ navLinks }) => {
   const { locale } = useLocale();
   const { theme, toggleTheme } = useTheme();
-  const isDarkMode = theme === 'dark';
   const isMounted = useIsMounted();
+  const isDarkMode = theme === 'dark';
 
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -76,18 +77,17 @@ const Menu = ({ navLinks }) => {
             showSidebar={showSidebar}
             aria-hidden={!showSidebar}
             tabIndex={showSidebar ? 1 : -1}>
-            <div>
+            <div className="inner-content">
               <S.Navigation>
                 <ul>
                   {navLinks &&
                     navLinks.map(({ name, url }, i) => (
                       <li key={i}>
-                        <S.NavLink
+                        <Link
                           to={locale === 'en' ? url : `/${locale}${url}`}
-                          data-title={name}
                           onClick={closeSidebar}>
                           {name}
-                        </S.NavLink>
+                        </Link>
                       </li>
                     ))}
                 </ul>

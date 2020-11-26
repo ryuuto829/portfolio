@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { useLocale, useIsMounted } from '@hooks';
 import { Transition } from '@components';
 
-const NavigationLinks = ({ listItems, isHome, activeLink }) => {
+const NavigationLinks = ({ listItems, isHome, activeLink, isDefault }) => {
   const { locale } = useLocale();
   const isMounted = useIsMounted();
 
@@ -13,20 +13,20 @@ const NavigationLinks = ({ listItems, isHome, activeLink }) => {
     <S.NavList>
       {listItems.map(({ name, url }, i) => {
         // Extract id of the section from url like '/#work'
-        const id = url.split('#')[1];
+        const linkID = url.split('#')[1];
 
         return (
-          <S.NavItem key={i} isActive={isHome && id === activeLink}>
+          <S.NavItem key={i} isActive={isHome && linkID === activeLink}>
             <Transition
               delay={`${i * 100}ms`}
               animation="fadeInLeft"
               skip={isMounted}>
               {isHome ? (
-                <a href={locale === 'en' ? url : `/${locale}${url}`}>
+                <a href={isDefault ? url : `/${locale}${url}`}>
                   <span>{name}</span>
                 </a>
               ) : (
-                <Link to={locale === 'en' ? url : `/${locale}${url}`}>
+                <Link to={isDefault ? url : `/${locale}${url}`}>
                   <span>{name}</span>
                 </Link>
               )}
@@ -46,7 +46,8 @@ NavigationLinks.propTypes = {
     })
   ).isRequired,
   isHome: PropTypes.bool.isRequired,
-  activeLink: PropTypes.string
+  activeLink: PropTypes.string,
+  isDefault: PropTypes.bool.isRequired
 };
 
 export default NavigationLinks;

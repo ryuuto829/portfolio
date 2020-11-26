@@ -24,24 +24,23 @@ const Switch = ({ isActive, onChangeHandler }) => {
 
   return (
     <>
-      <S.Wrapper>
+      <S.SwitchButton>
+        <span className="button-text">{tooltipContent.darkMode}</span>
         <S.Checkbox
+          checked={isActive}
           ref={buttonRef}
           aria-hidden="true"
           type="checkbox"
           id="switch-mode"
-          onClick={onChangeHandler}
+          onChange={onChangeHandler}
         />
         <S.Label
           ref={labelRef}
           tabIndex={0}
           htmlFor="switch-mode"
           isChecked={isActive}
-          aria-label={tooltipContent.darkMode}>
-          <S.ToggleButton />
-        </S.Label>
-        <S.Text>{tooltipContent.darkMode}</S.Text>
-      </S.Wrapper>
+          aria-label={tooltipContent.darkMode}></S.Label>
+      </S.SwitchButton>
     </>
   );
 };

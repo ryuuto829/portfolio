@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import 'tippy.js/animations/shift-away.css';
 import * as S from './styled';
+import 'tippy.js/animations/shift-away.css';
 
 const Tooltip = ({ content, ...rest }) => (
   <S.TippyBox
@@ -15,9 +15,6 @@ const Tooltip = ({ content, ...rest }) => (
 
 Tooltip.propTypes = {
   content: PropTypes.string.isRequired
-  // children: React.Node.isRequired,
-  // className: PropTypes.string,
-  // placement: 'top' | 'bottom' | 'left' | 'right'
 };
 
 export default Tooltip;

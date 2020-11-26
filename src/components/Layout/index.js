@@ -8,16 +8,15 @@ if (typeof window !== 'undefined')
   // Make scroll behavior of internal links smooth
   require('smooth-scroll')('a[href*="#"]');
 
-const Layout = ({ children, locale, location }) => {
+const Layout = ({ children, locale, location, isDefault }) => {
   const { changeLocale } = useLocale();
   const { skip } = useTranslation();
 
   // Check for home page: '/' or '/uk/'
-  const isHome = location.pathname === (locale === 'en' ? '/' : `/${locale}/`);
+  const isHome = location.pathname === (isDefault ? '/' : `/${locale}/`);
 
   // Every time url changes we update our context store
   useEffect(() => {
-    // Update current locale in useLocale
     changeLocale(locale);
   }, [locale]);
 
@@ -26,7 +25,7 @@ const Layout = ({ children, locale, location }) => {
       <S.SkipLink href="#content">{skip}</S.SkipLink>
 
       <SEO />
-      <Navigation isHome={isHome} />
+      <Navigation isHome={isHome} isDefault={isDefault} />
       <Social />
 
       <div id="content">
@@ -40,7 +39,8 @@ const Layout = ({ children, locale, location }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   locale: PropTypes.string.isRequired,
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
+  isDefault: PropTypes.bool.isRequired
 };
 
 export default Layout;

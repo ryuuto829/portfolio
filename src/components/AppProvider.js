@@ -8,11 +8,15 @@ import { Layout } from '@components';
 // to be able to use effects on <Layout /> without geting an error of using
 // context outside the provider
 // Issue: https://github.com/facebook/react/issues/18178
-const AppProvider = ({ children, pageContext: { locale }, location }) => (
+const AppProvider = ({
+  children,
+  pageContext: { locale, isDefault },
+  location
+}) => (
   <LocaleProvider>
     <ThemeProvider>
       <GlobalStyle />
-      <Layout locale={locale} location={location}>
+      <Layout locale={locale} location={location} isDefault={isDefault}>
         {children}
       </Layout>
     </ThemeProvider>
@@ -22,7 +26,8 @@ const AppProvider = ({ children, pageContext: { locale }, location }) => (
 AppProvider.propTypes = {
   children: PropTypes.node.isRequired,
   pageContext: PropTypes.shape({
-    locale: PropTypes.string.isRequired
+    locale: PropTypes.string.isRequired,
+    isDefault: PropTypes.bool.isRequired
   }).isRequired,
   location: PropTypes.object.isRequired
 };
