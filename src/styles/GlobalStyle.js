@@ -11,9 +11,11 @@ const GlobalStyle = createGlobalStyle`
     --light-blue: #90caf9;
     --slate: #b5bfd2;
     --dark-slate: #6d7583;
+    --salmon: #ff7270;
 
     --black-transparent: rgba(29, 28, 33, 0.8);
-    --white-transparent: rgba(255, 255, 255, 0.5);
+    /* --white-transparent: rgba(255, 255, 255, 0.5); */
+    --gray-transparent: rgba(242,243,245,0.5);
     --white-rgb: 255, 255, 255;
     --black-rgb: 0, 0, 0;
 
@@ -38,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
 
     --border-radius: 6px;
 
+    --easing: 0.3s ease-in-out;
     --transition: all 0.25s ease-in-out;
 
     --nav-button-height: 32px;
@@ -84,7 +87,6 @@ const GlobalStyle = createGlobalStyle`
         pointer-events: none;
         user-select: none;
         pointer-events: none;
-        transition: var(--transition);
       }
 
       /* Hide shadow when sidebar is open */
@@ -92,6 +94,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: transparent;
         border-bottom-color: transparent;
         transform: translateY(0);
+        color: var(--light-gray);
       }
     }
   }
@@ -102,7 +105,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1600px;
     min-height: 100vh;
     background-color: ${({ theme }) => theme.colorMainBackground};
-    transition: background-color 0.25s ease-in-out;
+    transition: background-color var(--easing);
 
     @media (max-width: 1080px) {
       padding: 0 100px;
@@ -156,11 +159,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  /* Enable smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-
   svg {
     fill: currentColor;
     vertical-align: middle;
@@ -180,9 +178,10 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
 
     &:hover,
+    &:focus,
     &:active {
       color: ${({ theme }) => theme.colorActive};
-      outline: 0;
+      /* outline: 0; */
     }
   }
 
@@ -199,7 +198,8 @@ const GlobalStyle = createGlobalStyle`
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  p {
     margin: 0;
   }
 

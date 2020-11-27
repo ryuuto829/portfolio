@@ -153,7 +153,9 @@ const mixins = {
     );
     background-position: 58% 50%;
     background-size: 500%;
-    animation: gradient-shift 30s ease infinite;
+    /* animation: gradient-shift 30s ease infinite; */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
 
     @keyframes gradient-shift {
       0% {

@@ -5,7 +5,7 @@ const darkTheme = {
 
   colorMainBackground: 'var(--almost-black)',
   colorMainText: 'var(--light-gray)',
-  colorBackgroundDimmed: 'var(--black-transparent)',
+  bgTransparent: 'var(--black-transparent)',
   colorActive: 'var(--white)',
   colorSecondaryText: 'var(--slate)',
   colorBackgroundContrast: 'var(--white-rgb)',
@@ -18,12 +18,20 @@ const lightTheme = {
 
   colorMainBackground: 'var(--extra-light-gray)',
   colorMainText: 'var(--almost-black)',
-  colorBackgroundDimmed: 'var(--white-transparent)',
+  bgTransparent: 'var(--gray-transparent)',
   colorActive: 'var(--dark-slate)',
   colorSecondaryText: 'var(--dark-slate)',
   colorBackgroundContrast: 'var(--black-rgb)',
   colorBlock: 'var(--white)',
   colorSelection: 'rgb(159, 107, 255, 0.55)'
+  // colorMainBackground: 'var(--extra-light-gray)',
+  // colorMainText: 'var(--almost-black)',
+  // colorBackgroundDimmed: 'var(--gray-transparent)',
+  // colorActive: 'var(--dark-slate)',
+  // colorSecondaryText: 'var(--dark-slate)',
+  // colorBackgroundContrast: 'var(--black-rgb)',
+  // colorBlock: 'var(--white)',
+  // colorSelection: 'rgb(159, 107, 255, 0.55)'
 };
 
 export { darkTheme, lightTheme };
