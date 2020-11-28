@@ -2,11 +2,10 @@ const path = require('path');
 const locales = require('./config/i18n/locales');
 const { findKey } = require('./src/utils/findKey');
 
-// Add Absolute imports definitions
-// https://www.gatsbyjs.com/docs/add-custom-webpack-config/#absolute-imports
-
+// Add Absolute imports definitions.
+// Read more: https://www.gatsbyjs.com/docs/add-custom-webpack-config/#absolute-imports
 exports.onCreateWebpackConfig = ({ actions }) => {
-  // We can use shorcuts like '@components/File' insead of '../../File'
+  // We can use shorcuts like '@components' insead of '../../File'
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -22,27 +21,30 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-// Create different page for each locale
-// https://medium.com/significa/i18n-with-gatsby-528607b4da81
-
+// Create different page for each locale.
+// Read more: https://medium.com/significa/i18n-with-gatsby-528607b4da81
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions;
 
   // For each page, we’re deleting it, than creating it again for each
-  // language passing the locale to the page context.
+  // language passing the locale to the page context
   return new Promise(resolve => {
     deletePage(page);
 
     Object.keys(locales).map(lang => {
-      const localizedPath = locales[lang].default
+      const isDefault = locales[lang].default || false;
+
+      const localizedPath = isDefault
         ? page.path
         : locales[lang].path + page.path;
 
+      // Pass in locale and isDefault as context to every page
       return createPage({
         ...page,
         path: localizedPath,
         context: {
-          locale: lang
+          locale: lang,
+          isDefault: isDefault
         }
       });
     });
@@ -51,10 +53,9 @@ exports.onCreatePage = ({ page, actions }) => {
   });
 };
 
-// Use i18n for markdown
-// https://github.com/gatsbyjs/gatsby/blob/cba8b707515b2169738f2b47af4559e3a158b68c/examples/using-i18n/gatsby-node.js#L9-L38
-
-// Correcting language and slug to the frontmatter of each file
+// Use i18n for markdown.
+// Read more: https://github.com/gatsbyjs/gatsby/blob/cba8b707515b2169738f2b47af4559e3a158b68c/examples/using-i18n/gatsby-node.js#L9-L38
+// Correcting language and slug to the frontmatter of each file.
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
@@ -87,7 +88,7 @@ exports.onCreateNode = ({ node, actions }) => {
 };
 
 // Create page for all projects markdown files
-// https://www.gatsbyjs.com/docs/adding-markdown-pages/
+// Read more: https://www.gatsbyjs.com/docs/adding-markdown-pages/
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
@@ -95,9 +96,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const projectTemplate = require.resolve(`./src/templates/project.js`);
 
   // GatsbyImageSharpFluid fragment is not working in the gatsby-node.js
-  // so we manually add all fields to the query from
-  // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-
+  // so we manually add all fields to the query from.
+  // Read more: https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
   // Issue: https://github.com/birkir/gatsby-source-prismic-graphql/issues/98#issuecomment-553906330
   const projectList = await graphql(`
     {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Featured = styled.div`
+export const FeaturedProject = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
@@ -9,10 +9,14 @@ export const Featured = styled.div`
 
   position: relative;
   /* padding: 8vh 0.5rem 5vh; */
-  padding: 8vh 0 4vh;
+  /* padding: 8vh 0 4vh; */
   /* transform: skewY(10deg); */
-  transform: skewY(4deg);
+  /* transform: skewY(4deg); */
   text-align: left;
+
+  .project-title {
+    grid-column: 8 / 13;
+  }
 
   @media (max-width: 925px) {
     grid-template-columns: initial;
@@ -27,52 +31,13 @@ export const Showcase = styled.div`
   /* padding: 8vh 0 16vh; */
   padding: 8vh 0 12vh;
   justify-items: end;
-
-  & > div {
-    padding: 25px;
-    background-color: ${({ theme }) => theme.colorBlock};
-    /* transform: skewY(-10deg); */
-    transform: skewY(-4deg);
-    border-radius: 4px;
-    width: 100%;
-    display: flex;
-    position: relative;
-
-    max-width: 900px;
-
-    &:nth-child(2n) {
-      justify-self: start;
-    }
-
-    &:after {
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      border-radius: 4px;
-      content: '';
-      z-index: -1;
-
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      ${({ theme }) => theme.mixins.gradient};
-    }
-  }
-
-  @media (max-width: 480px) {
-    & > div {
-      padding: 10px;
-    }
-  }
 `;
 
 export const ProjectImage = styled.div`
   grid-column: 1 / 8;
   align-self: start;
 
-  transform: translateY(23px);
+  /* transform: translateY(23px); */
 
   a {
     display: block;
@@ -98,7 +63,7 @@ export const ProjectContent = styled.div`
   align-self: start;
   position: relative;
 
-  transform: translateY(-46px);
+  /* transform: translateY(-46px); */
 
   .project-overline {
     font-size: 14px;
