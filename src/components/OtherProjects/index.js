@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import * as S from './styled';
 import { useTheme } from '@hooks';
-import { CardHeader } from '@components/FeaturedProjects/styled';
+import { CardHeader, TechItem } from '@components/FeaturedProjects/styled';
 import { IconArrowForward, IconGithub, IconLink } from '@icons';
 import { Transition } from '@components';
 
@@ -43,7 +43,9 @@ const OtherProjects = ({ projectsList }) => {
                 <footer>
                   <ul className="project-techList">
                     {technologies &&
-                      technologies.map((tech, i) => <li key={i}>{tech}</li>)}
+                      technologies.map((tech, i) => (
+                        <TechItem key={i}>{tech}</TechItem>
+                      ))}
                   </ul>
                   <div className="project-links">
                     <a href={github} target="_blank" rel="noopener noreferrer">

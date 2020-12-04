@@ -41,4 +41,8 @@ export const HeroSection = styled.section`
   a {
     margin-top: var(--space-extra);
   }
+
+  .resume-link {
+    margin-top: 0;
+  }
 `;

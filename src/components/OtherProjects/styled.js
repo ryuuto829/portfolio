@@ -52,23 +52,23 @@ export const ProjectsList = styled.div`
   }
 
   .project-techList {
-    display: flex;
+    /* display: flex;
     align-items: flex-end;
     flex-grow: 1;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     padding: 0px;
     list-style: none;
     margin-bottom: 10px;
     color: var(--slate);
 
-    li {
+    /* li {
       font-size: 14px;
       line-height: 1.75;
     }
 
     li:not(:last-of-type) {
       margin-right: 15px;
-    }
+    } */
   }
 
   .project-links {

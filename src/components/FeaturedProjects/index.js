@@ -42,7 +42,7 @@ const FeaturedProjects = ({ projectsList }) => {
                 </div>
                 {/* END OF THE HEADER */}
 
-                <S.ProjectImage>
+                <div className="project-image">
                   {featuredImage && (
                     <AniLink
                       paintDrip
@@ -51,10 +51,10 @@ const FeaturedProjects = ({ projectsList }) => {
                       <Img fluid={featuredImage.childImageSharp.fluid} />
                     </AniLink>
                   )}
-                </S.ProjectImage>
+                </div>
                 {/* END OF THE IMAGE */}
 
-                <S.ProjectContent>
+                <div className="project-content">
                   <p className="project-description">{about}</p>
                   <S.TechList>
                     {technologies &&
@@ -78,7 +78,7 @@ const FeaturedProjects = ({ projectsList }) => {
                       <span>Demo</span>
                     </S.Button>
                   </S.ButtonGroup>
-                </S.ProjectContent>
+                </div>
                 {/* END OF THE CONTENT */}
               </S.FeaturedProject>
             </Transition>

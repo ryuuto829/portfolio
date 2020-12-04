@@ -18,7 +18,12 @@ const Hero = () => {
         <h2>{subTitle}</h2>
       </Transition>
       <Transition delay="800ms">
-        <p className="bio">{smallBio}</p>
+        <p className="bio">
+          {smallBio}{' '}
+          <a href="/" className="resume-link">
+            Download my Resume.
+          </a>
+        </p>
       </Transition>
       <Transition delay="900ms">
         <EmailLink />

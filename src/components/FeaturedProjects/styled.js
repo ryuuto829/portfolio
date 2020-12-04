@@ -7,20 +7,36 @@ export const FeaturedProject = styled.div`
   grid-gap: 2rem;
   border-radius: 15px;
 
+  grid-template-areas:
+    '. . . . . . . title title title title title'
+    'image image image image image image image content content content content content';
+
   position: relative;
-  /* padding: 8vh 0.5rem 5vh; */
-  /* padding: 8vh 0 4vh; */
-  /* transform: skewY(10deg); */
-  /* transform: skewY(4deg); */
   text-align: left;
 
   .project-title {
-    grid-column: 8 / 13;
+    grid-area: title;
+  }
+
+  .project-overline {
+    font-size: 14px;
+    color: var(--salmon);
+    font-weight: var(--weight-semibold);
+  }
+
+  .project-description {
+    font-size: 17px;
+    margin-bottom: 20px;
   }
 
   @media (max-width: 925px) {
-    grid-template-columns: initial;
+    grid-template-columns: 1fr;
     grid-gap: 3rem;
+
+    grid-template-areas:
+      'title'
+      'image'
+      'content';
   }
 `;
 
@@ -31,56 +47,42 @@ export const Showcase = styled.div`
   /* padding: 8vh 0 16vh; */
   padding: 8vh 0 12vh;
   justify-items: end;
-`;
 
-export const ProjectImage = styled.div`
-  grid-column: 1 / 8;
-  align-self: start;
+  & div:nth-of-type(2n) div {
+    grid-template-areas:
+      'title title title title title . . . . . . .'
+      'content content content content content image image image image image image image';
 
-  /* transform: translateY(23px); */
-
-  a {
-    display: block;
-    width: 100%;
+    @media (max-width: 925px) {
+      grid-template-areas:
+        'title'
+        'image'
+        'content';
+    }
   }
 
-  & img {
-    filter: grayscale(50%);
-    max-width: 100%;
-    object-fit: cover;
-    width: 100%;
-    border-radius: var(--border-radius);
+  .project-image {
+    align-self: start;
+    grid-area: image;
+
+    a {
+      display: block;
+      width: 100%;
+    }
+
+    & img {
+      filter: grayscale(50%);
+      max-width: 100%;
+      object-fit: cover;
+      width: 100%;
+      border-radius: var(--border-radius);
+    }
   }
 
-  @media (max-width: 925px) {
-    grid-column: unset;
-    transform: none;
-  }
-`;
-
-export const ProjectContent = styled.div`
-  grid-column: 8 / 13;
-  align-self: start;
-  position: relative;
-
-  /* transform: translateY(-46px); */
-
-  .project-overline {
-    font-size: 14px;
-    color: var(--light-blue);
-    margin: 10px 0;
-    position: absolute;
-    top: -30px;
-    left: 0;
-  }
-
-  .project-description {
-    font-size: 17px;
-  }
-
-  @media (max-width: 925px) {
-    grid-column: unset;
-    transform: none;
+  .project-content {
+    align-self: start;
+    position: relative;
+    grid-area: content;
   }
 `;
 
@@ -129,21 +131,23 @@ export const CardHeader = styled.div`
 `;
 
 export const TechList = styled.ul`
-  ${({ theme }) => theme.mixins.list};
+  /* ${({ theme }) => theme.mixins.list}; */
   display: flex;
   flex-wrap: wrap;
 `;
 
 export const TechItem = styled.li`
-  padding: 6px 12px;
+  display: inline-block;
   font-size: 12px;
-  background-color: #333;
-  color: #707886;
   font-weight: 500;
-  text-transform: uppercase;
-  border-radius: 20px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  line-height: 18px;
+  border: 1px solid transparent;
+  border-radius: 2em;
+  padding: 0 10px;
+  line-height: 22px;
+  color: var(--light-gray);
+  background-color: #37373f;
+  margin: 0 0.125em 0.333em 0;
 `;
 
 export const ButtonGroup = styled.div`
@@ -162,7 +166,7 @@ export const Button = styled.a`
   ${({ theme }) => theme.mixins.smallButton};
 
   &:before {
-    background-color: ${({ theme }) => theme.colorBlock};
+    background-color: ${({ theme }) => theme.colorMainBackground};
   }
 
   @media (max-width: 480px) {
