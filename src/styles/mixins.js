@@ -171,6 +171,30 @@ const mixins = {
         background-position: 58% 50%;
       }
     }
+  `,
+
+  link: css`
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #ff7270;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s;
+    }
+
+    &:hover {
+      &:after {
+        transform-origin: bottom left;
+        transform: scaleX(1);
+      }
+    }
   `
 };
 

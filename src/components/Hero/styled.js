@@ -45,4 +45,10 @@ export const HeroSection = styled.section`
   .resume-link {
     margin-top: 0;
   }
+
+  .link {
+    ${({ theme }) => theme.mixins.link};
+
+    color: #ff7270;
+  }
 `;

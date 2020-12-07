@@ -31,7 +31,7 @@ export const SocialItem = styled.li`
 export const SocialLink = styled.a`
   ${({ theme }) => theme.mixins.link};
   font-family: var(--family-secondary);
-  position: relative;
+  /* position: relative;
 
   &::before, &::after {
     position: absolute;
@@ -62,7 +62,7 @@ export const SocialLink = styled.a`
       opacity: 1;
       transform: translateX(-50%) translateY(-50%) scale(1);
     }
-  }
+  } */
 `;
 
 export const Credit = styled.div`

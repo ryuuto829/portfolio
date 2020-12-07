@@ -21,7 +21,7 @@ const Hero = () => {
         <p className="bio">
           {smallBio}{' '}
           <a href="/" className="resume-link">
-            Download my Resume.
+            <span className="link">Download my Resume.</span>
           </a>
         </p>
       </Transition>
