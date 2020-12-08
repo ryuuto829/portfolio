@@ -2,7 +2,7 @@
 isFeatured: true
 showInProjects: false
 date: '08.10.2020'
-featuredImage: ./assets/notes-kepper.png
+featuredImage: ./assets/featured.jpg
 title: 'Sed quia non numquam illo inventore ver'
 about: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore Neque porro quisquam estю'
 technologies:
