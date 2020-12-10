@@ -16,7 +16,8 @@ const darkTheme = {
 const lightTheme = {
   mixins,
 
-  colorMainBackground: 'var(--extra-light-gray)',
+  // colorMainBackground: 'var(--extra-light-gray)',
+  colorMainBackground: '#f5f6f0',
   colorMainText: 'var(--almost-black)',
   bgTransparent: 'var(--gray-transparent)',
   colorActive: 'var(--dark-slate)',

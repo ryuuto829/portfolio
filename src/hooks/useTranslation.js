@@ -15,11 +15,15 @@ const query = graphql`
             greeting
             smallBio
             contactMessage
+            projectsContent {
+              showAll
+            }
             sectionsHeaders {
               projects
               blog
               about
               contact
+              otherProjects
             }
             footerContent {
               rights

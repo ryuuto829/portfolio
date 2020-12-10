@@ -126,6 +126,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: 100px 0;
 
+    &:last-of-type .section-header   {
+      &:after {
+        display: none;
+      }
+    }
+
     @media (max-width: 768px) {
       padding: 80px 0;
     }
@@ -137,14 +143,18 @@ const GlobalStyle = createGlobalStyle`
 
   .section-header {
     font-size: clamp(26px, 5vw, 32px);
-    white-space: nowrap;
+    /* white-space: nowrap; */
     margin: 10px 0 40px;
 
     font-weight: var(--weight-semibold);
     font-family: var(--family-secondary);
     position: relative;
     z-index: 5;
+    /* overflow-wrap: break-word;
+    display: inline-block; */
+    white-space: pre-line;
 
+    /* Grid background */
     &:before {
       ${({ theme }) => theme.mixins.gridBackground};
 
@@ -152,10 +162,23 @@ const GlobalStyle = createGlobalStyle`
       content: "";
       position: absolute;
       top: -20px;
-      left: 0px;
-      width: 100%;
+      left: -50%;
+      width: 200%;
       height: 90px;
       z-index: -1;
+    }
+
+    /* Underline */
+    &:after {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0px;
+      width: 60px;
+      height: 2px;
+      z-index: -1;
+      background-color: var(--salmon);
     }
   }
 
