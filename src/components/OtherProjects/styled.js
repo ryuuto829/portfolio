@@ -6,6 +6,7 @@ export const ProjectsList = styled.div`
   gap: 15px;
   /* position: relative; */
   margin-top: 50px;
+  text-align: left;
 
   .project-content {
     background-color: ${({ theme }) => theme.colorBlock};
@@ -41,37 +42,18 @@ export const ProjectsList = styled.div`
   }
 
   .project-title {
-    font-family: var(--family-secondary);
-    margin: 0;
     font-size: 22px;
   }
 
   .project-description {
     font-weight: var(--weight-light);
     line-height: 1.2;
-  }
-
-  .project-techList {
-    /* display: flex;
-    align-items: flex-end;
-    flex-grow: 1;
-    flex-wrap: wrap; */
-    padding: 0px;
-    list-style: none;
-    margin-bottom: 10px;
-    color: var(--slate);
-
-    /* li {
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    li:not(:last-of-type) {
-      margin-right: 15px;
-    } */
+    margin-bottom: 20px;
   }
 
   .project-links {
+    margin-top: 15px;
+
     a {
       padding: 5px;
     }

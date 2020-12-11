@@ -4,9 +4,9 @@ export const OtherProject = styled.section`
   padding-top: 0;
   text-align: center;
 
-  div {
+  /* div {
     text-align: left;
-  }
+  } */
 
   .section-overline {
     font-size: var(--text-normal);

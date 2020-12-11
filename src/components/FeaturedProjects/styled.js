@@ -1,59 +1,25 @@
 import styled from 'styled-components';
 
-export const FeaturedProject = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  align-items: center;
-  grid-gap: 2rem;
-  border-radius: 15px;
-
-  grid-template-areas:
-    '. . . . . . . title title title title title'
-    'image image image image image image image content content content content content';
-
-  position: relative;
-  text-align: left;
-
-  .project-title {
-    grid-area: title;
-  }
-
-  .project-overline {
-    font-size: 14px;
-    color: var(--salmon);
-    font-weight: var(--weight-semibold);
-  }
-
-  .project-description {
-    font-size: 17px;
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 925px) {
-    grid-template-columns: 1fr;
-    grid-gap: 3rem;
-
-    grid-template-areas:
-      'title'
-      'image'
-      'content';
-  }
-`;
-
 export const Showcase = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 10rem;
-  /* padding: 8vh 0 16vh; */
-  padding: 8vh 0 12vh;
+  margin-top: 10rem;
   justify-items: end;
 
-  & div:nth-of-type(2n) div {
-    grid-template-areas:
-      'title title title title title . . . . . . .'
-      'content content content content content image image image image image image image';
+  .project-featured {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    grid-gap: 10rem;
+    position: relative;
+    text-align: left;
+    grid-template-areas: 'image content';
 
     @media (max-width: 925px) {
+      grid-template-columns: 1fr;
+      grid-gap: 3rem;
+
       grid-template-areas:
         'title'
         'image'
@@ -76,6 +42,10 @@ export const Showcase = styled.div`
       object-fit: cover;
       width: 100%;
       border-radius: var(--border-radius);
+
+      /* &:hover {
+        filter: grayscale(0);
+      } */
     }
   }
 
@@ -83,16 +53,62 @@ export const Showcase = styled.div`
     align-self: start;
     position: relative;
     grid-area: content;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .project-overline {
+    font-size: 14px;
+    color: var(--salmon);
+    font-weight: var(--weight-semibold);
+  }
+
+  .project-description {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  & div:nth-of-type(2n) div {
+    grid-template-areas: 'content image';
+
+    .project-content {
+      text-align: right;
+
+      ul {
+        justify-content: flex-end;
+      }
+
+      div:last-of-type {
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 925px) {
+      grid-template-areas:
+        'title'
+        'image'
+        'content';
+
+      .project-content {
+        text-align: left;
+
+        ul {
+          justify-content: flex-start;
+        }
+
+        div:last-of-type {
+          justify-content: flex-start;
+        }
+      }
+    }
   }
 `;
 
 export const CardHeader = styled.div`
-  /* ${({ theme }) => theme.mixins.flexItemsBetween}; */
-
-  /* fill: var(--light-gray); */
-  /* margin-bottom: 40px; */
-  margin-bottom: 15px;
-  /* cursor: pointer; */
   position: relative;
 
   a {
@@ -112,7 +128,7 @@ export const CardHeader = styled.div`
     font-family: var(--family-secondary);
     margin: 0;
     font-size: clamp(26px, 5vw, 30px);
-    padding-right: 30px;
+    margin-bottom: 20px;
   }
 
   h3,
@@ -131,29 +147,27 @@ export const CardHeader = styled.div`
 `;
 
 export const TechList = styled.ul`
-  /* ${({ theme }) => theme.mixins.list}; */
   display: flex;
   flex-wrap: wrap;
-`;
 
-export const TechItem = styled.li`
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
-  border: 1px solid transparent;
-  border-radius: 2em;
-  padding: 0 10px;
-  line-height: 22px;
-  color: var(--light-gray);
-  background-color: #37373f;
-  margin: 0 0.125em 0.333em 0;
+  li {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    border: 1px solid transparent;
+    border-radius: 2em;
+    padding: 0 10px;
+    line-height: 22px;
+    color: var(--light-gray);
+    background-color: #37373f;
+    margin: 0 0.125em 0.333em 0;
+  }
 `;
 
 export const ButtonGroup = styled.div`
   display: flex;
   margin-top: 40px;
-  /* flex-wrap: wrap; */
 
   & > a {
     &:first-child {

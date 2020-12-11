@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  useStaticQuery,
-  graphql
-  //  Link
-} from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import * as S from './styled';
 import { useLocale, useTranslation, useTheme } from '@hooks';
@@ -57,7 +53,7 @@ export const query = graphql`
 
 const Projects = () => {
   const { locale } = useLocale();
-  const { sectionsHeaders } = useTranslation();
+  const { sectionsHeaders, projectsContent } = useTranslation();
   const { theme } = useTheme();
 
   // Query all markdown files for featured and other projects
@@ -87,7 +83,9 @@ const Projects = () => {
       {projectsList && projectsList.length > 0 && (
         <S.OtherProject>
           <Transition>
-            <h3 className="section-overline">Other Noteworthy Projects</h3>
+            <h3 className="section-overline">
+              {sectionsHeaders.otherProjects}
+            </h3>
           </Transition>
           <OtherProjects projectsList={projectsList} />
           <Transition>
@@ -96,11 +94,13 @@ const Projects = () => {
               hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}
               to={locale === 'en' ? '/projects' : `/${locale}/projects`}
               className="show-more">
-              <span>Show more</span>
+              <span>{projectsContent.showAll}</span>
             </AniLink>
           </Transition>
         </S.OtherProject>
       )}
+
+      {/* Blog section here */}
 
       {/* <S.Blog>
         <h3 className="section-overline">Some highlights from my blog</h3>
