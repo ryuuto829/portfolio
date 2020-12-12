@@ -31,6 +31,7 @@
     "gatsby-plugin-sharp": "^2.6.36",
     "gatsby-plugin-styled-components": "^3.3.11",
     "gatsby-plugin-transition-link": "^1.20.5",
+    "gatsby-remark-autolink-headers": "^2.7.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.6.0",
     "gatsby-source-filesystem": "^2.3.30",
