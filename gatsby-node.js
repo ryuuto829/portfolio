@@ -108,6 +108,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
+            html
             frontmatter {
               title
               date
@@ -116,6 +117,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               github
               technologies
               featuredImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000) {
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    sizes
+                  }
+                }
+              }
+              coverImage {
                 childImageSharp {
                   fluid(maxWidth: 1000) {
                     base64
@@ -156,7 +168,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       github,
       technologies,
       about,
-      featuredImage
+      featuredImage,
+      coverImage
     } = node.frontmatter;
 
     createPage({
@@ -174,7 +187,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         technologies,
         about,
         html: node.html,
-        featuredImage
+        featuredImage,
+        coverImage
       }
     });
   });

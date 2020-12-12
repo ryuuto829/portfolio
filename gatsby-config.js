@@ -81,6 +81,17 @@ module.exports = {
               quality: 90,
               tracedSVG: true
             }
+          },
+          {
+            // Read more: https://www.gatsbyjs.com/plugins/gatsby-remark-autolink-headers/?=gatsby-remark-autolink-headers
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              offsetY: `85`,
+              maintainCase: false,
+              removeAccents: true,
+              elements: [`h2`],
+              className: `anchor-link`
+            }
           }
         ]
       }
