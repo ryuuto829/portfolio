@@ -4,6 +4,8 @@ I enjoy creating things that live on the internet, whether that be websites, app
 
 Shortly after graduating from University, I joined the engineering team at where I work on a wide variety of interesting and meaningful projects on a daily basis.
 
+[Завантажити моє резюме.](/resume.uk.pdf)
+
 Here are a few technologies I've been working with recently:
 
 - JavaScript (ES6+)
