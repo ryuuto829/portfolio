@@ -7,6 +7,11 @@ import { useEffect, useState, useRef } from 'react';
 const useActiveLinkObserver = () => {
   const [currentActiveLink, setCurrentActiveLink] = useState('home');
 
+  // Fix SSR problem with 'document' being undefined.
+  // Read more: https://www.gatsbyjs.com/docs/debugging-html-builds/#how-to-check-if-window-is-defined
+  // or https://www.gatsbyjs.com/docs/using-client-side-only-packages/
+  if (typeof window === `undefined`) return currentActiveLink;
+
   const config = {
     root: document,
     rootMargin: '-45% 0px -55%'
