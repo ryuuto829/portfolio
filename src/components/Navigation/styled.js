@@ -38,6 +38,10 @@ export const Header = styled.header`
     ${({ theme }) => theme.mixins.flexItemsCenter};
   }
 
+  .branding svg {
+    fill: none;
+  }
+
   @media (max-width: 1080px) {
     padding: 0 40px;
   }

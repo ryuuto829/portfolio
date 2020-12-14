@@ -5,7 +5,11 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Img from 'gatsby-image';
 import * as S from './styled';
 import { useTheme } from '@hooks';
-import { IconArrowForward, IconGithub, IconLink } from '@icons';
+import {
+  //  IconArrowForward
+  IconGithub,
+  IconLink
+} from '@icons';
 import { Transition } from '@components';
 
 const FeaturedProjects = ({ projectsList }) => {
@@ -27,21 +31,7 @@ const FeaturedProjects = ({ projectsList }) => {
 
           return (
             <Transition key={i}>
-              <S.FeaturedProject>
-                <div className="project-title">
-                  <p className="project-overline">Featured Project</p>
-                  <S.CardHeader>
-                    <AniLink
-                      paintDrip
-                      to={slug}
-                      hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}>
-                      <h3>{title}</h3>
-                      <IconArrowForward />
-                    </AniLink>
-                  </S.CardHeader>
-                </div>
-                {/* END OF THE HEADER */}
-
+              <div className="project-featured">
                 <div className="project-image">
                   {featuredImage && (
                     <AniLink
@@ -55,12 +45,24 @@ const FeaturedProjects = ({ projectsList }) => {
                 {/* END OF THE IMAGE */}
 
                 <div className="project-content">
+                  {/* <div className="project-title"> */}
+                  <p className="project-overline">Featured Project</p>
+                  <S.CardHeader>
+                    <AniLink
+                      paintDrip
+                      to={slug}
+                      hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}>
+                      <h3>{title}</h3>
+                      {/* <IconArrowForward /> */}
+                    </AniLink>
+                  </S.CardHeader>
+                  {/* </div> */}
+                  {/* END OF THE HEADER */}
+
                   <p className="project-description">{about}</p>
                   <S.TechList>
                     {technologies &&
-                      technologies.map((tech, i) => (
-                        <S.TechItem key={i}>{tech}</S.TechItem>
-                      ))}
+                      technologies.map((tech, i) => <li key={i}>{tech}</li>)}
                   </S.TechList>
                   <S.ButtonGroup>
                     <S.Button
@@ -80,7 +82,7 @@ const FeaturedProjects = ({ projectsList }) => {
                   </S.ButtonGroup>
                 </div>
                 {/* END OF THE CONTENT */}
-              </S.FeaturedProject>
+              </div>
             </Transition>
           );
         })}

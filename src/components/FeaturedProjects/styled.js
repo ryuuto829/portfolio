@@ -137,10 +137,11 @@ export const CardHeader = styled.div`
   }
 
   &:hover {
-    color: var(--light-blue);
-    fill: var(--light-blue);
+    /* color: var(--light-blue); */
+    /* fill: var(--light-blue); */
 
     h3 {
+      color: ${({ theme }) => theme.colorActive};
       transform: translateX(3px);
     }
   }
@@ -181,11 +182,5 @@ export const Button = styled.a`
 
   &:before {
     background-color: ${({ theme }) => theme.colorMainBackground};
-  }
-
-  @media (max-width: 480px) {
-    svg {
-      display: none;
-    }
   }
 `;

@@ -1,10 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as S from './styled';
 import { useTranslation } from '@hooks';
 import { EmailLink, Transition } from '@components';
 
-const Hero = () => {
-  const { title, subTitle, greeting, smallBio } = useTranslation();
+const Hero = ({ locale }) => {
+  const {
+    title,
+    subTitle,
+    greeting,
+    smallBio,
+    downloadResume
+  } = useTranslation();
 
   return (
     <S.HeroSection id="home">
@@ -20,8 +27,8 @@ const Hero = () => {
       <Transition delay="800ms">
         <p className="bio">
           {smallBio}{' '}
-          <a href="/" className="resume-link">
-            <span className="link">Download my Resume.</span>
+          <a href={`/resume.${locale}.pdf`} className="resume-link">
+            <span className="link">{downloadResume}</span>
           </a>
         </p>
       </Transition>
@@ -30,6 +37,10 @@ const Hero = () => {
       </Transition>
     </S.HeroSection>
   );
+};
+
+Hero.propTypes = {
+  locale: PropTypes.string.isRequired
 };
 
 export default Hero;

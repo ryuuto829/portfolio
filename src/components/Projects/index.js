@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import * as S from './styled';
-import { useLocale, useTranslation, useTheme } from '@hooks';
-import { filteredList } from '@utils';
+import { useTranslation, useTheme } from '@hooks';
+import { filteredList, localizedLink } from '@utils';
 import {
   FeaturedProjects,
   OtherProjects,
@@ -51,8 +52,7 @@ export const query = graphql`
   }
 `;
 
-const Projects = () => {
-  const { locale } = useLocale();
+const Projects = ({ locale, isDefault }) => {
   const { sectionsHeaders, projectsContent } = useTranslation();
   const { theme } = useTheme();
 
@@ -92,7 +92,7 @@ const Projects = () => {
             <AniLink
               paintDrip
               hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}
-              to={locale === 'en' ? '/projects' : `/${locale}/projects`}
+              to={localizedLink('/projects', locale, isDefault)}
               className="show-more">
               <span>{projectsContent.showAll}</span>
             </AniLink>
@@ -108,6 +108,11 @@ const Projects = () => {
       </S.Blog> */}
     </>
   );
+};
+
+Projects.propTypes = {
+  locale: PropTypes.string.isRequired,
+  isDefault: PropTypes.bool.isRequired
 };
 
 export default Projects;

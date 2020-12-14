@@ -5,7 +5,7 @@ export const ContactSection = styled.section`
   margin-bottom: 100px;
   text-align: center;
 
-  &:after {
+  /* &:after {
     content: '';
     position: absolute;
     bottom: -50px;
@@ -23,7 +23,7 @@ export const ContactSection = styled.section`
       #3bf0e4 84.13%,
       #33ce43 105.13%,
       #b2f4b6 123.24%
-    );
+    ); */
   }
 
   h2 {

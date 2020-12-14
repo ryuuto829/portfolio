@@ -25,7 +25,7 @@ const Layout = ({ children, locale, location, isDefault }) => {
       <S.SkipLink href="#content">{skip}</S.SkipLink>
 
       <SEO />
-      <Navigation isHome={isHome} isDefault={isDefault} />
+      <Navigation isHome={isHome} isDefault={isDefault} locale={locale} />
       <Social />
 
       <div id="content">

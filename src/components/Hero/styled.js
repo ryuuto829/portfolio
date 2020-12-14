@@ -22,10 +22,12 @@ export const HeroSection = styled.section`
   }
 
   h2 {
-    ${({ theme }) => theme.mixins.gradient};
+    color: var(--salmon);
 
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    /* ${({ theme }) => theme.mixins.gradient}; */
+    /* -webkit-text-fill-color: transparent; */
+    /* -webkit-background-clip: text; */
+
     font-size: clamp(40px, 6vw, 70px);
     font-weight: var(--weight-semibold);
     margin: 0;

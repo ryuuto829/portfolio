@@ -50,18 +50,21 @@ const About = () => {
         <h2 className="section-header">{sectionsHeaders.about}</h2>
       </Transition>
       <S.AboutInner>
-        <Transition animation="fadeInLeft">
+        <Transition animation="fadeInUp">
           {/* gatsby-transformer-remark returns markdown content as html string */}
-          <div dangerouslySetInnerHTML={{ __html: aboutContent }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: aboutContent }}
+            className="about-content"
+          />
         </Transition>
-        <Transition animation="fadeInRight">
-          <div id="foo">
-            <Img
-              fluid={avatar.childImageSharp.fluid}
-              alt="..."
-              className="img"
-            />
-          </div>
+        <Transition animation="fadeInUp" className="image-wrapper">
+          {/* <div className="about-image"> */}
+          <Img
+            fluid={avatar.childImageSharp.fluid}
+            alt="..."
+            className="about-image"
+          />
+          {/* </div> */}
         </Transition>
       </S.AboutInner>
     </section>

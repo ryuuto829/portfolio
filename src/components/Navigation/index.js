@@ -6,37 +6,30 @@ import {
   useScrollDirection,
   useScrolledToTop,
   useNavLinks,
-  useLocale,
   useActiveLinkObserver,
   useTranslation
 } from '@hooks';
 import { IconLogo } from '@icons';
 import { NavigationLinks, Menu, Transition } from '@components';
+import { localizedLink } from '@utils';
 
-const Navigation = ({ isHome, isDefault }) => {
+const Navigation = ({ isHome, isDefault, locale }) => {
   const scrollDirection = useScrollDirection();
   const scrolledToTop = useScrolledToTop();
   const activeLink = useActiveLinkObserver();
   const { home } = useTranslation();
-  const { locale } = useLocale();
 
-  // Query the JSON file in ./config/i18n/navLinks to get all links routes
+  // Query the JSON file in './config/i18n/navLinks' to get list of routes
   const { navLinks } = useNavLinks();
-
-  // Gatsby persists scroll position, but we want to go to the start of the page
-  // when cliking on the branding logo
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
 
   return (
     <S.Header scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <nav>
         <Transition animation="fadeInDown">
           <Link
-            to={isDefault ? '/' : `/${locale}/`}
+            to={localizedLink(`/`, locale, isDefault)}
             aria-label={home}
-            onClick={scrollToTop}>
+            className="branding">
             <IconLogo />
           </Link>
         </Transition>
@@ -57,7 +50,8 @@ const Navigation = ({ isHome, isDefault }) => {
 
 Navigation.propTypes = {
   isHome: PropTypes.bool.isRequired,
-  isDefault: PropTypes.bool.isRequired
+  isDefault: PropTypes.bool.isRequired,
+  locale: PropTypes.string.isRequired
 };
 
 export default Navigation;

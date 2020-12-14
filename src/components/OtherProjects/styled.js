@@ -35,7 +35,8 @@ export const ProjectsList = styled.div`
       z-index: -1;
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
-      ${({ theme }) => theme.mixins.gradient};
+      /* ${({ theme }) => theme.mixins.gradient}; */
+      background: var(--salmon);
       transition: var(--transition);
       opacity: 0;
     }
