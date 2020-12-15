@@ -9,7 +9,6 @@ import { default as IconLink } from '@icons/Link';
 import { default as IconLogo } from '@icons/Logo';
 import { default as IconSun } from '@icons/Sun';
 import { default as IconMoon } from '@icons/Moon';
-import { default as IconDownload } from '@icons/Download';
 import { default as IconEmail } from '@icons/Email';
 
 const Icon = ({ name }) => {
@@ -30,8 +29,6 @@ const Icon = ({ name }) => {
       return <IconSun />;
     case 'Moon':
       return <IconMoon />;
-    case 'Download':
-      return <IconDownload />;
     case 'Email':
       return <IconEmail />;
     default:

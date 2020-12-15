@@ -6,6 +6,8 @@ const Codepen = () => (
     width="20"
     height="20"
     role="img"
+    aria-hidden="true"
+    focusable="false"
     viewBox="0 0 31.665 31.665">
     <title>Codepen</title>
     <path

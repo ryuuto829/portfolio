@@ -7,7 +7,6 @@ export { default as IconLink } from './Link';
 export { default as IconLogo } from './Logo';
 export { default as IconSun } from './Sun';
 export { default as IconMoon } from './Moon';
-export { default as IconDownload } from './Download';
 export { default as IconEmail } from './Email';
 export { default as IconCopy } from './Copy';
 export { default as IconRocket } from './Rocket';

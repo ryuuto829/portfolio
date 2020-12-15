@@ -3,6 +3,9 @@ import React from 'react';
 const Rocket = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-hidden="true"
+    focusable="false"
     version="1.1"
     x="0px"
     y="0px"

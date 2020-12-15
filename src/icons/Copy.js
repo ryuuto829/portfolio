@@ -3,6 +3,9 @@ import React from 'react';
 const Copy = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-hidden="true"
+    focusable="false"
     height="24"
     viewBox="0 0 24 24"
     width="24">
