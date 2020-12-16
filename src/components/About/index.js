@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as S from './styled';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
-import { useTranslation, useLocale } from '@hooks';
+import { useTranslation } from '@hooks';
 import { filteredList } from '@utils';
 import { Transition } from '@components';
 
@@ -36,12 +37,12 @@ const query = graphql`
   }
 `;
 
-const About = () => {
-  const { locale } = useLocale();
+const About = ({ locale }) => {
   const { sectionsHeaders } = useTranslation();
 
   const { about, avatar } = useStaticQuery(query);
 
+  // Extract html string with about content after filtering by language
   const aboutContent = filteredList(about, locale)[0].html;
 
   return (
@@ -58,17 +59,19 @@ const About = () => {
           />
         </Transition>
         <Transition animation="fadeInUp" className="image-wrapper">
-          {/* <div className="about-image"> */}
           <Img
             fluid={avatar.childImageSharp.fluid}
             alt="..."
             className="about-image"
           />
-          {/* </div> */}
         </Transition>
       </S.AboutInner>
     </section>
   );
+};
+
+About.propTypes = {
+  locale: PropTypes.string.isRequired
 };
 
 export default About;

@@ -4,6 +4,9 @@ import * as S from './styled';
 import { useTranslation } from '@hooks';
 import { EmailLink, Transition } from '@components';
 
+// Delayed after nav animation (in milliseconds)
+const ANIMATION_DELAY = 500;
+
 const Hero = ({ locale }) => {
   const {
     title,
@@ -13,28 +16,33 @@ const Hero = ({ locale }) => {
     downloadResume
   } = useTranslation();
 
+  const Greeting = <p className="greeting">{greeting}</p>;
+  const Title = <h1>{title}</h1>;
+  const SubTitle = <h2>{subTitle}</h2>;
+  const Bio = (
+    <p className="bio">
+      {smallBio}{' '}
+      <a
+        href={`/resume.${locale}.pdf`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="resume-link">
+        {downloadResume}
+      </a>
+    </p>
+  );
+  const GetInTouch = <EmailLink />;
+
+  const content = [Greeting, Title, SubTitle, Bio, GetInTouch];
+
   return (
     <S.HeroSection id="home">
-      <Transition delay="500ms">
-        <p className="greeting">{greeting}</p>
-      </Transition>
-      <Transition delay="600ms">
-        <h1>{title}</h1>
-      </Transition>
-      <Transition delay="700ms">
-        <h2>{subTitle}</h2>
-      </Transition>
-      <Transition delay="800ms">
-        <p className="bio">
-          {smallBio}{' '}
-          <a href={`/resume.${locale}.pdf`} className="resume-link">
-            <span className="link">{downloadResume}</span>
-          </a>
-        </p>
-      </Transition>
-      <Transition delay="900ms">
-        <EmailLink />
-      </Transition>
+      {content &&
+        content.map((component, i) => (
+          <Transition delay={`${i * 100 + ANIMATION_DELAY}ms`} key={i}>
+            {component}
+          </Transition>
+        ))}
     </S.HeroSection>
   );
 };

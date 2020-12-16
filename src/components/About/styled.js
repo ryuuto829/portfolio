@@ -14,7 +14,6 @@ export const AboutInner = styled.div`
   .about-image {
     display: block;
     width: 100%;
-    /* max-width: 274px; */
     max-width: 380px;
     filter: grayscale(100%);
     object-fit: cover;
@@ -47,6 +46,7 @@ export const AboutInner = styled.div`
 
   .about-content {
     a {
+      ${({ theme }) => theme.mixins.link};
       color: var(--salmon);
     }
   }
