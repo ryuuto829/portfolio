@@ -15,6 +15,8 @@ const query = graphql`
             greeting
             smallBio
             contactMessage
+            downloadResume
+            goToMain
             projectsContent {
               showAll
             }
@@ -35,6 +37,10 @@ const query = graphql`
               darkMode
               copied
               goToTop
+            }
+            allProjectsPage {
+              title
+              subtitle
             }
             page404 {
               pageNotFound
