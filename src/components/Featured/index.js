@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Link } from 'gatsby';
+import * as S from './styled';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Img from 'gatsby-image';
-import * as S from './styled';
-import { useTheme } from '@hooks';
-import {
-  //  IconArrowForward
-  IconGithub,
-  IconLink
-} from '@icons';
-import { Transition } from '@components';
+import { useTheme, useTranslation } from '@hooks';
+import { IconGithub, IconLink } from '@icons';
+import { Transition, CardHeader, TechList } from '@components';
 
-const FeaturedProjects = ({ projectsList }) => {
+const Featured = ({ projectsList }) => {
   const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
+
+  const { featured } = useTranslation();
 
   return (
     <S.Showcase>
@@ -37,49 +35,43 @@ const FeaturedProjects = ({ projectsList }) => {
                     <AniLink
                       paintDrip
                       to={slug}
-                      hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}>
-                      <Img fluid={featuredImage.childImageSharp.fluid} />
+                      hex={isDarkMode ? '#1d1c21' : '#f2f3f5'}>
+                      <Img
+                        fluid={featuredImage.childImageSharp.fluid}
+                        alt={title}
+                      />
                     </AniLink>
                   )}
                 </div>
                 {/* END OF THE IMAGE */}
 
                 <div className="project-content">
-                  {/* <div className="project-title"> */}
-                  <p className="project-overline">Featured Project</p>
-                  <S.CardHeader>
+                  <p className="project-overline">{featured}</p>
+                  <CardHeader>
                     <AniLink
                       paintDrip
                       to={slug}
-                      hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}>
+                      hex={isDarkMode ? '#1d1c21' : '#f2f3f5'}>
                       <h3>{title}</h3>
-                      {/* <IconArrowForward /> */}
                     </AniLink>
-                  </S.CardHeader>
-                  {/* </div> */}
+                  </CardHeader>
                   {/* END OF THE HEADER */}
 
                   <p className="project-description">{about}</p>
-                  <S.TechList>
+                  <TechList>
                     {technologies &&
                       technologies.map((tech, i) => <li key={i}>{tech}</li>)}
-                  </S.TechList>
-                  <S.ButtonGroup>
-                    <S.Button
-                      href={github}
-                      target="_blank"
-                      rel="noopener noreferrer">
+                  </TechList>
+                  <S.LinkGroup>
+                    <a href={github} aria-label="Github" title="Github">
                       <IconGithub />
                       <span>Github</span>
-                    </S.Button>
-                    <S.Button
-                      href={external}
-                      target="_blank"
-                      rel="noopener noreferrer">
+                    </a>
+                    <a href={external} aria-label={title} title={title}>
                       <IconLink />
                       <span>Demo</span>
-                    </S.Button>
-                  </S.ButtonGroup>
+                    </a>
+                  </S.LinkGroup>
                 </div>
                 {/* END OF THE CONTENT */}
               </div>
@@ -90,7 +82,7 @@ const FeaturedProjects = ({ projectsList }) => {
   );
 };
 
-FeaturedProjects.propTypes = {
+Featured.propTypes = {
   projectsList: PropTypes.arrayOf(
     PropTypes.shape({
       about: PropTypes.string.isRequired,
@@ -104,4 +96,4 @@ FeaturedProjects.propTypes = {
   )
 };
 
-export default FeaturedProjects;
+export default Featured;

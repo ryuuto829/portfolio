@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Link } from 'gatsby';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import * as S from './styled';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { useTheme } from '@hooks';
-import { CardHeader, TechList } from '@components/FeaturedProjects/styled';
 import { IconArrowForward, IconGithub, IconLink } from '@icons';
-import { Transition } from '@components';
+import { Transition, CardHeader, TechList } from '@components';
 
 const OtherProjects = ({ projectsList }) => {
   const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
 
   return (
     <S.ProjectsList>
@@ -33,7 +32,7 @@ const OtherProjects = ({ projectsList }) => {
                     <AniLink
                       paintDrip
                       to={slug}
-                      hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}>
+                      hex={isDarkMode ? '#1d1c21' : '#f2f3f5'}>
                       <h3 className="project-title">{title}</h3>
                       <IconArrowForward />
                     </AniLink>
@@ -46,13 +45,10 @@ const OtherProjects = ({ projectsList }) => {
                       technologies.map((tech, i) => <li key={i}>{tech}</li>)}
                   </TechList>
                   <div className="project-links">
-                    <a href={github} target="_blank" rel="noopener noreferrer">
+                    <a href={github} aria-label="Github" title="Github">
                       <IconGithub />
                     </a>
-                    <a
-                      href={external}
-                      target="_blank"
-                      rel="noopener noreferrer">
+                    <a href={external} aria-label={title} title={title}>
                       <IconLink />
                     </a>
                   </div>

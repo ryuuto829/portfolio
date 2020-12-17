@@ -4,14 +4,13 @@ export const ProjectsList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 15px;
-  /* position: relative; */
   margin-top: 50px;
   text-align: left;
 
   .project-content {
-    background-color: ${({ theme }) => theme.colorBlock};
+    background-color: ${({ theme }) => theme.block};
     padding: 2rem 1.75rem;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     transition: var(--transition);
     position: relative;
 
@@ -33,9 +32,6 @@ export const ProjectsList = styled.div`
       border-radius: 4px;
       content: '';
       z-index: -1;
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      /* ${({ theme }) => theme.mixins.gradient}; */
       background: var(--salmon);
       transition: var(--transition);
       opacity: 0;
@@ -43,13 +39,12 @@ export const ProjectsList = styled.div`
   }
 
   .project-title {
-    font-size: 22px;
+    font-size: clamp(var(--text-normal), 6vw, 22px);
   }
 
   .project-description {
-    font-weight: var(--weight-light);
-    line-height: 1.2;
-    margin-bottom: 20px;
+    line-height: 1.3;
+    margin-bottom: var(--space);
   }
 
   .project-links {
