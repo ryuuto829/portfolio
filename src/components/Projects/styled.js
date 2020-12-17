@@ -4,10 +4,6 @@ export const OtherProject = styled.section`
   padding-top: 0;
   text-align: center;
 
-  /* div {
-    text-align: left;
-  } */
-
   .section-overline {
     font-size: var(--text-normal);
     font-weight: var(--weight-light);
@@ -22,14 +18,14 @@ export const OtherProject = styled.section`
   }
 `;
 
-export const Blog = styled.section`
-  padding-top: 0;
-  text-align: center;
+// export const Blog = styled.section`
+//   padding-top: 0;
+//   text-align: center;
 
-  .section-overline {
-    font-size: var(--text-normal);
-    font-weight: var(--weight-light);
-    text-align: center;
-    margin: 0 0 20px 0;
-  }
-`;
+//   .section-overline {
+//     font-size: var(--text-normal);
+//     font-weight: var(--weight-light);
+//     text-align: center;
+//     margin: 0 0 20px 0;
+//   }
+// `;

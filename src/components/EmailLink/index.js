@@ -3,9 +3,9 @@ import * as S from './styled';
 import { useTranslation } from '@hooks';
 import { email } from '@config';
 import { IconEmail, IconCopy } from '@icons';
-import Tooltip from '@components/Tooltip';
+import { Tooltip } from '@components';
 
-const EmailLink = () => {
+const EmailLink = ({ ...rest }) => {
   const { tooltipContent } = useTranslation();
 
   // Copy text to the clipboard on button click
@@ -17,9 +17,9 @@ const EmailLink = () => {
   };
 
   return (
-    <S.EmailLink href={`mailto:${email}`}>
+    <S.EmailLink {...rest} href={`mailto:${email}`}>
       <IconEmail />
-      <span className="email-link">{email}</span>
+      <span className="email-content">{email}</span>
       <Tooltip
         content={tooltipContent.copied}
         trigger="click"
@@ -28,7 +28,11 @@ const EmailLink = () => {
             instance.hide();
           }, 2000);
         }}>
-        <button onClick={e => copyEmailToClipboard(e)} className="copy-button">
+        <button
+          onClick={e => copyEmailToClipboard(e)}
+          className="copy-button"
+          aria-label="Copy"
+          title="Copy">
           <IconCopy />
         </button>
       </Tooltip>

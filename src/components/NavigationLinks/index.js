@@ -2,11 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './styled';
 import { Link } from 'gatsby';
-import { useLocale, useIsMounted } from '@hooks';
+import { useIsMounted } from '@hooks';
+import { localizedLink } from '@utils';
 import { Transition } from '@components';
 
-const NavigationLinks = ({ listItems, isHome, activeLink, isDefault }) => {
-  const { locale } = useLocale();
+const NavigationLinks = ({
+  listItems,
+  isHome,
+  activeLink,
+  isDefault,
+  locale
+}) => {
   const isMounted = useIsMounted();
 
   return (
@@ -22,11 +28,11 @@ const NavigationLinks = ({ listItems, isHome, activeLink, isDefault }) => {
               animation="fadeInLeft"
               skip={isMounted}>
               {isHome ? (
-                <a href={isDefault ? url : `/${locale}${url}`}>
+                <a href={localizedLink(url, locale, isDefault)}>
                   <span>{name}</span>
                 </a>
               ) : (
-                <Link to={isDefault ? url : `/${locale}${url}`}>
+                <Link to={localizedLink(url, locale, isDefault)}>
                   <span>{name}</span>
                 </Link>
               )}
@@ -47,7 +53,8 @@ NavigationLinks.propTypes = {
   ).isRequired,
   isHome: PropTypes.bool.isRequired,
   activeLink: PropTypes.string,
-  isDefault: PropTypes.bool.isRequired
+  isDefault: PropTypes.bool.isRequired,
+  locale: PropTypes.string.isRequired
 };
 
 export default NavigationLinks;

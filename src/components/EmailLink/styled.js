@@ -7,7 +7,7 @@ export const EmailLink = styled.a`
   letter-spacing: 0;
   font-weight: var(--weight-normal);
 
-  .email-link {
+  .email-content {
     padding-right: var(--space-small);
     border-right: 1px solid;
   }
@@ -18,7 +18,7 @@ export const EmailLink = styled.a`
     position: relative;
     margin-left: var(--space-small);
     padding: 6px;
-    color: ${({ theme }) => theme.colorMainText};
+    color: ${({ theme }) => theme.mainText};
     border-radius: var(--border-radius);
     color: inherit;
     outline: 0;
@@ -30,9 +30,9 @@ export const EmailLink = styled.a`
   }
 
   @media (max-width: 480px) {
-    ${({ theme }) => theme.mixins.smallButton};
+    /* ${({ theme }) => theme.mixins.smallButton}; */
 
-    .email-link {
+    .email-content {
       border-right: 0;
       padding-right: 0;
     }

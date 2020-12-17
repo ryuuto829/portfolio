@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import * as S from './styled';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
-import { useLocale, useClickOutside, useTheme, useIsMounted } from '@hooks';
+import { useClickOutside, useTheme, useIsMounted } from '@hooks';
+import { localizedLink } from '@utils';
 import { Switch, LanguagesMenu, ButtonTheming, Transition } from '@components';
 
-const Menu = ({ navLinks }) => {
-  const { locale } = useLocale();
+const Menu = ({ navLinks, isDefault, locale }) => {
   const { theme, toggleTheme } = useTheme();
   const isMounted = useIsMounted();
   const isDarkMode = theme === 'dark';
@@ -59,7 +59,7 @@ const Menu = ({ navLinks }) => {
       <S.MenuContainer>
         <S.ControlsMenu showSidebar={showSidebar}>
           <ButtonTheming />
-          <LanguagesMenu />
+          <LanguagesMenu locale={locale} isDefault={isDefault} />
         </S.ControlsMenu>
 
         <S.DrawerWrapper ref={sidebarRef}>
@@ -78,22 +78,26 @@ const Menu = ({ navLinks }) => {
             aria-hidden={!showSidebar}
             tabIndex={showSidebar ? 1 : -1}>
             <div className="inner-content">
-              <S.Navigation>
+              <nav>
                 <ul>
                   {navLinks &&
                     navLinks.map(({ name, url }, i) => (
                       <li key={i}>
                         <Link
-                          to={locale === 'en' ? url : `/${locale}${url}`}
+                          to={localizedLink(url, locale, isDefault)}
                           onClick={closeSidebar}>
                           {name}
                         </Link>
                       </li>
                     ))}
                 </ul>
-              </S.Navigation>
+              </nav>
               <Switch isActive={isDarkMode} onChangeHandler={toggleTheme} />
-              <LanguagesMenu showSidebar={showSidebar} />
+              <LanguagesMenu
+                showSidebar={showSidebar}
+                locale={locale}
+                isDefault={isDefault}
+              />
             </div>
           </S.SideMenu>
         </S.DrawerWrapper>
@@ -105,7 +109,9 @@ const Menu = ({ navLinks }) => {
 Menu.propTypes = {
   navLinks: PropTypes.arrayOf(
     PropTypes.shape({ name: PropTypes.string, url: PropTypes.string })
-  ).isRequired
+  ).isRequired,
+  isDefault: PropTypes.bool.isRequired,
+  locale: PropTypes.string.isRequired
 };
 
 export default Menu;

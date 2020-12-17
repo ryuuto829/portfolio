@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-// https://css-tricks.com/how-to-create-a-skip-to-content-link/
+// Read more: https://css-tricks.com/how-to-create-a-skip-to-content-link/
 export const SkipLink = styled.a`
   position: fixed;
   top: 0;
   left: 50%;
-  background-color: var(--light-blue);
+  background-color: var(--salmon);
   color: var(--almost-black);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   padding: 6px;
@@ -16,6 +16,7 @@ export const SkipLink = styled.a`
 
   &:focus,
   &:active {
+    color: var(--almost-black);
     transform: translate(-50%, 0%);
     z-index: 100;
   }

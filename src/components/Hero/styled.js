@@ -23,15 +23,7 @@ export const HeroSection = styled.section`
   }
 
   h2 {
-    /*  */
-    // Use color or gradient
     color: var(--salmon);
-
-    /* ${({ theme }) => theme.mixins.gradient}; */
-    /* -webkit-text-fill-color: transparent; */
-    /* -webkit-background-clip: text; */
-
-    /*  */
 
     font-size: clamp(40px, 6vw, 70px);
     font-weight: var(--weight-semibold);

@@ -39,6 +39,7 @@ const Layout = ({ children, locale, location, isDefault }) => {
 
   return (
     <>
+      {/* Skip to the main content, link is only visible on pressing TAB */}
       <S.SkipLink href="#content">{skip}</S.SkipLink>
 
       <SEO />

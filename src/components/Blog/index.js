@@ -5,13 +5,13 @@ const Blog = () => (
   <>
     <S.Menu>
       <li>
-        <a href="/">asdas asda sdas dasdas</a>
+        <a href="/">Blog article</a>
       </li>
       <li>
-        <a href="/">asdas asda sdas dasdas</a>
+        <a href="/">Blog article</a>
       </li>
       <li>
-        <a href="/">asdas asda sdas dasdas</a>
+        <a href="/">Blog article</a>
       </li>
     </S.Menu>
     <a href="/">Read more</a>

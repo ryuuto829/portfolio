@@ -64,6 +64,27 @@ export const SideMenu = styled.aside`
     margin-bottom: var(--space-large);
   }
 
+  nav {
+    width: 100%;
+    margin-bottom: var(--space-large);
+
+    ul {
+      ${({ theme }) => theme.mixins.flexColumn};
+      ${({ theme }) => theme.mixins.boxShadow};
+
+      width: 100%;
+      font-family: var(--family-secondary);
+      white-space: nowrap;
+      font-size: clamp(25px, 6vw, 35px);
+    }
+
+    li {
+      text-align: right;
+      margin-bottom: var(--space-large);
+      width: 100%;
+    }
+  }
+
   @media (max-width: 480px) {
     padding-right: 25px;
   }
@@ -83,7 +104,7 @@ export const HamburgerButton = styled.button`
     div,
     div:before,
     div:after {
-      background-color: ${({ theme }) => theme.colorActive};
+      background-color: ${({ theme }) => theme.active};
     }
   }
 
@@ -112,7 +133,7 @@ export const Hamburger = styled.div`
           background-color: var(--light-gray);
         `
       : css`
-          background-color: ${({ theme }) => theme.colorMainText};
+          background-color: ${({ theme }) => theme.mainText};
         `};
 
   &,
@@ -153,6 +174,7 @@ export const Hamburger = styled.div`
         transition: top 75ms ease, opacity 75ms ease 0.12s;
         opacity: 0;
       }
+
       &:after {
         bottom: 0;
         transition: bottom 75ms ease,
@@ -162,23 +184,4 @@ export const Hamburger = styled.div`
     `};
 `;
 
-export const Navigation = styled.nav`
-  width: 100%;
-  margin-bottom: var(--space-large);
-
-  ul {
-    ${({ theme }) => theme.mixins.flexColumn};
-    ${({ theme }) => theme.mixins.boxShadow};
-
-    width: 100%;
-    font-family: var(--family-secondary);
-    white-space: nowrap;
-    font-size: clamp(25px, 6vw, 35px);
-  }
-
-  li {
-    text-align: right;
-    margin-bottom: var(--space-large);
-    width: 100%;
-  }
-`;
+export const Navigation = styled.nav``;

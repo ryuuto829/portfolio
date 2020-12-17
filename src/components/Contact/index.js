@@ -1,7 +1,6 @@
 import React from 'react';
 import * as S from './styled';
 import { useTranslation } from '@hooks';
-
 import { EmailLink, Transition } from '@components';
 
 const Contact = () => {
@@ -16,7 +15,7 @@ const Contact = () => {
         <p>{contactMessage}</p>
       </Transition>
       <Transition>
-        <EmailLink />
+        <EmailLink className="email-link" />
       </Transition>
     </S.ContactSection>
   );

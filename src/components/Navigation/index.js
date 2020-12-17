@@ -35,6 +35,7 @@ const Navigation = ({ isHome, isDefault, locale }) => {
         </Transition>
         {navLinks && (
           <NavigationLinks
+            locale={locale}
             listItems={navLinks}
             scrolledToTop={scrolledToTop}
             isHome={isHome}
@@ -43,7 +44,7 @@ const Navigation = ({ isHome, isDefault, locale }) => {
           />
         )}
       </nav>
-      <Menu navLinks={navLinks} />
+      <Menu navLinks={navLinks} isDefault={isDefault} locale={locale} />
     </S.Header>
   );
 };

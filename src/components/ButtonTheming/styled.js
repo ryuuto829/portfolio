@@ -7,12 +7,12 @@ export const Button = styled.button`
   user-select: none;
   height: var(--nav-button-height);
 
-  & svg {
-    fill: ${({ theme }) => theme.colorMainText};
+  svg {
+    fill: ${({ theme }) => theme.mainText};
     transition: var(--transition);
 
     &:hover {
-      fill: ${({ theme }) => theme.colorActive};
+      fill: ${({ theme }) => theme.active};
     }
   }
 `;

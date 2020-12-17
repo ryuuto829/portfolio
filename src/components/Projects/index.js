@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as S from './styled';
 import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-import * as S from './styled';
 import { useTranslation, useTheme } from '@hooks';
 import { filteredList, localizedLink } from '@utils';
 import {
-  FeaturedProjects,
+  Featured,
   OtherProjects,
   Transition
-  // , Blog
+  // Blog
 } from '@components';
 
 export const query = graphql`
@@ -55,6 +55,7 @@ export const query = graphql`
 const Projects = ({ locale, isDefault }) => {
   const { sectionsHeaders, projectsContent } = useTranslation();
   const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
 
   // Query all markdown files for featured and other projects
   // in './content/featured' folder for all available languages
@@ -75,7 +76,7 @@ const Projects = ({ locale, isDefault }) => {
             <Transition>
               <h2 className="section-header">{sectionsHeaders.projects}</h2>
             </Transition>
-            <FeaturedProjects projectsList={featuredList} />
+            <Featured projectsList={featuredList} />
           </div>
         </section>
       )}
@@ -91,7 +92,7 @@ const Projects = ({ locale, isDefault }) => {
           <Transition>
             <AniLink
               paintDrip
-              hex={theme === 'dark' ? '#1d1c21' : '#f2f3f5'}
+              hex={isDarkMode ? '#1d1c21' : '#f2f3f5'}
               to={localizedLink('/projects', locale, isDefault)}
               className="show-more">
               <span>{projectsContent.showAll}</span>

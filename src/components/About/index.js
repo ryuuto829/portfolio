@@ -39,7 +39,6 @@ const query = graphql`
 
 const About = ({ locale }) => {
   const { sectionsHeaders } = useTranslation();
-
   const { about, avatar } = useStaticQuery(query);
 
   // Extract html string with about content after filtering by language
@@ -51,17 +50,17 @@ const About = ({ locale }) => {
         <h2 className="section-header">{sectionsHeaders.about}</h2>
       </Transition>
       <S.AboutInner>
-        <Transition animation="fadeInUp">
+        <Transition>
           {/* gatsby-transformer-remark returns markdown content as html string */}
           <div
             dangerouslySetInnerHTML={{ __html: aboutContent }}
             className="about-content"
           />
         </Transition>
-        <Transition animation="fadeInUp" className="image-wrapper">
+        <Transition className="image-wrapper">
           <Img
             fluid={avatar.childImageSharp.fluid}
-            alt="..."
+            alt="Avatar"
             className="about-image"
           />
         </Transition>
