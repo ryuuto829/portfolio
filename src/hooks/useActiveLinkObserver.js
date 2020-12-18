@@ -32,6 +32,7 @@ const useActiveLinkObserver = () => {
 
     currentObserver.disconnect();
 
+    // We attach observer to all sections that have id
     const ref = document.querySelectorAll('section[id]');
 
     ref.forEach(section => {

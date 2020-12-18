@@ -17,6 +17,7 @@ const query = graphql`
             contactMessage
             downloadResume
             goToMain
+            featured
             projectsContent {
               showAll
             }
