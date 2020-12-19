@@ -2,10 +2,10 @@ const path = require('path');
 const locales = require('./config/i18n/locales');
 const { findKey } = require('./src/utils/findKey');
 
-// Add Absolute imports definitions.
-// Read more: https://www.gatsbyjs.com/docs/add-custom-webpack-config/#absolute-imports
 exports.onCreateWebpackConfig = ({ actions }) => {
+  // Add Absolute imports definitions.
   // We can use shorcuts like '@components' insead of '../../File'
+  // Read more: https://www.gatsbyjs.com/docs/add-custom-webpack-config/#absolute-imports
   actions.setWebpackConfig({
     resolve: {
       alias: {

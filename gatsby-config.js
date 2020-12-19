@@ -3,7 +3,7 @@ module.exports = {
     title: `Dmytro Rykhlyk`,
     titleTemplate: '%s | Dmytro Rykhlyk',
     description: `Dmytro Rykhlyk is a software engineer specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.`,
-    siteUrl: `http://localhost:8000`, // Add later
+    siteUrl: `https://dmytrorykhlyk.com`, // Add later
     image: '/og.png'
   },
   plugins: [
