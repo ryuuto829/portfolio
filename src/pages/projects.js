@@ -1,24 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import { graphql, Link } from 'gatsby';
+import { useTranslation } from '@hooks';
 import { IconGithub, IconLink } from '@icons';
-import { filteredList } from '@utils';
-import { useLocale } from '@hooks';
+import { filteredList, localizedLink } from '@utils';
+import { Transition } from '@components';
 
-const Projects = ({ data }) => {
-  const { locale } = useLocale();
+const Projects = ({ data, pageContext }) => {
+  const { isDefault, locale } = pageContext;
+  const { goToMain, allProjectsPage } = useTranslation();
 
   // Filter list in two categories: featured and other projects
   const projectList = filteredList(data.projects, locale);
 
   return (
     <>
+      <Helmet title={allProjectsPage.title} />
+
       <main>
         <StyledSection>
-          <h1 className="section-header">
-            A big list of things I’ve worked on
-          </h1>
+          <Transition>
+            <h1 className="section-header">{allProjectsPage.title}</h1>
+          </Transition>
+          <Transition>
+            <p className="subtitle">{allProjectsPage.subtitle}</p>
+          </Transition>
+
           <StyledList>
             {projectList &&
               projectList.length > 0 &&
@@ -34,39 +43,45 @@ const Projects = ({ data }) => {
 
                 return (
                   <li key={i}>
-                    <span className="project-year">{`${new Date(
-                      date
-                    ).getFullYear()}`}</span>
-                    <Link to={slug} className="project-title">
-                      {title}
-                    </Link>
-                    <div className="project-tech">
-                      {technologies &&
-                        technologies.map((item, i) => (
-                          <span key={i}>{item}</span>
-                        ))}
-                    </div>
-                    <div className="project-links">
-                      <a
-                        href={github}
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <IconGithub />
-                      </a>
-                      <a
-                        href={external}
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <IconLink />
-                      </a>
-                    </div>
+                    <Transition className="project-item">
+                      <span className="project-year">{`${new Date(
+                        date
+                      ).getFullYear()}`}</span>
+                      <Link to={slug} className="project-title">
+                        {title}
+                      </Link>
+                      <div className="project-tech">
+                        {technologies &&
+                          technologies.map((item, i) => (
+                            <span key={i}>{item}</span>
+                          ))}
+                      </div>
+                      <div className="project-links">
+                        <a
+                          href={github}
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          <IconGithub />
+                        </a>
+                        <a
+                          href={external}
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          <IconLink />
+                        </a>
+                      </div>
+                    </Transition>
                   </li>
                 );
               })}
           </StyledList>
-          <StyledButton to="/" className="home-button">
-            Go to Main Page
-          </StyledButton>
+          <Transition>
+            <StyledButton
+              to={localizedLink(`/`, locale, isDefault)}
+              className="home-button">
+              {goToMain}
+            </StyledButton>
+          </Transition>
         </StyledSection>
       </main>
     </>
@@ -114,12 +129,20 @@ const StyledSection = styled.section`
     text-align: center;
     margin-top: 80px;
   }
+
+  .subtitle {
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    margin-top: 40px;
+  }
 `;
 
 const StyledList = styled.ul`
   text-align: start;
 
-  li {
+  .project-item {
     display: grid;
     grid-template-columns: 60px 4fr 3fr 80px;
     gap: 20px;
@@ -129,17 +152,21 @@ const StyledList = styled.ul`
     transition: var(--transition);
 
     &:hover {
-      background-color: ${({ theme }) => theme.colorBlock};
+      background-color: ${({ theme }) => theme.block};
     }
   }
 
   .project-year {
+    text-align: center;
     font-weight: var(--weight-semibold);
+    font-family: var(--family-secondary);
+    color: var(--salmon);
   }
 
   .project-title {
     font-family: var(--family-secondary);
     font-size: 25px;
+    font-size: clamp(var(--text-normal), 5vw, var(--text-large));
     transition: var(--transition);
 
     &:hover {
@@ -148,7 +175,8 @@ const StyledList = styled.ul`
   }
 
   .project-tech {
-    color: ${({ theme }) => theme.colorSecondaryText};
+    color: ${({ theme }) => theme.secondaryText};
+    font-size: var(--text-small);
 
     span:not(:last-child) {
       &:after {
@@ -166,7 +194,7 @@ const StyledList = styled.ul`
   }
 
   @media (max-width: 768px) {
-    li {
+    .project-item {
       grid-template-columns: 60px 1fr 80px;
     }
 
@@ -176,7 +204,7 @@ const StyledList = styled.ul`
   }
 
   @media (max-width: 480px) {
-    li {
+    .project-item {
       grid-template-columns: 2fr minmax(40px, 1fr);
     }
 
@@ -191,7 +219,11 @@ const StyledButton = styled(Link)`
 `;
 
 Projects.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  pageContext: PropTypes.shape({
+    locale: PropTypes.string.isRequired,
+    isDefault: PropTypes.bool.isRequired
+  })
 };
 
 export default Projects;

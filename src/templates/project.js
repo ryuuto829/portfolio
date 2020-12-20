@@ -1,55 +1,124 @@
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
+import { graphql, Link } from 'gatsby';
 import { IconGithub, IconLink } from '@icons';
+import { Transition } from '@components';
 
 const projectTemplate = ({ pageContext }) => {
   const {
-    date,
-    // about,
     external,
     github,
-    // isDefault,
-    // locale,
-    // slug,
-    // technologies,
-    featuredImage,
+    isDefault,
+    locale,
+    coverImage,
     title,
     html
   } = pageContext;
 
   return (
     <>
+      <Helmet title={title} />
+
       <main>
-        <section className="blog-post-container">
-          <div className="blog-post">
-            <h1 className="section-header">{title}</h1>
-            <h2>{date}</h2>
-            <Img fluid={featuredImage.childImageSharp.fluid} />
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+        <ProjectSection>
+          <header>
+            <Transition>
+              <h1 className="section-header">{title}</h1>
+            </Transition>
+          </header>
+
+          <div className="project-content">
+            <Transition>
+              <Img
+                fluid={coverImage.childImageSharp.fluid}
+                className="project-image"
+              />
+            </Transition>
+
+            <Transition>
+              <div className="project-links">
+                <a href={github} target="_blank" rel="noopener noreferrer">
+                  <IconGithub />
+                  <span>Github</span>
+                </a>
+                <a href={external} target="_blank" rel="noopener noreferrer">
+                  <IconLink />
+                  <span>Demo</span>
+                </a>
+              </div>
+            </Transition>
+
+            <Transition>
+              <div
+                className="project-text"
+                dangerouslySetInnerHTML={{ __html: html }}></div>
+            </Transition>
           </div>
-          <div>
-            <Button href={github} target="_blank" rel="noopener noreferrer">
-              <IconGithub />
-              <span>Github</span>
-            </Button>
-            <Button href={external} target="_blank" rel="noopener noreferrer">
-              <IconLink />
-              <span>Demo</span>
-            </Button>
-          </div>
-        </section>
+          <Transition>
+            <StyledButton
+              to={isDefault ? `/` : `/${locale}/`}
+              className="home-button">
+              Go to Main Page
+            </StyledButton>
+          </Transition>
+        </ProjectSection>
       </main>
     </>
   );
 };
 
-const Button = styled.a`
-  ${({ theme }) => theme.mixins.smallButton};
+const ProjectSection = styled.section`
+  text-align: center;
+  margin-bottom: 100px;
+
+  header {
+    margin-bottom: 60px;
+  }
+
+  .project-content {
+    text-align: left;
+    margin-bottom: 80px;
+  }
+
+  .project-image {
+    margin-bottom: 40px;
+  }
+
+  .project-text {
+    h2 {
+      font-family: var(--family-secondary);
+      font-weight: var(--weight-semibold);
+      margin-bottom: 30px;
+    }
+
+    p {
+      margin-bottom: 30px;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .project-links {
+    ${({ theme }) => theme.mixins.flexItemsCenter};
+
+    margin-bottom: 40px;
+
+    a:first-of-type {
+      margin-right: 15px;
+    }
+
+    a {
+      ${({ theme }) => theme.mixins.smallButton};
+    }
+  }
+`;
+
+const StyledButton = styled(Link)`
+  ${({ theme }) => theme.mixins.bigButton};
 `;
 
 export default projectTemplate;
