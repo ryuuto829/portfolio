@@ -12,7 +12,7 @@ const button = css`
   overflow: hidden;
   transition: var(--transition);
   z-index: 1;
-  color: ${({ theme }) => theme.colorMainText};
+  color: ${({ theme }) => theme.mainText};
 
   svg {
     margin-right: 10px;
@@ -28,7 +28,7 @@ const button = css`
     top: 2px;
     left: 2px;
     border-radius: 4px;
-    background: ${({ theme }) => theme.colorMainBackground};
+    background: ${({ theme }) => theme.mainBackground};
     transform: translate3d(0, 0, 0);
     transition: var(--transition);
     z-index: -1;
@@ -46,7 +46,8 @@ const button = css`
     border-radius: 4px;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    ${({ theme }) => theme.mixins.gradient};
+    /* ${({ theme }) => theme.mixins.gradient}; */
+    background: var(--salmon);
     z-index: -3;
   }
 
@@ -61,6 +62,7 @@ const button = css`
 `;
 
 const mixins = {
+  // Buttons
   button,
 
   bigButton: css`
@@ -83,8 +85,15 @@ const mixins = {
     min-width: 100px;
     padding: 6px 20px;
     font-weight: var(--weight-normal);
+
+    @media (max-width: 480px) {
+      svg {
+        display: none;
+      }
+    }
   `,
 
+  // Flexbox
   flexItemsCenter: css`
     display: flex;
     justify-content: center;
@@ -104,33 +113,35 @@ const mixins = {
     flex-direction: column;
   `,
 
+  // Box shadow / border
   boxShadow: css`
-    border-bottom: 1px solid #2e333e;
+    border-bottom: 1px solid ${({ theme }) => theme.border};
   `,
 
+  // Background
   gridBackground: css`
     background-color: transparent;
     background-image: linear-gradient(
         0deg,
         transparent 24%,
-        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 25%,
-        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 26%,
+        rgba(${({ theme }) => theme.bgContrast}, 0.12) 25%,
+        rgba(${({ theme }) => theme.bgContrast}, 0.12) 26%,
         transparent 27%,
         transparent 74%,
-        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 75%,
-        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 76%,
+        rgba(${({ theme }) => theme.bgContrast}, 0.12) 75%,
+        rgba(${({ theme }) => theme.bgContrast}, 0.12) 76%,
         transparent 77%,
         transparent
       ),
       linear-gradient(
         90deg,
         transparent 24%,
-        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 25%,
-        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 26%,
+        rgba(${({ theme }) => theme.bgContrast}, 0.12) 25%,
+        rgba(${({ theme }) => theme.bgContrast}, 0.12) 26%,
         transparent 27%,
         transparent 74%,
-        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 75%,
-        rgba(${({ theme }) => theme.colorBackgroundContrast}, 0.12) 76%,
+        rgba(${({ theme }) => theme.bgContrast}, 0.12) 75%,
+        rgba(${({ theme }) => theme.bgContrast}, 0.12) 76%,
         transparent 77%,
         transparent
       );
@@ -138,42 +149,9 @@ const mixins = {
     opacity: 0.35;
   `,
 
-  gradient: css`
-    background: linear-gradient(
-      269.16deg,
-      #ffe580 -15.83%,
-      #ff7571 -4.97%,
-      #ff7270 15.69%,
-      #ea5dad 32.43%,
-      #c2a0fd 50.09%,
-      #9867f0 67.47%,
-      #3bf0e4 84.13%,
-      #33ce43 105.13%,
-      #b2f4b6 123.24%
-    );
-    background-position: 58% 50%;
-    background-size: 500%;
-    /* animation: gradient-shift 30s ease infinite; */
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-
-    @keyframes gradient-shift {
-      0% {
-        background-position: 58% 50%;
-      }
-      25% {
-        background-position: 100% 0%;
-      }
-      75% {
-        background-position: 10% 50%;
-      }
-      to {
-        background-position: 58% 50%;
-      }
-    }
-  `,
-
+  // Links
   link: css`
+    color: var(--salmon);
     position: relative;
 
     &:after {
@@ -181,9 +159,9 @@ const mixins = {
       position: absolute;
       width: 100%;
       height: 1px;
-      bottom: 0;
+      bottom: 0.3em;
       left: 0;
-      background-color: #ff7270;
+      background-color: var(--salmon);
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.3s;
@@ -194,6 +172,18 @@ const mixins = {
         transform-origin: bottom left;
         transform: scaleX(1);
       }
+    }
+  `,
+
+  bigLink: css`
+    ${({ theme }) => theme.mixins.link};
+
+    color: ${({ theme }) => theme.mainText};
+    font-family: var(--family-secondary);
+    font-size: clamp(var(--text-normal), 6vw, var(--text-large));
+
+    &:after {
+      bottom 0;
     }
   `
 };

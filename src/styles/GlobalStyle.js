@@ -11,7 +11,10 @@ const GlobalStyle = createGlobalStyle`
     --light-blue: #90caf9;
     --slate: #b5bfd2;
     --dark-slate: #6d7583;
-    --salmon: #ff7270;
+    --light-slate: #707886;
+    /* --salmon: #ff7270; */
+    --salmon: #ff8380;
+    --almost-dark-gray: #2e333e;
 
     --black-transparent: rgba(29, 28, 33, 0.8);
     /* --white-transparent: rgba(255, 255, 255, 0.5); */
@@ -68,8 +71,8 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
-    background-color: ${({ theme }) => theme.colorMainBackground};
-    color: ${({ theme }) => theme.colorMainText};
+    background-color: ${({ theme }) => theme.mainBackground};
+    color: ${({ theme }) => theme.mainText};
     font-family: var(--family-primary);
     font-size: var(--text-normal);
     font-weight: var(--weight-light);
@@ -100,11 +103,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
+    padding: 0px 150px;
     margin: 0 auto;
     width: 100%;
     max-width: 1600px;
     min-height: 100vh;
-    background-color: ${({ theme }) => theme.colorMainBackground};
+    background-color: ${({ theme }) => theme.mainBackground};
     transition: background-color var(--easing);
 
     @media (max-width: 1080px) {
@@ -143,15 +147,11 @@ const GlobalStyle = createGlobalStyle`
 
   .section-header {
     font-size: clamp(26px, 5vw, 32px);
-    /* white-space: nowrap; */
     margin: 10px 0 40px;
-
     font-weight: var(--weight-semibold);
     font-family: var(--family-secondary);
     position: relative;
     z-index: 5;
-    /* overflow-wrap: break-word;
-    display: inline-block; */
     white-space: pre-line;
 
     /* Grid background */
@@ -164,7 +164,7 @@ const GlobalStyle = createGlobalStyle`
       top: -20px;
       left: -50%;
       width: 200%;
-      height: 90px;
+      height: 120px;
       z-index: -1;
     }
 
@@ -180,6 +180,23 @@ const GlobalStyle = createGlobalStyle`
       z-index: -1;
       background-color: var(--salmon);
     }
+  }
+
+  // Anchor link styling for the header in markdown file
+  // Read more: https://www.gatsbyjs.com/plugins/gatsby-remark-autolink-headers/?=gatsby-remark-autolink-headers
+  a.anchor-link.before {
+    padding-right: 10px;
+
+    svg {
+      visibility: visible;
+    }
+  }
+
+  img,
+  .gatsby-image-wrapper {
+    width: 100%;
+    max-width: 100%;
+    vertical-align: middle;
   }
 
   svg {
@@ -203,12 +220,13 @@ const GlobalStyle = createGlobalStyle`
     &:hover,
     &:focus,
     &:active {
-      color: ${({ theme }) => theme.colorActive};
+      color: ${({ theme }) => theme.active};
       /* outline: 0; */
     }
   }
 
   button {
+    color: inherit;
     font-family: inherit;
     background-color: transparent;
     text-decoration: none;
@@ -227,7 +245,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background: ${({ theme }) => theme.colorSelection};
+    background: ${({ theme }) => theme.selection};
   }
 `;
 
