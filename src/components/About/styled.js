@@ -30,7 +30,8 @@ export const AboutInner = styled.div`
       display: block;
       width: 100%;
       height: 100%;
-      border: 2px solid var(--salmon);
+      /* border: 2px solid var(--salmon); */
+      border: 2px solid ${({ theme }) => theme.primaryColor};
       border-radius: 50%;
       z-index: 50;
       transition: var(--transition);

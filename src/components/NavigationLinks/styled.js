@@ -39,7 +39,8 @@ export const NavItem = styled.li`
       width: 100%;
       height: 2px;
       border-radius: var(--border-radius);
-      background: var(--salmon);
+      /* background: var(--salmon); */
+      background: ${({ theme }) => theme.primaryColor};
       transform: ${({ isActive }) => (isActive ? 'scaleX(1)' : 'scaleX(0)')};
       transition: var(--transition);
     }

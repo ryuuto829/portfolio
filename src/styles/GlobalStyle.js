@@ -17,8 +17,8 @@ const GlobalStyle = createGlobalStyle`
     --almost-dark-gray: #2e333e;
 
     --black-transparent: rgba(29, 28, 33, 0.8);
-    /* --white-transparent: rgba(255, 255, 255, 0.5); */
-    --gray-transparent: rgba(242,243,245,0.5);
+    --white-transparent: rgba(255, 255, 255, 0.5);
+    /* --gray-transparent: rgba(242,243,245,0.5); */
     --white-rgb: 255, 255, 255;
     --black-rgb: 0, 0, 0;
 
@@ -178,7 +178,8 @@ const GlobalStyle = createGlobalStyle`
       width: 60px;
       height: 2px;
       z-index: -1;
-      background-color: var(--salmon);
+      /* background-color: var(--salmon); */
+      background-color: ${({ theme }) => theme.mainBackground};
     }
   }
 

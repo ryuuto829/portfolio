@@ -5,7 +5,7 @@ import { useTranslation } from '@hooks';
 import { EmailLink, Transition } from '@components';
 
 // Delayed after nav animation (in milliseconds)
-const ANIMATION_DELAY = 500;
+const ANIMATION_DELAY = 100;
 
 const Hero = ({ locale }) => {
   const {

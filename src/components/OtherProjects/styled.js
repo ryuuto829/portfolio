@@ -13,6 +13,7 @@ export const ProjectsList = styled.div`
     border-radius: var(--border-radius);
     transition: var(--transition);
     position: relative;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
     &:hover {
       transform: translateY(-5px);
@@ -32,7 +33,8 @@ export const ProjectsList = styled.div`
       border-radius: 4px;
       content: '';
       z-index: -1;
-      background: var(--salmon);
+      /* background: var(--salmon); */
+      background: ${({ theme }) => theme.primaryColor};
       transition: var(--transition);
       opacity: 0;
     }

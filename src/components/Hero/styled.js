@@ -23,7 +23,8 @@ export const HeroSection = styled.section`
   }
 
   h2 {
-    color: var(--salmon);
+    /* color: var(--salmon); */
+    color: ${({ theme }) => theme.primaryColor};
 
     font-size: clamp(40px, 6vw, 70px);
     font-weight: var(--weight-semibold);

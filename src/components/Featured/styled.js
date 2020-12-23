@@ -55,7 +55,8 @@ export const Showcase = styled.div`
 
   .project-overline {
     font-size: var(--text-small);
-    color: var(--salmon);
+    /* color: var(--salmon); */
+    color: ${({ theme }) => theme.primaryColor};
     font-weight: var(--weight-semibold);
   }
 

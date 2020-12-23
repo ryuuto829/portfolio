@@ -47,13 +47,14 @@ const button = css`
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     /* ${({ theme }) => theme.mixins.gradient}; */
-    background: var(--salmon);
+    /* background: var(--salmon); */
+    background: ${({ theme }) => theme.primaryColor};
     z-index: -3;
   }
 
   &:hover {
     background-color: transparent;
-    color: var(--almost-black);
+    color: ${({ theme }) => theme.mainBackground};
 
     &:before {
       background: transparent;
@@ -151,7 +152,8 @@ const mixins = {
 
   // Links
   link: css`
-    color: var(--salmon);
+    /* color: var(--salmon); */
+    color: ${({ theme }) => theme.primaryColor};
     position: relative;
 
     &:after {
@@ -161,7 +163,8 @@ const mixins = {
       height: 1px;
       bottom: 0.3em;
       left: 0;
-      background-color: var(--salmon);
+      /* background-color: var(--salmon); */
+      background-color: ${({ theme }) => theme.primaryColor};
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.3s;

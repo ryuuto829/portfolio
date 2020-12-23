@@ -48,8 +48,10 @@ export const TechList = styled.ul`
     border-radius: 2em;
     padding: 0 10px;
     line-height: 22px;
-    color: var(--light-gray);
-    background-color: #37373f;
+    /* color: var(--light-gray); */
+    color: ${({ theme }) => theme.mainText};
+    /* background-color: #37373f; */
+    background-color: ${({ theme }) => theme.techList};
     margin: 0 0.125em 0.333em 0;
   }
 `;
