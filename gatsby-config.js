@@ -48,17 +48,32 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       `roboto:300,400,500`,
-    //       `roboto mono:300,400,500`,
-    //       `oswald:300,400,600`
-    //     ],
-    //     display: 'swap'
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'Roboto',
+              variants: ['300', '400', '500'],
+              subsets: ['latin', 'cyrillic'],
+              fontDisplay: 'swap',
+              strategy: 'selfHosted'
+            },
+            {
+              family: 'Oswald',
+              variants: ['300', '400', '600'],
+              subsets: ['latin', 'cyrillic'],
+              fontDisplay: 'swap',
+              strategy: 'selfHosted'
+            }
+          ]
+        },
+        useMinify: true,
+        usePreload: true,
+        usePreconnect: false
+      }
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
