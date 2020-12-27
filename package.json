@@ -18,6 +18,9 @@
     ]
   },
   "dependencies": {
+    "@fontsource/oswald": "^4.0.1",
+    "@fontsource/roboto": "^4.0.1",
+    "@fontsource/roboto-mono": "^4.0.1",
     "@tippyjs/react": "^4.2.0",
     "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.24.61",

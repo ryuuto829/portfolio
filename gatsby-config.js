@@ -48,16 +48,17 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `roboto:300,400,500`,
-          `roboto mono:300,400,500`,
-          `oswald:300,400,600`
-        ]
-      }
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `roboto:300,400,500`,
+    //       `roboto mono:300,400,500`,
+    //       `oswald:300,400,600`
+    //     ],
+    //     display: 'swap'
+    //   }
+    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
