@@ -32,7 +32,7 @@ const OtherProjects = ({ projectsList }) => {
                     <AniLink
                       paintDrip
                       to={slug}
-                      hex={isDarkMode ? '#1d1c21' : '#f2f3f5'}>
+                      hex={isDarkMode ? 'var(--dark-gray)' : '#fffef8'}>
                       <h3 className="project-title">{title}</h3>
                       <IconArrowForward />
                     </AniLink>

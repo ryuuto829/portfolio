@@ -16,7 +16,14 @@ const Hero = ({ locale }) => {
     downloadResume
   } = useTranslation();
 
-  const Greeting = <p className="greeting">{greeting}</p>;
+  const Greeting = (
+    <p className="greeting">
+      <span role="img" aria-label={greeting}>
+        👋{' '}
+      </span>
+      {greeting}
+    </p>
+  );
   const Title = <h1>{title}</h1>;
   const SubTitle = <h2>{subTitle}</h2>;
   const Bio = (

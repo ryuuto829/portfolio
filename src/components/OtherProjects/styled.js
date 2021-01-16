@@ -9,9 +9,9 @@ export const ProjectsList = styled.div`
 
   .project-content {
     background-color: ${({ theme }) => theme.block};
-    padding: 2rem 1.75rem;
+    padding: 2rem 1.7rem;
     border-radius: var(--border-radius);
-    transition: var(--transition);
+    transition: transform var(--easing);
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
@@ -33,15 +33,18 @@ export const ProjectsList = styled.div`
       border-radius: 4px;
       content: '';
       z-index: -1;
-      /* background: var(--salmon); */
       background: ${({ theme }) => theme.primaryColor};
-      transition: var(--transition);
+      transition: opacity var(--easing);
       opacity: 0;
     }
   }
 
   .project-title {
     font-size: clamp(var(--text-normal), 6vw, 22px);
+
+    &:hover {
+      transform: none;
+    }
   }
 
   .project-description {

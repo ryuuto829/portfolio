@@ -35,7 +35,7 @@ const Featured = ({ projectsList }) => {
                     <AniLink
                       paintDrip
                       to={slug}
-                      hex={isDarkMode ? '#1d1c21' : '#f2f3f5'}>
+                      hex={isDarkMode ? 'var(--dark-gray)' : '#fffef8'}>
                       <Img
                         fluid={featuredImage.childImageSharp.fluid}
                         alt={title}
@@ -51,7 +51,7 @@ const Featured = ({ projectsList }) => {
                     <AniLink
                       paintDrip
                       to={slug}
-                      hex={isDarkMode ? '#1d1c21' : '#f2f3f5'}>
+                      hex={isDarkMode ? 'var(--dark-gray)' : '#fffef8'}>
                       <h3>{title}</h3>
                     </AniLink>
                   </CardHeader>
