@@ -43,8 +43,10 @@ const GlobalStyle = createGlobalStyle`
 
     --border-radius: 6px;
 
-    --easing: 0.3s ease-in-out;
-    --transition: all 0.25s ease-in-out;
+    /* --easing: 0.3s ease-in-out; */
+    /* --transition: all 0.25s ease-in-out; */
+    --easing: 0.25s  cubic-bezier(0.645,0.045,0.355,1);
+    --transition: all 0.25s  cubic-bezier(0.645,0.045,0.355,1);
 
     --nav-button-height: 32px;
     --nav-height-scroll: 64px;
@@ -77,6 +79,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: var(--text-normal);
     font-weight: var(--weight-light);
     line-height: 1.6;
+    transition: background-color var(--easing);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
