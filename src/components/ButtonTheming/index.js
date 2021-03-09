@@ -18,7 +18,7 @@ const ButtonTheming = () => {
           isDarkMode ? tooltipContent.lightMode : tooltipContent.darkMode
         }>
         <S.Button onClick={toggleTheme}>
-          <Icon name={isDarkMode ? 'Sun' : 'Moon'} />
+          <Icon name={isDarkMode ? 'sun' : 'moon'} />
         </S.Button>
       </Tooltip>
     </Transition>

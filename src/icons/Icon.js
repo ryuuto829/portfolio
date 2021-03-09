@@ -10,27 +10,33 @@ import { default as IconLogo } from '@icons/Logo';
 import { default as IconSun } from '@icons/Sun';
 import { default as IconMoon } from '@icons/Moon';
 import { default as IconEmail } from '@icons/Email';
+import { default as IconDevto } from '@icons/Devto';
+import { default as IconTwitter } from '@icons/Twitter';
 
 const Icon = ({ name }) => {
   switch (name) {
-    case 'GitHub':
+    case 'github':
       return <IconGithub />;
-    case 'Linkedin':
+    case 'linkedin':
       return <IconLinkedin />;
-    case 'Codepen':
+    case 'codepen':
       return <IconCodepen />;
-    case 'ArrowForward':
+    case 'arrowforward':
       return <IconArrowForward />;
-    case 'Link':
+    case 'link':
       return <IconLink />;
-    case 'Logo':
+    case 'logo':
       return <IconLogo />;
-    case 'Sun':
+    case 'sun':
       return <IconSun />;
-    case 'Moon':
+    case 'moon':
       return <IconMoon />;
-    case 'Email':
+    case 'email':
       return <IconEmail />;
+    case 'dev.to':
+      return <IconDevto />;
+    case 'twitter':
+      return <IconTwitter />;
     default:
       return null;
   }

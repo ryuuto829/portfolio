@@ -8,6 +8,10 @@ export const ProjectsList = styled.div`
   text-align: left;
 
   .project-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
     background-color: ${({ theme }) => theme.block};
     padding: 2rem 1.7rem;
     border-radius: var(--border-radius);

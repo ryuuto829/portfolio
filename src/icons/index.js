@@ -10,3 +10,5 @@ export { default as IconMoon } from './Moon';
 export { default as IconEmail } from './Email';
 export { default as IconCopy } from './Copy';
 export { default as IconRocket } from './Rocket';
+export { default as IconDevto } from './Devto';
+export { default as IconTwitter } from './Twitter';

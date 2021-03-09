@@ -5,12 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { useTranslation, useTheme } from '@hooks';
 import { filteredList, localizedLink } from '@utils';
-import {
-  Featured,
-  OtherProjects,
-  Transition
-  // Blog
-} from '@components';
+import { Featured, OtherProjects, Transition, Blog } from '@components';
 
 export const query = graphql`
   query {
@@ -70,6 +65,7 @@ const Projects = ({ locale, isDefault }) => {
 
   return (
     <>
+      {/* Featured projets */}
       {featuredList && featuredList.length > 0 && (
         <section id="projects">
           <div>
@@ -81,6 +77,7 @@ const Projects = ({ locale, isDefault }) => {
         </section>
       )}
 
+      {/* Other projects */}
       {projectsList && projectsList.length > 0 && (
         <S.OtherProject>
           <Transition>
@@ -101,12 +98,11 @@ const Projects = ({ locale, isDefault }) => {
         </S.OtherProject>
       )}
 
-      {/* Blog section here */}
-
-      {/* <S.Blog>
+      {/* Blog section */}
+      <S.BlogSection>
         <h3 className="section-overline">Some highlights from my blog</h3>
         <Blog />
-      </S.Blog> */}
+      </S.BlogSection>
     </>
   );
 };
