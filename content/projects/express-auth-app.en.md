@@ -5,7 +5,7 @@ date: '09.02.2021'
 featuredImage: null
 coverImage: ./assets/express-auth-app.jpg
 title: 'Express Auth App'
-about: 'Simple auth app using JWT on Express.'
+about: 'Simple auth app using JSON Web Tokens with Express.js as backend'
 technologies:
   - Express
   - JWT
@@ -17,12 +17,21 @@ github: 'https://github.com/ryuuto829/labs/tree/master/express-auth-app'
 
 ## About the project
 
-About ...
+Simple auth app using JSON Web Tokens
 
 ## Result
 
-Result ...
+The goal was to learn some Express.js basics and implement user authentication using JSON Web Tokens.
+
+Project contains:
+
+- mongodb as database
+- login & signup forms with validation
+- auth error handling
+- protected routes
+- token stored in cookies using JWT
+- hashing passwords
 
 ## Technical Stuck
 
-Express, JWT, EJS, Mongoose
+Node, Express, JWT, EJS, Mongoose

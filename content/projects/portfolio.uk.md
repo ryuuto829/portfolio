@@ -5,11 +5,9 @@ date: '10.10.2020'
 featuredImage: ./assets/featured.jpg
 coverImage: ./assets/notes-kepper.png
 title: 'Portfolio'
-about: 'My personal website.'
+about: 'My personal website built with Gatsby and hosted on Netlify'
 technologies:
-  - React
-  - Redux
-  - Firebase
+  - Gatsby
   - Styled-components
 external: 'https://dmytrorykhlyk.com/'
 github: 'https://github.com/ryuuto829/portfolio'

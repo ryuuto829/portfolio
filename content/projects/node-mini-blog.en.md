@@ -8,7 +8,7 @@ title: 'Node Mini Blog'
 about: 'Simple blog using Express where you can store your posts.'
 technologies:
   - Express
-  - TailwindCSS
+  - Tailwind-css
   - EJS
   - Mongoose
 external: 'https://node-mini-blog.herokuapp.com/blogs'
@@ -21,8 +21,13 @@ About ...
 
 ## Result
 
-Result ...
+Project contains:
+
+- mongodb as database
+- form to add new posts
+- full page view for each post
+- delete post button
 
 ## Technical Stuck
 
-Express, Tailwind CSS, EJS, Mongoose
+Node, Express, Tailwind CSS, EJS, Mongoose
