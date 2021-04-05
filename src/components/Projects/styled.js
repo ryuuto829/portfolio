@@ -17,15 +17,3 @@ export const OtherProject = styled.section`
     margin: 80px auto 0px;
   }
 `;
-
-export const BlogSection = styled.section`
-  padding-top: 0;
-  text-align: center;
-
-  .section-overline {
-    font-size: var(--text-normal);
-    font-weight: var(--weight-light);
-    text-align: center;
-    margin: 0 0 20px 0;
-  }
-`;

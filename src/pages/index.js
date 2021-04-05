@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Hero, Projects, About, Contact } from '@components';
+import { Hero, Projects, About, Contact, Blog } from '@components';
 
 const MainPage = ({ pageContext }) => {
   const { locale, isDefault } = pageContext;
@@ -9,6 +9,7 @@ const MainPage = ({ pageContext }) => {
     <main>
       <Hero locale={locale} />
       <Projects locale={locale} isDefault={isDefault} />
+      <Blog />
       <About locale={locale} />
       <Contact />
     </main>

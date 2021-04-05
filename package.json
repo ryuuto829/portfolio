@@ -3,7 +3,7 @@
   "private": true,
   "description": "My personal portfolio",
   "version": "0.1.0",
-  "author": "Dmytro Rykhlyk <rykhlyk.info@gmail.com>",
+  "author": "Dmytro Rykhlyk <dmytrorykhlyk@gmail.com>",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
