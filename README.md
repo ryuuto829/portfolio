@@ -11,7 +11,7 @@
   <a href="https://dmytrorykhlyk.com">dmytrorykhlyk.com</a>
 </p>
 
-<img alt="Logo" src="https://github.com/ryuuto829/portfolio/blob/master/static/og.jpg?raw=true" />
+<img alt="Logo" src="https://github.com/ryuuto829/portfolio/blob/master/static/og.png?raw=true" />
 
 # Development
 
