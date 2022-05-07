@@ -1,7 +1,7 @@
 ---
 isFeatured: false
 showInProjects: true
-date: '09.02.2021'
+date: '01.01.2021'
 featuredImage: null
 coverImage: ./assets/express-auth-app.jpg
 title: 'Express Auth App'
@@ -17,7 +17,7 @@ github: 'https://github.com/ryuuto829/labs/tree/master/express-auth-app'
 
 ## About the project
 
-Simple auth app using JSON Web Tokens
+Simple auth app using JSON Web Tokens.
 
 ## Result
 
@@ -32,6 +32,6 @@ Project contains:
 - token stored in cookies using JWT
 - hashing passwords
 
-## Technical Stuck
+## Technical Stack
 
 Node, Express, JWT, EJS, Mongoose

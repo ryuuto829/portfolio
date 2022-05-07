@@ -1,16 +1,16 @@
-Hello! I'm Dmytro, a software engineer based in ..
+Hi, I'm Dmytro, a Front-End Web Developer and I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between.
 
-I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.
+My goal is to always build things that provide user-focused interfaces and good user experiences. I love building modern applications for devices of all sizes on the web.
 
-Shortly after graduating from University, I joined the engineering team at where I work on a wide variety of interesting and meaningful projects on a daily basis.
+I'm always trying to grow and learn something new. I lose track of time when I'm studying languages, reading a book, and producing music.
 
 [Download my Resume.](/resume.en.pdf)
 
 Here are a few technologies I've been working with recently:
 
 - JavaScript (ES6+)
-- React
+- React (Next.js, Gatsby)
 - HTML, (S)CSS
-- Node.js
-- Gatsby
 - Typescript
+- Node.js (Express)
+- Tailwind-css

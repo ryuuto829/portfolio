@@ -1,17 +1,17 @@
 <h1 align="center">My personal website & portfolio</h1>
 
 <p align="center">
-  <a href="https://dmytrorykhlyk.com">dmytrorykhlyk.com</a>
-</p>
-
-<p align="center">
   <a href="https://github.com/styled-components/styled-components"><img src="https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg"></a>
    <a href="https://app.netlify.com/sites/zealous-jones-86bb63/deploys" target="_blank">
     <img src="https://api.netlify.com/api/v1/badges/008fed72-e9a6-4897-97f8-f243683c350d/deploy-status" alt="Netlify Status" />
   </a>
 </p>
 
-<img alt="Logo" src="https://raw.githubusercontent.com/ryuuto829/portfolio/master/static/og.png" />
+<p align="center">
+  <a href="https://dmytrorykhlyk.com">dmytrorykhlyk.com</a>
+</p>
+
+<img alt="Logo" src="https://github.com/ryuuto829/portfolio/blob/master/static/og.jpg?raw=true" />
 
 # Development
 

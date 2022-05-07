@@ -17,7 +17,7 @@ github: 'https://github.com/ryuuto829/labs/tree/master/node-mini-blog'
 
 ## About the project
 
-About ...
+Simple blog using Express where you can store your posts.
 
 ## Result
 
@@ -28,6 +28,6 @@ Project contains:
 - full page view for each post
 - delete post button
 
-## Technical Stuck
+## Technical Stack
 
 Node, Express, Tailwind CSS, EJS, Mongoose

@@ -1,11 +1,11 @@
 ---
 isFeatured: true
 showInProjects: false
-date: '10.10.2020'
-featuredImage: ./assets/featured.jpg
-coverImage: ./assets/notes-kepper.png
+date: '01.05.2021'
+featuredImage: ./assets/journey-log-featured.png
+coverImage: ./assets/journey-log-project.png
 title: 'Journey Log'
-about: 'A Full-stack app built with React & Express for helping me to track places I have visited and displaying them on interactive map'
+about: 'A Full-stack app using React & Express for writing notes on the map about places you've visited'
 technologies:
   - React
   - Express
@@ -13,28 +13,27 @@ technologies:
   - Mapbox-api
   - JWT
   - Mongoose
-external: '/'
+external: 'https://journey-log-ryuuto829.netlify.app'
 github: 'https://github.com/ryuuto829/journey-log'
 ---
 
 ## About the project
 
-My first large full-stack app, where I tried to go through ..
+A Full-stack app using React & Express for writing notes on the map about places you've visited.
 
 ## Result
 
-The end result of this project provides user a way to track travel log entries and store them to the database ..
+The end result of this project provides user a way to track travel log entries and store them to the database.
 
-Project contains:
+Project contains such features:
 
-- mongodb as database
-- login & signup forms with validation
-- refresh tokens using JWT and cookies
-- list of logs with markers on the map
-- adding a new entry on dbclick on the map
-- create, edit, delete log from database
-- list of log entries with sorting
+- Login/Register with JWT token authentication
+- Show all travel log markers on the map
+- Add new markers on the map
+- Create/update/delete the log entry
+- Sort cards with log entries
+- Display description and notes about the marker
 
-## Technical Stuck
+## Technical Stack
 
 React, Express, Tailwind CSS, Mapbox-api (react-map-gl), JWT, Mongoose

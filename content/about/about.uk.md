@@ -1,16 +1,16 @@
-Привіт! I'm Dmytro, a software engineer based in ..
+Привіт, я Дмитро, Front-End Web Developer, і мені подобається створювати речі, які живуть в інтернеті, будь то веб-сайти, застосунки чи щось між ними.
 
-I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.
+Моя мета — завжди створювати речі, які забезпечують орієнтовані на користувача інтерфейси та хороший користувацький досвід. Я люблю створювати сучасні додатки для пристроїв будь-якого розміру.
 
-Shortly after graduating from University, I joined the engineering team at where I work on a wide variety of interesting and meaningful projects on a daily basis.
+Я завжди намагаюся рости та вчитися чомусь новому. Я втрачаю відчуття часу, коли вивчаю мови, читаю книжку та створюю музику.
 
-[Завантажити моє резюме.](/resume.uk.pdf)
+[Завантижити моє резюме.](/resume.uk.pdf)
 
-Here are a few technologies I've been working with recently:
+Ось кілька технологій, з якими я нещодавно працював:
 
 - JavaScript (ES6+)
-- React
+- React (Next.js, Gatsby)
 - HTML, (S)CSS
-- Node.js
-- Gatsby
 - Typescript
+- Node.js (Express)
+- Tailwind-css
