@@ -1,34 +1,42 @@
 import React from 'react';
 import * as S from './styled';
-import { blogArticles } from '@config';
-
+import { blogArticles, blogURL } from '@config';
+import { useTranslation } from '@hooks';
 import { Transition } from '@components';
 
-const Blog = () => (
-  <S.BlogSection>
-    <Transition>
-      <h3 className="section-overline" id="blog">
-        Some highlights from my blog
-      </h3>
-    </Transition>
+const Blog = () => {
+  const { sectionsHeaders, blogContent } = useTranslation();
 
-    <S.Menu>
-      {blogArticles &&
-        blogArticles.map(({ name, url }, i) => (
-          <Transition key={i}>
-            <li>
-              <a href={url}>{name}</a>
-            </li>
-          </Transition>
-        ))}
-    </S.Menu>
+  return (
+    <S.BlogSection>
+      <Transition>
+        <h3 className="section-overline" id="blog">
+          {sectionsHeaders.blog}
+        </h3>
+      </Transition>
 
-    <Transition>
-      <a href="/" aria-label="Github" title="Github" className="show-blog">
-        <span>Go to Blog</span>
-      </a>
-    </Transition>
-  </S.BlogSection>
-);
+      <S.Menu>
+        {blogArticles &&
+          blogArticles.map(({ name, url }, i) => (
+            <Transition key={i}>
+              <li>
+                <a href={url}>{name}</a>
+              </li>
+            </Transition>
+          ))}
+      </S.Menu>
+
+      <Transition>
+        <a
+          href={blogURL}
+          aria-label="Dev.to Blog"
+          title="Dev.to Blog"
+          className="show-blog">
+          <span>{blogContent.goToBlog}</span>
+        </a>
+      </Transition>
+    </S.BlogSection>
+  );
+};
 
 export default Blog;

@@ -29,5 +29,6 @@ module.exports = {
         'https://dev.to/ryuuto829/setup-in-memory-database-for-testing-node-js-and-mongoose-1kop'
     }
   ],
-  email: 'dmytrorykhlyk@gmail.com'
+  email: 'dmytrorykhlyk@gmail.com',
+  blogURL: 'https://dev.to/ryuuto829'
 };

@@ -16,23 +16,21 @@ export const HeroSection = styled.section`
   }
 
   h1 {
-    font-size: clamp(40px, 8vw, 80px);
+    font-size: clamp(40px, 8vw, 90px);
     font-family: var(--family-secondary);
     font-weight: var(--weight-light);
     margin: -35px 0 0;
   }
 
   h2 {
-    /* color: var(--salmon); */
     color: ${({ theme }) => theme.primaryColor};
-
-    font-size: clamp(40px, 6vw, 70px);
+    font-size: clamp(40px, 6vw, 60px);
     font-weight: var(--weight-semibold);
     line-height: 1.3;
   }
 
   .bio {
-    max-width: 500px;
+    max-width: 600px;
     margin: var(--space-extra) 0;
     color: ${({ theme }) => theme.secondaryText};
   }

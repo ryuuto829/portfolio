@@ -21,6 +21,9 @@ const query = graphql`
             projectsContent {
               showAll
             }
+            blogContent {
+              goToBlog
+            }
             sectionsHeaders {
               projects
               blog

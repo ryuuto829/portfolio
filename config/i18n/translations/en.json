@@ -2,19 +2,22 @@
   "skip": "Skip to Content",
   "home": "Home",
   "title": "Dmytro Rykhlyk",
-  "subTitle": "I build things for the web.",
+  "subTitle": "I create beautiful interfaces through design & code.",
   "greeting": "Hi, my name is",
-  "smallBio": "I'm a full-stack web developer | software engineer from Ukraine specializing in building (and occasionally designing) websites and applications for the web.",
-  "contactMessage": "I'm currently looking for any new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+  "smallBio": "A Front-End Web Developer based in Ukraine specializing in building (and occasionally designing) websites and applications for the web. I deeply care about good user experience, beautiful layouts with simplicity and minimalism, and programming fast, reusable, well-tested, and easy-to-maintain code.",
+  "contactMessage": "Whether you have a question or just want to say hi, I'll try my best to get back to you!",
   "downloadResume": "Download my Resume.",
   "goToMain": "Go to Main Page",
   "featured": "Featured Project",
   "projectsContent": {
     "showAll": "Show All"
   },
+  "blogContent": {
+    "goToBlog": "Go to Blog"
+  },
   "sectionsHeaders": {
     "projects": "Some projects that I've built",
-    "blog": "My Personal Blog",
+    "blog": "Some highlights from my blog",
     "about": "About Me",
     "contact": "Get In Touch",
     "otherProjects": "Other Noteworthy Projects"
@@ -36,6 +39,6 @@
   },
   "page404": {
     "pageNotFound": "Page Not Found.",
-    "goHome": "Go home"
+    "goHome": "Go Home"
   }
 }

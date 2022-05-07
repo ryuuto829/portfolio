@@ -100,6 +100,11 @@ const ProjectSection = styled.section`
     p:last-of-type {
       margin-bottom: 0;
     }
+
+    ul {
+      list-style: inside;
+      margin-bottom: 30px;
+    }
   }
 
   .project-links {
