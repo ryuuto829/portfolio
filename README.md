@@ -5,10 +5,10 @@
 </p>
 
 <p align="center">
-  <a href="https://circleci.com/gh/outline/outline" rel="nofollow"><img src="https://circleci.com/gh/outline/outline.svg?style=shield&amp;circle-token=c0c4c2f39990e277385d5c1ae96169c409eb887a"></a>
-  <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat"></a>
   <a href="https://github.com/styled-components/styled-components"><img src="https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg"></a>
-  <a href="https://translate.getoutline.com/project/outline"><img src="https://badges.crowdin.net/outline/localized.svg"></a>
+   <a href="https://app.netlify.com/sites/zealous-jones-86bb63/deploys" target="_blank">
+    <img src="https://api.netlify.com/api/v1/badges/008fed72-e9a6-4897-97f8-f243683c350d/deploy-status" alt="Netlify Status" />
+  </a>
 </p>
 
 <img alt="Logo" src="https://raw.githubusercontent.com/ryuuto829/portfolio/master/static/og.png" />
