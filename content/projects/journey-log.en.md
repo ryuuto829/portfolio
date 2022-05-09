@@ -1,11 +1,11 @@
 ---
 isFeatured: true
 showInProjects: false
-date: '01.05.2021'
+date: '12.01.2021'
 featuredImage: ./assets/journey-log-featured.png
 coverImage: ./assets/journey-log-project.png
 title: 'Journey Log'
-about: 'A Full-stack app using React & Express for writing notes on the map about places you've visited'
+about: "A Full-stack app using React & Express for writing notes on the map about places you've visited."
 technologies:
   - React
   - Express

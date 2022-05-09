@@ -1,7 +1,7 @@
 ---
 isFeatured: true
 showInProjects: false
-date: '01.01.2022'
+date: '02.01.2022'
 featuredImage: ./assets/ghprofile-summary-featured.png
 coverImage: ./assets/ghprofile-summary-project.png
 title: 'GitHub Profile Summary'

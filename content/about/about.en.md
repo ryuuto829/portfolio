@@ -4,7 +4,7 @@ My goal is to always build things that provide user-focused interfaces and good 
 
 I'm always trying to grow and learn something new. I lose track of time when I'm studying languages, reading a book, and producing music.
 
-[Download my Resume.](/resume.en.pdf)
+[Download my Resume. (coming soon)](/resume.en.pdf)
 
 Here are a few technologies I've been working with recently:
 

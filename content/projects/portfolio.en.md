@@ -1,9 +1,9 @@
 ---
 isFeatured: true
 showInProjects: false
-date: '01.02.2021'
+date: '11.01.2021'
 featuredImage: ./assets/portfolio-featured.png
-coverImage: ./assets/notes-kepper.png
+coverImage: ./assets/portfolio-project.png
 title: 'Portfolio'
 about: 'My personal website built with Gatsby and hosted on Netlify'
 technologies:

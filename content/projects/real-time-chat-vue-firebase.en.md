@@ -1,11 +1,11 @@
 ---
 isFeatured: false
 showInProjects: true
-date: '01.12.2021'
+date: '01.01.2022'
 featuredImage: null
-coverImage: ./assets/express-auth-app.jpg
-title: 'Real-time Chat Vue Firebase'
-about: 'Simple auth app using JSON Web Tokens with Express.js as backend'
+coverImage: ./assets/real-time-chat-vue-firebase-project.png
+title: 'labs | Real-time Chat Vue Firebase'
+about: 'Simple auth app using JSON Web Tokens with Express.js as a backend'
 technologies:
   - Vue.js
   - Firebase

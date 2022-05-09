@@ -1,10 +1,10 @@
 ---
 isFeatured: false
 showInProjects: true
-date: '17.01.2021'
+date: '01.01.2021'
 featuredImage: null
-coverImage: ./assets/node-mini-blog.jpg
-title: 'Node Mini Blog'
+coverImage: ./assets/node-mini-blog-project.png
+title: 'labs | Node Mini Blog'
 about: 'Simple blog using Express where you can store your posts.'
 technologies:
   - Express

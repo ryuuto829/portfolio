@@ -1,10 +1,10 @@
 ---
 isFeatured: false
 showInProjects: true
-date: '01.01.2021'
+date: '02.01.2021'
 featuredImage: null
-coverImage: ./assets/express-auth-app.jpg
-title: 'Express Auth App'
+coverImage: ./assets/express-auth-app-project.png
+title: 'labs | Express Auth App'
 about: 'Simple auth app using JSON Web Tokens with Express.js as backend'
 technologies:
   - Express
