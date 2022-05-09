@@ -5,6 +5,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { useTheme } from '@hooks';
 import { IconArrowForward, IconGithub, IconLink } from '@icons';
 import { Transition, CardHeader, TechList } from '@components';
+import { sortListByDate } from '@utils';
 
 const OtherProjects = ({ projectsList }) => {
   const { theme } = useTheme();
@@ -13,7 +14,7 @@ const OtherProjects = ({ projectsList }) => {
   return (
     <S.ProjectsList>
       {projectsList &&
-        projectsList.map((project, i) => {
+        sortListByDate(projectsList).map((project, i) => {
           const {
             title,
             about,
@@ -22,7 +23,6 @@ const OtherProjects = ({ projectsList }) => {
             github,
             external
           } = project;
-          // add later external and github to const
 
           return (
             <Transition key={i}>

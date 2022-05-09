@@ -6,17 +6,17 @@ import Img from 'gatsby-image';
 import { useTheme, useTranslation } from '@hooks';
 import { IconGithub, IconLink } from '@icons';
 import { Transition, CardHeader, TechList } from '@components';
+import { sortListByDate } from '@utils';
 
 const Featured = ({ projectsList }) => {
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
-
   const { featured } = useTranslation();
 
   return (
     <S.Showcase>
       {projectsList &&
-        projectsList.map((project, i) => {
+        sortListByDate(projectsList).map((project, i) => {
           const {
             title,
             about,
@@ -43,7 +43,7 @@ const Featured = ({ projectsList }) => {
                     </AniLink>
                   )}
                 </div>
-                {/* END OF THE IMAGE */}
+                {/* END OF THE IMAGE SECTION */}
 
                 <div className="project-content">
                   <p className="project-overline">{featured}</p>
@@ -55,7 +55,7 @@ const Featured = ({ projectsList }) => {
                       <h3>{title}</h3>
                     </AniLink>
                   </CardHeader>
-                  {/* END OF THE HEADER */}
+                  {/* END OF THE HEADER SECTION */}
 
                   <p className="project-description">{about}</p>
                   <TechList>
@@ -73,7 +73,7 @@ const Featured = ({ projectsList }) => {
                     </a>
                   </S.LinkGroup>
                 </div>
-                {/* END OF THE CONTENT */}
+                {/* END OF THE CONTENT SECTION */}
               </div>
             </Transition>
           );

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import { useTranslation } from '@hooks';
 import { IconGithub, IconLink } from '@icons';
-import { filteredList, localizedLink } from '@utils';
+import { filteredList, localizedLink, sortListByDate } from '@utils';
 import { Transition } from '@components';
 
 const Projects = ({ data, pageContext }) => {
@@ -13,7 +13,7 @@ const Projects = ({ data, pageContext }) => {
   const { goToMain, allProjectsPage } = useTranslation();
 
   // Filter list in two categories: featured and other projects
-  const projectList = filteredList(data.projects, locale);
+  const projectList = sortListByDate(filteredList(data.projects, locale));
 
   return (
     <>
