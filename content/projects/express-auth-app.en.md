@@ -10,7 +10,7 @@ technologies:
   - Express
   - JWT
   - EJS
-  - Mongoose
+  - MongoDB
 external: 'https://express-auth-app829.herokuapp.com/'
 github: 'https://github.com/ryuuto829/labs/tree/master/express-auth-app'
 ---
@@ -29,9 +29,10 @@ Project contains:
 - login & signup forms with validation
 - auth error handling
 - protected routes
-- token stored in cookies using JWT
+- token with cookies using JWT
 - hashing passwords
+- login, sign up, logout
 
 ## Technical Stack
 
-Node, Express, JWT, EJS, Mongoose
+Node, Express, JWT, EJS, MongoDB

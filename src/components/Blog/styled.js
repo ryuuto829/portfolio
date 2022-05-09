@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-export const Menu = styled.ul`
+export const Menu = styled.div`
   margin-top: 50px;
   font-family: var(--family-secondary);
   font-size: clamp(var(--text-normal), 6vw, 22px);
   font-weight: 300;
   text-align: left;
 
-  li {
+  div {
     ${({ theme }) => theme.mixins.boxShadow};
 
     padding: 20px;

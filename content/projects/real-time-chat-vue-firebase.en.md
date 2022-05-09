@@ -5,7 +5,7 @@ date: '01.01.2022'
 featuredImage: null
 coverImage: ./assets/real-time-chat-vue-firebase-project.png
 title: 'labs | Real-time Chat Vue Firebase'
-about: 'Simple auth app using JSON Web Tokens with Express.js as a backend'
+about: 'A real-time chat built with Vue.js and Firebase'
 technologies:
   - Vue.js
   - Firebase
