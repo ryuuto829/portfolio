@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as S from './styled';
 import { useStaticQuery, graphql } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+
+import * as S from './styled';
 import { useTranslation, useTheme } from '@hooks';
 import { filteredList, localizedLink } from '@utils';
 import { Featured, OtherProjects, Transition } from '@components';

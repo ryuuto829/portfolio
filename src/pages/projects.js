@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { graphql, Link } from 'gatsby';
+
 import { useTranslation } from '@hooks';
 import { IconGithub, IconLink } from '@icons';
 import { filteredList, localizedLink, sortListByDate } from '@utils';

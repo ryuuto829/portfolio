@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as S from './styled';
 import { useInView } from 'react-intersection-observer';
+import * as S from './styled';
 import { AnimationList } from '@styles/animations';
 
 const Transition = ({

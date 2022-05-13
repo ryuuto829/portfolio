@@ -12,5 +12,6 @@ exports.findKey = (object, predicate) => {
     }
     return false;
   });
+
   return result;
 };

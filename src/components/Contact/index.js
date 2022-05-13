@@ -20,4 +20,5 @@ const Contact = () => {
     </S.ContactSection>
   );
 };
+
 export default Contact;

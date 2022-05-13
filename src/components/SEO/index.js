@@ -20,7 +20,6 @@ const query = graphql`
 `;
 
 // Read more https://www.gatsbyjs.com/docs/add-seo-component/
-
 const SEO = ({ title, description, image }) => {
   const { pathname } = useLocation();
   const { locale } = useLocale();

@@ -13,7 +13,6 @@ export const NavItem = styled.li`
   position: relative;
   margin: 0 5px;
 
-  /* Make active link text bold */
   ${({ isActive }) =>
     isActive &&
     css`
@@ -24,7 +23,6 @@ export const NavItem = styled.li`
 
   a {
     ${({ theme }) => theme.mixins.flexItemsCenter};
-
     padding: var(--space-small);
     height: var(--nav-button-height);
     transition: var(--transition);
@@ -39,7 +37,6 @@ export const NavItem = styled.li`
       width: 100%;
       height: 2px;
       border-radius: var(--border-radius);
-      /* background: var(--salmon); */
       background: ${({ theme }) => theme.primaryColor};
       transform: ${({ isActive }) => (isActive ? 'scaleX(1)' : 'scaleX(0)')};
       transition: var(--transition);

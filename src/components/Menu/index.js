@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import * as S from './styled';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
+
+import * as S from './styled';
 import { useClickOutside, useTheme, useIsMounted } from '@hooks';
 import { localizedLink } from '@utils';
 import { Switch, LanguagesMenu, ButtonTheming, Transition } from '@components';

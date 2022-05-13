@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const MenuList = styled.ul`
   ${({ theme }) => theme.mixins.flexItemsBetween};
-
   height: var(--nav-button-height);
 
   li {

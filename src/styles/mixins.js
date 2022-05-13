@@ -46,8 +46,6 @@ const button = css`
     border-radius: 4px;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    /* ${({ theme }) => theme.mixins.gradient}; */
-    /* background: var(--salmon); */
     background: ${({ theme }) => theme.primaryColor};
     z-index: -3;
   }
@@ -68,7 +66,6 @@ const mixins = {
 
   bigButton: css`
     ${({ theme }) => theme.mixins.button};
-
     display: inline-flex;
     height: 56px;
     min-width: 200px;
@@ -81,7 +78,6 @@ const mixins = {
 
   smallButton: css`
     ${({ theme }) => theme.mixins.button};
-
     height: 48px;
     min-width: 100px;
     padding: 6px 20px;
@@ -152,7 +148,6 @@ const mixins = {
 
   // Links
   link: css`
-    /* color: var(--salmon); */
     color: ${({ theme }) => theme.primaryColor};
     position: relative;
 
@@ -163,7 +158,6 @@ const mixins = {
       height: 1px;
       bottom: 0.3em;
       left: 0;
-      /* background-color: var(--salmon); */
       background-color: ${({ theme }) => theme.primaryColor};
       transform: scaleX(0);
       transform-origin: bottom right;
@@ -180,13 +174,12 @@ const mixins = {
 
   bigLink: css`
     ${({ theme }) => theme.mixins.link};
-
     color: ${({ theme }) => theme.mainText};
     font-family: var(--family-secondary);
     font-size: clamp(var(--text-normal), 6vw, var(--text-large));
 
     &:after {
-      bottom 0;
+      bottom: 0;
     }
   `
 };

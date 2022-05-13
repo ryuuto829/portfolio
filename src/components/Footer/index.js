@@ -38,7 +38,6 @@ const Footer = () => {
       <Transition>
         <div className="credentials">
           <p>{`© ${year} ${title}. ${footerContent.rights}`}</p>
-
           <p>
             {footerContent.built}
             {''}

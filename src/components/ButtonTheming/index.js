@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styled';
-import { useTheme, useTranslation, useIsMounted } from '@hooks';
 import { Icon } from '@icons';
+import { useTheme, useTranslation, useIsMounted } from '@hooks';
 import { Tooltip, Transition } from '@components';
 
 const ButtonTheming = () => {

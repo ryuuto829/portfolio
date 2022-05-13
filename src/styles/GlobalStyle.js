@@ -12,13 +12,11 @@ const GlobalStyle = createGlobalStyle`
     --slate: #b5bfd2;
     --dark-slate: #6d7583;
     --light-slate: #707886;
-    /* --salmon: #ff7270; */
     --salmon: #ff8380;
     --almost-dark-gray: #2e333e;
 
     --black-transparent: rgba(29, 28, 33, 0.8);
     --white-transparent: rgba(255, 255, 255, 0.5);
-    /* --gray-transparent: rgba(242,243,245,0.5); */
     --white-rgb: 255, 255, 255;
     --black-rgb: 0, 0, 0;
 
@@ -43,8 +41,6 @@ const GlobalStyle = createGlobalStyle`
 
     --border-radius: 6px;
 
-    /* --easing: 0.3s ease-in-out; */
-    /* --transition: all 0.25s ease-in-out; */
     --easing: 0.25s  cubic-bezier(0.645,0.045,0.355,1);
     --transition: all 0.25s  cubic-bezier(0.645,0.045,0.355,1);
 
@@ -80,7 +76,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: var(--weight-light);
     line-height: 1.6;
     transition: background-color var(--easing);
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -181,7 +176,6 @@ const GlobalStyle = createGlobalStyle`
       width: 60px;
       height: 2px;
       z-index: -1;
-      /* background-color: var(--salmon); */
       background-color: ${({ theme }) => theme.mainBackground};
     }
   }
@@ -225,7 +219,6 @@ const GlobalStyle = createGlobalStyle`
     &:focus,
     &:active {
       color: ${({ theme }) => theme.active};
-      /* outline: 0; */
     }
   }
 

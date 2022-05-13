@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as S from './styled';
 import { navigate } from 'gatsby';
 import { useLocation } from '@reach/router';
+
+import * as S from './styled';
 import { useIsMounted } from '@hooks';
 import allLang from '@config/i18n/locales';
 import { Tooltip, Transition } from '@components';
@@ -16,8 +17,8 @@ const LanguagesMenu = ({ showSidebar, isDefault, locale }) => {
 
     if (locale === lang) return;
 
-    // Pathname is a string like in ex.: "/uk/" or "/uk/projects".
-    // In case we want to switch to default language, then we'll omit first three
+    // Pathname is a string like: "/uk/" or "/uk/projects".
+    // In case we want to switch to the default language, we should omit the first three
     // characters from the url ("/uk"), if not - add language to the path
     !isDefault ? navigate(pathname.slice(3)) : navigate(`/${lang}${pathname}`);
   };

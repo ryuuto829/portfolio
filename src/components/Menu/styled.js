@@ -27,7 +27,6 @@ export const DrawerWrapper = styled.div`
 
 export const SideMenu = styled.aside`
   ${({ theme }) => theme.mixins.flexColumn};
-
   visibility: ${({ showSidebar }) => (showSidebar ? 'visible' : 'hidden')};
   position: fixed;
   top: 0;
@@ -53,7 +52,6 @@ export const SideMenu = styled.aside`
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
   }
 

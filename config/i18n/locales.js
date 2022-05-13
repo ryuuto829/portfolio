@@ -1,5 +1,4 @@
 // Only one language should have the "default: true" key
-
 module.exports = {
   en: {
     path: 'en',

@@ -4,7 +4,6 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { darkTheme, lightTheme } from '@styles';
 
-// Available theming modes
 const DARK_THEME_MODE = 'dark';
 const LIGHT_THEME_MODE = 'light';
 
@@ -14,15 +13,14 @@ const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(DARK_THEME_MODE);
 
   const setMode = mode => {
-    // If there is no such a mode, return with no changes
     if (![DARK_THEME_MODE, LIGHT_THEME_MODE].includes(mode)) return;
 
-    // Store current theme mode in context and localStorage
     try {
       window.localStorage.setItem('theme', mode);
     } catch (error) {
-      // return;
+      console.warn(error);
     }
+
     setTheme(mode);
   };
 

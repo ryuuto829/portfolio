@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as S from './styled';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+
+import * as S from './styled';
 import { useTheme } from '@hooks';
 import { IconArrowForward, IconGithub, IconLink } from '@icons';
-import { Transition, CardHeader, TechList } from '@components';
 import { sortListByDate } from '@utils';
+import { Transition, CardHeader, TechList } from '@components';
 
 const OtherProjects = ({ projectsList }) => {
   const { theme } = useTheme();

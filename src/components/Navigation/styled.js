@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const Header = styled.header`
   ${({ theme }) => theme.mixins.flexItemsBetween};
-
   position: fixed;
   top: 0;
   width: 100%;

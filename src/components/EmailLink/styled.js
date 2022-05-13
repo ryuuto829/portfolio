@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const EmailLink = styled.a`
   ${({ theme }) => theme.mixins.bigButton};
-
   text-transform: none;
   letter-spacing: 0;
   font-weight: var(--weight-normal);
@@ -14,7 +13,6 @@ export const EmailLink = styled.a`
 
   .copy-button {
     ${({ theme }) => theme.mixins.flexItemsCenter};
-
     position: relative;
     margin-left: var(--space-small);
     padding: 6px;
@@ -30,8 +28,6 @@ export const EmailLink = styled.a`
   }
 
   @media (max-width: 480px) {
-    /* ${({ theme }) => theme.mixins.smallButton}; */
-
     .email-content {
       border-right: 0;
       padding-right: 0;

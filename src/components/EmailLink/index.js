@@ -8,11 +8,9 @@ import { Tooltip } from '@components';
 const EmailLink = ({ ...rest }) => {
   const { tooltipContent } = useTranslation();
 
-  // Copy text to the clipboard on button click
+  // Copy text to the clipboard on the button click
   const copyEmailToClipboard = e => {
-    // Prevent Event bubbling, to not click on link
     e.preventDefault();
-
     navigator.clipboard.writeText(email);
   };
 

@@ -22,7 +22,6 @@ const NotFound = () => {
 
 const Container = styled.main`
   ${({ theme }) => theme.mixins.flexItemsCenter};
-
   flex-direction: column;
   text-align: center;
 
@@ -43,7 +42,6 @@ const Container = styled.main`
 
 const HomeLink = styled(Link)`
   ${({ theme }) => theme.mixins.link};
-
   margin-top: 50px;
 `;
 

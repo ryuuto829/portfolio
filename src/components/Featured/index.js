@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as S from './styled';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Img from 'gatsby-image';
+
+import * as S from './styled';
 import { useTheme, useTranslation } from '@hooks';
 import { IconGithub, IconLink } from '@icons';
-import { Transition, CardHeader, TechList } from '@components';
 import { sortListByDate } from '@utils';
+import { Transition, CardHeader, TechList } from '@components';
 
 const Featured = ({ projectsList }) => {
   const { theme } = useTheme();

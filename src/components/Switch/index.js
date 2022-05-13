@@ -5,7 +5,6 @@ import { useTranslation } from '@hooks';
 
 const Switch = ({ isActive, onChangeHandler }) => {
   const { tooltipContent } = useTranslation();
-
   const buttonRef = useRef(null);
   const labelRef = useRef(null);
 
@@ -23,25 +22,23 @@ const Switch = ({ isActive, onChangeHandler }) => {
   }, []);
 
   return (
-    <>
-      <S.SwitchButton>
-        <span className="button-text">{tooltipContent.darkMode}</span>
-        <S.Checkbox
-          checked={isActive}
-          ref={buttonRef}
-          aria-hidden="true"
-          type="checkbox"
-          id="switch-mode"
-          onChange={onChangeHandler}
-        />
-        <S.Label
-          ref={labelRef}
-          tabIndex={0}
-          htmlFor="switch-mode"
-          isChecked={isActive}
-          aria-label={tooltipContent.darkMode}></S.Label>
-      </S.SwitchButton>
-    </>
+    <S.SwitchButton>
+      <span className="button-text">{tooltipContent.darkMode}</span>
+      <S.Checkbox
+        checked={isActive}
+        ref={buttonRef}
+        aria-hidden="true"
+        type="checkbox"
+        id="switch-mode"
+        onChange={onChangeHandler}
+      />
+      <S.Label
+        ref={labelRef}
+        tabIndex={0}
+        htmlFor="switch-mode"
+        isChecked={isActive}
+        aria-label={tooltipContent.darkMode}></S.Label>
+    </S.SwitchButton>
   );
 };
 

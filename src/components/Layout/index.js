@@ -4,9 +4,7 @@ import * as S from './styled';
 import { useLocale, useTranslation } from '@hooks';
 import { Navigation, Social, SEO, Footer } from '@components';
 
-if (typeof window !== 'undefined')
-  // Make scroll behavior of internal links smooth
-  require('smooth-scroll')('a[href*="#"]');
+if (typeof window !== 'undefined') require('smooth-scroll')('a[href*="#"]');
 
 const Layout = ({ children, locale, location, isDefault }) => {
   const { changeLocale } = useLocale();
@@ -15,7 +13,6 @@ const Layout = ({ children, locale, location, isDefault }) => {
   // Check for home page: '/' or '/uk/'
   const isHome = location.pathname === (isDefault ? '/' : `/${locale}/`);
 
-  // Every time url changes we update our context store
   useEffect(() => {
     changeLocale(locale);
   }, [locale]);
@@ -39,7 +36,7 @@ const Layout = ({ children, locale, location, isDefault }) => {
 
   return (
     <>
-      {/* Skip to the main content, link is only visible on pressing TAB */}
+      {/* Skip to the main content, link is only visible by pressing TAB */}
       <S.SkipLink href="#content">{skip}</S.SkipLink>
 
       <SEO />

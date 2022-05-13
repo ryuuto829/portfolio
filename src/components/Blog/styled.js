@@ -10,7 +10,6 @@ export const Menu = styled.div`
 
 export const MenuItem = styled.div`
   ${({ theme }) => theme.mixins.boxShadow};
-
   padding: 20px;
   transition: var(--transition);
 
@@ -36,7 +35,6 @@ export const BlogSection = styled.section`
 
   .show-blog {
     ${({ theme }) => theme.mixins.bigButton};
-
     margin: 80px auto 0px;
   }
 `;

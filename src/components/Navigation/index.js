@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as S from './styled';
 import { Link } from 'gatsby';
+
+import * as S from './styled';
 import {
   useScrollDirection,
   useScrolledToTop,

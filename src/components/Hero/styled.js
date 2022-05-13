@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const HeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexColumn};
-
   align-items: center;
   min-height: 100vh;
   padding: var(--nav-height) 0;

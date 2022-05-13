@@ -5,7 +5,6 @@ export const Showcase = styled.div`
   grid-template-columns: 1fr;
   grid-gap: 10rem;
   margin-top: 10rem;
-  /* justify-items: end; */
 
   & > div {
     width: 100%;
@@ -32,7 +31,6 @@ export const Showcase = styled.div`
 
   .project-image {
     grid-area: image;
-    /* align-self: start; */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -105,7 +103,6 @@ export const Showcase = styled.div`
   }
 
   @media (max-width: 925px) {
-    /* margin-top: var(--space-huge); */
     margin-top: 8rem;
   }
 `;

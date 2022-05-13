@@ -3,7 +3,6 @@ import styled from 'styled-components';
 // Read more: https://upmostly.com/tutorials/build-a-react-switch-toggle-component
 export const SwitchButton = styled.div`
   ${({ theme }) => theme.mixins.flexItemsBetween};
-
   flex-wrap: wrap;
 
   .button-text {
@@ -14,7 +13,6 @@ export const SwitchButton = styled.div`
 
 export const Label = styled.label`
   ${({ theme }) => theme.mixins.flexItemsBetween};
-
   cursor: pointer;
   width: 42px;
   height: 21px;

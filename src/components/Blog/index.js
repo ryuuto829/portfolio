@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styled';
-import { blogArticles, blogURL } from '@config';
 import { useTranslation } from '@hooks';
+import { blogArticles, blogURL } from '@config';
 import { Transition } from '@components';
 
 const Blog = () => {

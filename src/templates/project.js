@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { Helmet } from 'react-helmet';
 import { graphql, Link } from 'gatsby';
+
+import { useTranslation } from '@hooks';
 import { IconGithub, IconLink } from '@icons';
 import { Transition } from '@components';
 
@@ -16,6 +18,7 @@ const projectTemplate = ({ pageContext }) => {
     title,
     html
   } = pageContext;
+  const { goToMain } = useTranslation();
 
   return (
     <>
@@ -60,7 +63,7 @@ const projectTemplate = ({ pageContext }) => {
             <StyledButton
               to={isDefault ? `/` : `/${locale}/`}
               className="home-button">
-              Go to Main Page
+              {goToMain}
             </StyledButton>
           </Transition>
         </ProjectSection>
@@ -110,7 +113,6 @@ const ProjectSection = styled.section`
 
   .project-links {
     ${({ theme }) => theme.mixins.flexItemsCenter};
-
     margin-bottom: 40px;
 
     a:first-of-type {

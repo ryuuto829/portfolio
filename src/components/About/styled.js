@@ -7,7 +7,6 @@ export const AboutInner = styled.div`
 
   .image-wrapper {
     ${({ theme }) => theme.mixins.flexItemsCenter};
-
     align-items: flex-start;
   }
 
@@ -30,7 +29,6 @@ export const AboutInner = styled.div`
       display: block;
       width: 100%;
       height: 100%;
-      /* border: 2px solid var(--salmon); */
       border: 2px solid ${({ theme }) => theme.primaryColor};
       border-radius: 50%;
       z-index: 50;

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as S from './styled';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
+
+import * as S from './styled';
 import { useTranslation } from '@hooks';
 import { filteredList } from '@utils';
 import { Transition } from '@components';
@@ -41,7 +42,7 @@ const About = ({ locale }) => {
   const { sectionsHeaders } = useTranslation();
   const { about, avatar } = useStaticQuery(query);
 
-  // Extract html string with about content after filtering by language
+  // Extract html string with the 'about' content after filtering by language
   const aboutContent = filteredList(about, locale)[0].html;
 
   return (

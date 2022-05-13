@@ -2,14 +2,12 @@ import styled from 'styled-components';
 
 export const Footer = styled.footer`
   ${({ theme }) => theme.mixins.flexItemsCenter};
-
   flex-direction: column;
   text-align: center;
   position: relative;
   min-height: 200px;
   padding: 15px;
   z-index: 100;
-
   border-top: 1px solid ${({ theme }) => theme.border};
 
   .credentials {
@@ -29,7 +27,6 @@ export const Footer = styled.footer`
 
 export const SocialMenu = styled.ul`
   ${({ theme }) => theme.mixins.flexItemsCenter};
-
   flex-wrap: wrap;
   margin: 40px 0 20px 0;
   font-weight: var(--weight-light);
