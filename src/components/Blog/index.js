@@ -19,9 +19,9 @@ const Blog = () => {
         {blogArticles &&
           blogArticles.map(({ name, url }, i) => (
             <Transition key={i}>
-              <div>
+              <S.MenuItem>
                 <a href={url}>{name}</a>
-              </div>
+              </S.MenuItem>
             </Transition>
           ))}
       </S.Menu>

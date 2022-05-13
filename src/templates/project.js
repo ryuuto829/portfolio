@@ -72,6 +72,7 @@ const projectTemplate = ({ pageContext }) => {
 const ProjectSection = styled.section`
   text-align: center;
   margin-bottom: 100px;
+  padding-top: 100px;
 
   header {
     margin-bottom: 60px;

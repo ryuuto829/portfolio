@@ -5,7 +5,11 @@ export const Showcase = styled.div`
   grid-template-columns: 1fr;
   grid-gap: 10rem;
   margin-top: 10rem;
-  justify-items: end;
+  /* justify-items: end; */
+
+  & > div {
+    width: 100%;
+  }
 
   .project-featured {
     display: grid;
@@ -28,11 +32,18 @@ export const Showcase = styled.div`
 
   .project-image {
     grid-area: image;
-    align-self: start;
+    /* align-self: start; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
     a {
       display: block;
       width: 100%;
+
+      @media (max-width: 925px) {
+        max-width: 500px;
+      }
     }
 
     img {
@@ -55,7 +66,6 @@ export const Showcase = styled.div`
 
   .project-overline {
     font-size: var(--text-small);
-    /* color: var(--salmon); */
     color: ${({ theme }) => theme.primaryColor};
     font-weight: var(--weight-semibold);
   }
@@ -66,7 +76,7 @@ export const Showcase = styled.div`
   }
 
   // Alternative pattern for every second item
-  & div:nth-of-type(2n) div {
+  & > div:nth-of-type(2n) > div {
     grid-template-areas: 'content image';
 
     .project-content {
@@ -95,7 +105,8 @@ export const Showcase = styled.div`
   }
 
   @media (max-width: 925px) {
-    margin-top: var(--space-huge);
+    /* margin-top: var(--space-huge); */
+    margin-top: 8rem;
   }
 `;
 

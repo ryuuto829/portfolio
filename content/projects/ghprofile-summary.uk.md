@@ -23,13 +23,6 @@ github: 'https://github.com/ryuuto829/ghprofile-summary'
 
 Проект містить:
 
-- Search the GitHub username for a detailed summary
-- User info and repos are fetched from the GitHub API
-- "Repos per Language" chart showing user's top language by the repo
-- "Stars per Repo" chart showing user's most starred repos
-- "Commits per Repo" chart showing user's commits count for recent repos
-- Show most user's most recent repos
-
 - Пошук нікнейму користувача GitHub для відображення детальної інформації
 - Інформація про користувача та репозиторії отримуються з API GitHub
 - Діаграма "Repos per Language" показує найбільш використовувані мови програмування користувача

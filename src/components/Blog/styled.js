@@ -6,20 +6,20 @@ export const Menu = styled.div`
   font-size: clamp(var(--text-normal), 6vw, 22px);
   font-weight: 300;
   text-align: left;
+`;
 
-  div {
-    ${({ theme }) => theme.mixins.boxShadow};
+export const MenuItem = styled.div`
+  ${({ theme }) => theme.mixins.boxShadow};
 
-    padding: 20px;
-    transition: var(--transition);
+  padding: 20px;
+  transition: var(--transition);
 
-    &:hover {
-      transform: translateX(5px);
-    }
+  &:hover {
+    transform: translateX(5px);
+  }
 
-    a {
-      width: 100%;
-    }
+  a {
+    width: 100%;
   }
 `;
 
