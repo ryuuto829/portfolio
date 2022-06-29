@@ -47,7 +47,9 @@ const GlobalStyle = createGlobalStyle`
     --nav-button-height: 32px;
     --nav-height-scroll: 64px;
     --nav-height: 100px;
-  }
+
+    color-scheme: dark;
+}
 
   html {
     box-sizing: border-box;
