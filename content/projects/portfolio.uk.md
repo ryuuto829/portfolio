@@ -14,11 +14,11 @@ external: 'https://dmytrorykhlyk.com/'
 github: 'https://github.com/ryuuto829/portfolio'
 ---
 
-## About the project
+## Про проект
 
 Мій особистий веб-сайт, створений за допомогою Gatsby та розміщений на сервісі Netlify.
 
-## Result
+## Результат
 
 Проект містить:
 
@@ -29,6 +29,6 @@ github: 'https://github.com/ryuuto829/portfolio'
 - Темний/світлий режим
 - Багатомовне налаштування
 
-## Technical Stack
+## Технічний Стек
 
 Gatsby, React, Styled-components

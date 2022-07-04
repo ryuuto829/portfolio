@@ -7,14 +7,8 @@ import { EmailLink, Transition } from '@components';
 // Delayed after nav animation (in milliseconds)
 const ANIMATION_DELAY = 100;
 
-const Hero = ({ locale }) => {
-  const {
-    title,
-    subTitle,
-    greeting,
-    smallBio,
-    downloadResume
-  } = useTranslation();
+const Hero = () => {
+  const { title, subTitle, greeting, smallBio } = useTranslation();
 
   const Greeting = (
     <p className="greeting">
@@ -28,14 +22,15 @@ const Hero = ({ locale }) => {
   const SubTitle = <h2>{subTitle}</h2>;
   const Bio = (
     <p className="bio">
-      {smallBio}{' '}
-      <a
+      {smallBio}
+      {/* NOTE: Resume link (hidden) */}
+      {/* <a
         href={`/resume.${locale}.pdf`}
         target="_blank"
         rel="noopener noreferrer"
         className="resume-link">
         {downloadResume}
-      </a>
+      </a> */}
     </p>
   );
   const GetInTouch = <EmailLink />;

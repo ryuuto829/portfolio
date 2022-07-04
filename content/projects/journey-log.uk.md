@@ -17,11 +17,11 @@ external: 'https://journey-log-ryuuto829.netlify.app'
 github: 'https://github.com/ryuuto829/journey-log'
 ---
 
-## About the project
+## Про проект
 
 Full-stack додаток із використанням React & Express для написання нотаток на карті про місця, що відвідували.
 
-## Result
+## Результат
 
 Кінцевий результат цього проекту надає користувачеві можливість відстежувати записи подорожей і зберігати їх у базі даних.
 
@@ -34,6 +34,6 @@ Full-stack додаток із використанням React & Express для
 - Сортування карток із нотатками
 - Відображення опису та нотаток про маркер
 
-## Technical Stack
+## Технічний Стек
 
 React, Express, Tailwind CSS, Mapbox-api (react-map-gl), JWT, Mongoose

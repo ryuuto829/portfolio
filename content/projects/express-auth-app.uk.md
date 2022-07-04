@@ -15,11 +15,11 @@ external: 'https://express-auth-app829.herokuapp.com/'
 github: 'https://github.com/ryuuto829/labs/tree/master/express-auth-app'
 ---
 
-## About the project
+## Про проект
 
 Простий додаток з аутентифікацією, використовуючи JSON Web Tokens.
 
-## Result
+## Результат
 
 Метою було вивчити деякі Express.js та реалізувати аутентифікацію користувачів за допомогою веб-токенів JSON.
 
@@ -32,6 +32,6 @@ github: 'https://github.com/ryuuto829/labs/tree/master/express-auth-app'
 - токен з файлами cookie за допомогою JWT
 - хешування паролів
 
-## Technical Stack
+## Технічний Стек
 
 Node, Express, JWT, EJS, MongoDB

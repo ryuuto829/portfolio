@@ -14,11 +14,11 @@ external: 'https://real-time-chat-vue-firebase.netlify.app'
 github: 'https://github.com/ryuuto829/labs/tree/master/real-time-chat-vue-firebase'
 ---
 
-## About the project
+## Про проект
 
 Чат у реальному часі, створений за допомогою Vue.js і Firebase.
 
-## Result
+## Результат
 
 Ця програма експеримент, який містить:
 
@@ -27,6 +27,6 @@ github: 'https://github.com/ryuuto829/labs/tree/master/real-time-chat-vue-fireba
 - повідомлення в режимі реального часу між користувачами
 - здатність змінювати нікнейм
 
-## Technical Stack
+## Технічний Стек
 
 Vue.js, Firebase, date-fns

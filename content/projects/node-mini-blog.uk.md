@@ -15,11 +15,11 @@ external: 'https://node-mini-blog.herokuapp.com/blogs'
 github: 'https://github.com/ryuuto829/labs/tree/master/node-mini-blog'
 ---
 
-## About the project
+## Про проект
 
 Простий блог із використанням Express, для зберігання власних дописів.
 
-## Result
+## Результат
 
 Проект містить:
 
@@ -28,6 +28,6 @@ github: 'https://github.com/ryuuto829/labs/tree/master/node-mini-blog'
 - повний перегляд сторінки для кожного допису
 - кнопка видалення допису
 
-## Technical Stack
+## Технічний Стек
 
 Node, Express, Tailwind CSS, EJS, Mongoose

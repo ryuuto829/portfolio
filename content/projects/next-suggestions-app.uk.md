@@ -15,11 +15,11 @@ external: 'https://next-suggestions-app.vercel.app/'
 github: 'https://github.com/ryuuto829/next-suggestions-app'
 ---
 
-## About the project
+## Про проект
 
 Коментарі та відгуки для вашого сайту. Голосуйте за наявні ідеї або запропонуйте нові.
 
-## Result
+## Результат
 
 Даний проект містить:
 
@@ -28,6 +28,6 @@ github: 'https://github.com/ryuuto829/next-suggestions-app'
 - користувач може створити новий відгук або проголосувати за вже існуючий
 - користувач з роллю адміністратора може видаляти відгуки
 
-## Technical Stack
+## Технічний Стек
 
 Next.js, Vercel, Firebase, Tailwind CSS, Typescript, React Hook Form.

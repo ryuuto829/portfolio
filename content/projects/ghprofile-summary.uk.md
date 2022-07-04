@@ -15,11 +15,11 @@ external: 'https://ghprofile-summary.vercel.app/'
 github: 'https://github.com/ryuuto829/ghprofile-summary'
 ---
 
-## About the project
+## Про проект
 
 Детальна інформація GitHub профілю з діаграмами створена за допомогою Next.js та GitHub API
 
-## Result
+## Результат
 
 Проект містить:
 
@@ -30,6 +30,6 @@ github: 'https://github.com/ryuuto829/ghprofile-summary'
 - Діаграма "Commits per Repo" показує кількість commits користувача для останніх репозиторіїв
 - Показ останніх репозиторіїв користувача
 
-## Technical Stack
+## Технічний Стек
 
 Next.js, Chart.js, GitHub API, Sass (Scss)
