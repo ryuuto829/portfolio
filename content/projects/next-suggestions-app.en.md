@@ -1,8 +1,8 @@
 ---
-isFeatured: false
-showInProjects: true
+isFeatured: true
+showInProjects: false
 date: '06.01.2022'
-featuredImage: null
+featuredImage: ./assets/next-suggestions-app-featured.png
 coverImage: ./assets/next-suggestion-app-project.png
 title: 'Next Suggestions App'
 about: 'Comments and feedback for your website. Vote on existing ideas or suggest new ones'
@@ -30,4 +30,4 @@ Project contains:
 
 ## Technical Stack
 
-Next.js, Vercel, Firebase, Tailwind CSS, Typescript, React Hook Form.
+Next.js, Vercel, Firebase, Tailwind CSS, Typescript, React Hook Form
