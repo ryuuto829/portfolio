@@ -4,7 +4,7 @@ showInProjects: true
 date: '08.01.2022'
 coverImage: ./assets/vue-feedback-project.png
 title: 'Vue Feedback'
-about: 'A public feedback board with user voting'
+about: 'A public feedback board made with Vue.js'
 technologies:
   - Vue
   - Firebase

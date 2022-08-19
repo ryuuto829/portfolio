@@ -2,7 +2,7 @@ Hi, I'm Dmytro, a Front-End Web Developer and I enjoy creating things that live 
 
 My goal is to always build things that provide user-focused interfaces and good user experiences. I love building modern applications for devices of all sizes on the web.
 
-I'm always trying to grow and learn something new. I lose track of time when I'm studying languages, reading a book, and producing music.
+I'm always trying to grow and learn something new. I lose track of time when I'm studying languages, reading books, and producing music.
 
 Here are a few technologies I've been working with recently:
 
@@ -11,4 +11,4 @@ Here are a few technologies I've been working with recently:
 - HTML, (S)CSS
 - Typescript
 - Node.js (Express)
-- Tailwind-css
+- Tailwind CSS
